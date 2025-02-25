@@ -1,0 +1,77 @@
+\contentsline {chapter}{List of Figures}{vii}{dummy.2}%
+\contentsline {chapter}{List of Tables}{viii}{dummy.4}%
+\contentsline {chapter}{Listings}{ix}{dummy.6}%
+\contentsline {chapter}{Abbreviations}{x}{dummy.8}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.11}%
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.12}%
+\contentsline {section}{\numberline {1.2}Motivation}{3}{section.18}%
+\contentsline {section}{\numberline {1.3}Problem Statement and Challenges}{4}{section.22}%
+\contentsline {section}{\numberline {1.4}Research Questions}{6}{section.25}%
+\contentsline {section}{\numberline {1.5}Thesis Structure}{7}{section.26}%
+\contentsline {chapter}{\numberline {2}State-of-the-Art}{8}{chapter.27}%
+\contentsline {section}{\numberline {2.1}Introduction}{8}{section.28}%
+\contentsline {section}{\numberline {2.2}Literature Review}{8}{section.29}%
+\contentsline {subsection}{\numberline {2.2.1}Evolving Role of LLMs in Healthcare and Medical Education}{8}{subsection.30}%
+\contentsline {subsection}{\numberline {2.2.2}Decentralized Architectures for Data Privacy}{9}{subsection.31}%
+\contentsline {subsection}{\numberline {2.2.3}Conversational AI for Patient Engagement and Education}{9}{subsection.32}%
+\contentsline {subsection}{\numberline {2.2.4}Methodological Innovations in Topic Modelling and Information Retrieval}{10}{subsection.33}%
+\contentsline {section}{\numberline {2.3}Methodologies}{10}{section.34}%
+\contentsline {subsection}{\numberline {2.3.1}Retrieval-Augmented Generation (RAG)}{10}{subsection.35}%
+\contentsline {subsection}{\numberline {2.3.2}Advanced Embedding Techniques}{10}{subsection.36}%
+\contentsline {subsection}{\numberline {2.3.3}Dimensionality Reduction and Clustering}{11}{subsection.37}%
+\contentsline {subsection}{\numberline {2.3.4}Topic Extraction via LLMs}{11}{subsection.38}%
+\contentsline {subsection}{\numberline {2.3.5}Integrated System Architecture}{11}{subsection.39}%
+\contentsline {section}{\numberline {2.4}Challenges}{12}{section.40}%
+\contentsline {subsection}{\numberline {2.4.1}Factual Accuracy and Mitigating Hallucination}{12}{subsection.41}%
+\contentsline {subsection}{\numberline {2.4.2}Data Privacy, Security, and Ethical Considerations}{12}{subsection.42}%
+\contentsline {subsection}{\numberline {2.4.3}Computational and Resource Constraints}{13}{subsection.43}%
+\contentsline {subsection}{\numberline {2.4.4}Complexity in Evaluation and Benchmarking}{13}{subsection.44}%
+\contentsline {section}{\numberline {2.5}Evaluation Strategies}{13}{section.45}%
+\contentsline {subsection}{\numberline {2.5.1}Quantitative Metrics}{13}{subsection.46}%
+\contentsline {subsection}{\numberline {2.5.2}Human-Centric Evaluations}{13}{subsection.47}%
+\contentsline {subsection}{\numberline {2.5.3}Comparative Benchmarking}{14}{subsection.48}%
+\contentsline {section}{\numberline {2.6}System Architectures}{14}{section.49}%
+\contentsline {subsection}{\numberline {2.6.1}Decentralized Data Architectures and Personal Data Stores (PDS)}{14}{subsection.50}%
+\contentsline {subsection}{\numberline {2.6.2}Modular and Layered Conversational Frameworks}{14}{subsection.51}%
+\contentsline {subsection}{\numberline {2.6.3}Integration of RAG within a Secure, Decentralized Framework}{15}{subsection.52}%
+\contentsline {section}{\numberline {2.7}Future Directions}{15}{section.53}%
+\contentsline {subsection}{\numberline {2.7.1}Enhancing Model Reliability and Factual Accuracy}{15}{subsection.54}%
+\contentsline {subsection}{\numberline {2.7.2}Expanding Privacy, Security, and Ethical Frameworks}{15}{subsection.55}%
+\contentsline {subsection}{\numberline {2.7.3}Overcoming Computational and Scalability Constraints}{15}{subsection.56}%
+\contentsline {subsection}{\numberline {2.7.4}Integrating Multimodal and Cross-Domain Capabilities}{16}{subsection.57}%
+\contentsline {subsection}{\numberline {2.7.5}Standardizing Evaluation Protocols}{16}{subsection.58}%
+\contentsline {section}{\numberline {2.8}Summary}{16}{section.59}%
+\contentsline {chapter}{\numberline {3}Design and Methodology}{18}{chapter.60}%
+\contentsline {section}{\numberline {3.1}Data Collection and Analysis}{19}{section.62}%
+\contentsline {section}{\numberline {3.2}Data Preprocessing}{19}{section.66}%
+\contentsline {section}{\numberline {3.3}Modelling}{20}{section.70}%
+\contentsline {subsection}{\numberline {3.3.1}Sentence Embedding}{21}{subsection.72}%
+\contentsline {subsection}{\numberline {3.3.2}Dimensionality Reduction}{22}{subsection.79}%
+\contentsline {subsection}{\numberline {3.3.3}Clustering}{22}{subsection.86}%
+\contentsline {subsection}{\numberline {3.3.4}Language Model}{23}{subsection.90}%
+\contentsline {section}{\numberline {3.4}Evaluation}{24}{section.91}%
+\contentsline {section}{\numberline {3.5}Summary}{24}{section.92}%
+\contentsline {chapter}{\numberline {4}Implementation}{25}{chapter.93}%
+\contentsline {section}{\numberline {4.1}Libraries}{25}{section.94}%
+\contentsline {section}{\numberline {4.2}Code Implementation}{28}{section.95}%
+\contentsline {subsection}{\numberline {4.2.1}Preprocessing}{28}{subsection.101}%
+\contentsline {subsection}{\numberline {4.2.2}Embedding}{30}{subsection.155}%
+\contentsline {subsection}{\numberline {4.2.3}Dimensionality Reduction}{32}{subsection.188}%
+\contentsline {subsection}{\numberline {4.2.4}Clustering}{33}{subsection.196}%
+\contentsline {subsection}{\numberline {4.2.5}Large Language Model}{34}{subsection.230}%
+\contentsline {section}{\numberline {4.3}Web Application for Smaller Text Corpus}{38}{section.322}%
+\contentsline {subsection}{\numberline {4.3.1}Methodlogy and Technologies Used}{38}{subsection.323}%
+\contentsline {section}{\numberline {4.4}Summary}{39}{section.326}%
+\contentsline {chapter}{\numberline {5}Evaluation}{40}{chapter.327}%
+\contentsline {section}{\numberline {5.1}Evaluation Design}{40}{section.328}%
+\contentsline {section}{\numberline {5.2}Cluster Evaluation}{41}{section.333}%
+\contentsline {section}{\numberline {5.3}Topic Generation with other LLMs}{42}{section.338}%
+\contentsline {section}{\numberline {5.4}Discussion}{43}{section.340}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{45}{chapter.341}%
+\contentsline {section}{\numberline {6.1}Conclusion}{45}{section.342}%
+\contentsline {section}{\numberline {6.2}Answers to Research Questions}{46}{section.343}%
+\contentsline {section}{\numberline {6.3}Future Work and Challenges}{48}{section.347}%
+\vspace {1em}
+\contentsline {chapter}{\numberline {A}Source Code}{49}{appendix.348}%
+\vspace {1em}
+\contentsline {chapter}{Bibliography}{50}{dummy.349}%

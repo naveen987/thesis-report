@@ -1,0 +1,372 @@
+\documentclass[12pt, oneside]{Thesis}
+\usepackage{palatino} 
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}    
+% The default font size and one-sided printing (no margin offsets)
+\graphicspath{{Pictures/}}% Specifies the directory where pictures are stored
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage[square, comma,  sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\usepackage{tikz}
+\usepackage{graphics}
+\hypersetup{urlcolor=black, colorlinks=true, citecolor=blue, linkcolor=Black} % Colors hyperlinks in blue - change to black if annoying
+\usepackage{lscape}
+\usepackage{indentfirst}
+\setlength{\parindent}{1cm}
+%\usepackage{draftwatermark}
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{float}
+%\SetWatermarkScale{2}
+%\SetWatermarkColor{red}
+\usepackage{listings}
+\usepackage{caption}
+\captionsetup[lstlisting]{position=below}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{datetime}
+\newdateformat{mydateformat}{\ordinaldate{\THEDAY} \monthname[\THEMONTH], \THEYEAR}
+
+\definecolor{light-gray}{gray}{0.99}
+\lstset{ language=python,% the language of the code
+  numbers=left,% where to put the line-numbers
+  numberstyle=\tiny\color{gray},% the style that is used for the line-numbers
+  stepnumber=1,  % the step between two line-numbers. If it's 1, each line
+   % will be numbered
+  numbersep=5pt,  % how far the line-numbers are from the code
+  backgroundcolor=\color{light-gray},% choose the background color. You must add \usepackage{color}
+  showspaces=false,% show spaces adding particular underscores
+  showstringspaces=false, % underline spaces within strings
+  showtabs=false, % show tabs within strings adding particular underscores
+  frame=single, % adds a frame around the code
+  rulecolor=\color{JungleGreen},% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,  % sets default tabsize to 2 spaces
+  captionpos=t, % sets the caption-position to top
+  breaklines=true, % sets automatic line breaking
+  breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+  title=\lstname, % show the filename of files included with \lstinputlisting;
+ % also try caption instead of title
+  keywordstyle=\color{RedViolet}, % keyword style
+  commentstyle=\color{JungleGreen}, % comment style
+  stringstyle=\color{Orange}, % string literal style
+  escapeinside={\%*}{*}, % if you want to add a comment within your code
+  aboveskip=0.4\baselineskip,
+  belowskip=0.65\baselineskip,
+  belowcaptionskip=10pt,
+  morekeywords={*,...}% if you want to add more keywords to the set
+} 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{navy}{rgb}{0,0,128}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{antiquewhite}{rgb}{0.98, 0.92, 0.84}
+\usepackage{longtable}
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{tikz}
+
+
+
+\setlength{\intextsep}{15pt}
+\setlength{\abovecaptionskip}{0.7\baselineskip}
+\setlength{\belowcaptionskip}{-1.2\baselineskip}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+
+%======================================================
+
+% Define your custom macros for title, author, and supervisor
+\def\ttitle{AI-Driven Medical Chatbot for Medical Students and Patients: An LLM and Embedding-Based Approach}
+\def\authornames{Nataraju Tumakuru Shreeshylesha}
+\def\supname{Prof. Dr. Chandna Swati}
+\def\degreename{Master Of Science In Applied Data Science and Analytics}
+\def\univname{SRH Hochschule Heidelberg}
+\def\deptname{School of Information, Media and Design}
+\def\subjectname{}
+\def\keywordnames{}
+
+% Title page setup
+\title{\ttitle}
+
+\begin{document}
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\setstretch{1.3} % Set line spacing to 1.3
+
+% Configure page headers and footers using the FancyHdr package
+\fancyhead{} % Clear all page headers and footers
+\rhead{\thepage} % Set the right side header to show the page number
+\lhead{} % Clear the left side page header
+\renewcommand{\footrulewidth}{0.1pt} % Set the width of the footer rule
+%\rfoot{Your_name} % Uncomment and set the right footer text if needed
+%\lfoot{} % Uncomment and set the left footer text if needed
+\pagestyle{fancy} % Use the "fancy" page style to implement the FancyHdr headers
+
+% Define a new command for a horizontal rule with a specific width
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Set PDF meta-data using the hyperref package
+\hypersetup{
+    pdftitle={\ttitle}, % Set the PDF title
+    pdfsubject=\subjectname, % Set the PDF subject
+    pdfauthor=\authornames, % Set the PDF author
+    pdfkeywords=\keywordnames % Set the PDF keywords
+}
+
+\begin{titlepage}
+    \begin{center}
+      \includegraphics[width=6cm]{./Images/SRHLogo.png} % University/department logo - uncomment to place it
+
+        \textsc{\LARGE \univname}\\[1.5cm] % University name
+        \textsc{\Large Masters Thesis}\\[0.5cm] % Thesis type
+
+        \HRule \\[0.4cm] % Horizontal line
+        {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+        \HRule \\[1.5cm] % Horizontal line
+        \large
+        \emph{Author:}\\[0.2cm]
+        \textsc{\authornames} % Author name
+
+        \emph{Matriculation Number: 11027742} 
+        %\vspace{0.5cm} % Add vertical space between author and supervisor sections
+
+        \large
+        \emph{Supervisors:} \\[0.2cm]
+        \textsc{\supname} % Supervisor name
+
+      
+        \large \textit{A thesis submitted in fulfilment of the requirements for the degree of \\\degreename}\\[0.3cm] % University requirement text
+        \textit{in the}\\[0.4cm]
+        %\groupname\\
+
+        \deptname\\[1.5cm] % Research group name and department name
+        {\large \mydateformat\today}\\[1cm]  % Date
+        
+
+        \vfill
+    \end{center}
+  \end{titlepage}
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%	Your institution may give you a different text to place here
+%----------------------------------------------------------------------------------------
+
+\Declaration{\vspace{1em}
+
+I, \textbf{Nataraju Tumakuru Shreeshylesha}, declare that this thesis titled,  
+\textit{“AI-Driven Medical Chatbot for Medical Students and Patients: An LLM and Embedding-Based Approach”}  
+and the work presented in it is my own.  
+I confirm that this work submitted for assessment is expressed in my own words and is my own.  
+Any uses made within it of the works of other authors in any form (e.g., ideas, equations, figures, text, tables, programs)  
+are appropriately acknowledged at any point of their use. A list of the references employed is included.
+
+\begin{itemize}
+\item[\tiny{$\blacksquare$}] This work was done wholly for a research degree at this University.
+\item[\tiny{$\blacksquare$}] It has been clearly stated in this work if any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution.
+\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, credit is always given to the concerned work.
+\item[\tiny{$\blacksquare$}] Where I have quoted from the work provided by others, the source is always given unless it is entirely my work.
+\item[\tiny{$\blacksquare$}] I have acknowledged all main sources that supported me and helped during this work.
+\end{itemize}
+
+\vspace{2cm}
+\noindent Signed:\\
+\rule[1em]{25em}{0.5pt}
+
+\noindent Date:\\
+\rule[1em]{25em}{0.5pt}
+}
+
+\clearpage % Start a new page
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
+\acknowledgements{{\vspace{1em}} 
+
+I am deeply grateful for the support and guidance of numerous individuals who have contributed to the completion of this thesis,  
+and I would like to express my heartfelt appreciation to all of them. 
+
+First and foremost, I would like to extend my sincere gratitude to my supervisor, Prof.Dr.Chandna Swati,  
+for her invaluable guidance, expertise, and unwavering support throughout this research.  
+Her mentorship has played a crucial role in shaping my ideas and refining my work.  
+
+I am also grateful to the faculty and staff of the School of Information, Media and Design at SRH Hochschule Heidelberg  
+for their continuous encouragement and for providing an enriching environment for research and learning.  
+
+Special thanks to my colleagues and friends for their motivation, insightful discussions, and unwavering support.  
+Their camaraderie has made this journey more fulfilling and enjoyable.  
+
+I am profoundly indebted to my family for their unconditional love, patience, and encouragement throughout this journey.  
+Their unwavering belief in me has been my greatest source of strength and perseverance.  
+
+Lastly, I extend my gratitude to everyone who directly or indirectly contributed to the successful completion of this thesis.  
+Your support and encouragement mean the world to me.  
+
+}
+
+
+
+\clearpage % Start a new page
+\setstretch{1.1}
+%\lhead{\emph{Abstract}} {\huge{\textit{Abstract}} \par}{{\vspace{1em}} 
+\begin{abstract}{\vspace{1em}}
+  \noindent Artificial intelligence (AI) is rapidly transforming the landscape of medical education and patient support. This thesis proposes an AI-driven medical chatbot system designed to serve two main user roles—medical students and patients—via distinct modes of operation. For medical students, the system provides an interactive knowledge platform with detailed explanations of complex topics, whereas for patients, it offers symptom analysis, healthcare provider recommendations, and even autonomous appointment booking through Agentic AI capabilities. 
+
+  \noindent The architecture comprises several key components. First, textual data (such as PDFs of medical articles or learning materials) undergoes text extraction and chunking before being transformed into embeddings by a dedicated model. These embeddings are then indexed in a vector database, enabling efficient similarity-based retrieval. When a user submits a query, the system identifies and retrieves the most relevant text segments and subsequently augments the prompt for a Large Language Model (LLM), which can be tailored to specific roles: a learning AI assistant (e.g., Llama 2, 13B) for medical students and an agentic diagnostic AI (e.g., Mistral 13B) for patients. 
+
+  \noindent In student mode, the chatbot focuses on explaining medical concepts and providing in-depth, evidence-based knowledge. In patient mode, the chatbot employs symptom analysis to generate preliminary diagnostic suggestions, seamlessly directing users to the HealthCare Provider Recommendation System. Harnessing its Agentic AI feature, the system can autonomously schedule appointments if necessary, reducing administrative overhead and expediting patient care. The entire process is orchestrated through a secure login mechanism, ensuring that only authorized users can access specific functionalities suited to their roles.
+
+  \noindent Experimental evaluations draw upon real-world medical texts and feedback from both medical students and healthcare practitioners. Early results indicate that this approach effectively balances accurate medical guidance, educational depth, and practical utility in assisting patients. Future enhancements include expanding multi-language support, improving the LLM’s medical domain expertise, and integrating real-time health data streams to strengthen diagnostic accuracy.
+
+\noindent\textbf{Keywords:} AI-driven Medical Chatbot, Role-based LLM, Patient Symptom Analysis, Healthcare Provider Recommendation, Autonomous Appointment Booking, Embedding Model, Vector Database
+
+\end{abstract}
+
+
+\clearpage % Start a new page
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
+
+\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures
+
+\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+\listoftables % Write out the List of Tables
+
+\lhead{\emph{Listing of Sample Codes}}
+\addtotoc{Listings}
+\lstlistoflistings
+
+\clearpage % Start a new page
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+\clearpage % Start a new page
+%\addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\clearpage % Start a new page
+
+\setstretch{1.3} % Set the line spacing to 1.5, this makes the following tables easier to read
+
+\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
+{
+\textbf{CTM} & \ Correlated Topic Model \\
+\textbf{LDA} & \ Latent Dirichlet Allocation\\
+\textbf{LSA} & \ Latent Semantic Analysis\\
+\textbf{PLSA} & \ Probabilistic Latent Semantic Analysis\\
+\textbf{NMF} & \ Non-Negative Matrix Factorization \\
+\textbf{TF-IDF} & \ Term Frequency-Inverse Document Frequency  \\
+\textbf{SVD} & \ Singular Value Decomposition  \\
+\textbf{DBSCAN} & \ Density-Based Spatial Clustering of Applications with Noise \\
+\textbf{HDBSCAN} & \ Hierarchical Density-Based Spatial Clustering of Applications with Noise \\
+\textbf{HAC} & \ Hierarchical Agglomerative Clustering \\
+\textbf{BERT} & \ Bidirectional Encoder Representations from Transformers \\
+\textbf{NLP} & \ Natural Language Processing\\
+\textbf{BIRCH} & \ Balanced Iterative Reducing and Clustering Hierarchies\\
+\textbf{BOW} & \ Bag-of-words \\
+\textbf{GloVe} & \ Global Vectors for Word Representation\\
+\textbf{ML} & \ Machine Learning\\
+\textbf{SBERT} & \ Sentence-Bidirectional Encoder Representations from Transformers\\
+\textbf{GBERT} & \ German-Bidirectional Encoder Representations from Transformers\\
+\textbf{T5} & \ Text-To-Text Transfer Transformer\\
+\textbf{RoBERTa} & \ Robustly Optimized BERT\\
+\textbf{UMAP} & \ Uniform Manifold Approximation and Projection\\
+\textbf{PCA} & \ Principal Component Analysis\\
+\textbf{T-SNE} & \ T-Distributed Stochastic Neighbor Embedding\\
+\textbf{LLM} & \ Large Language Models\\
+\textbf{GPT} & \ Generative Pre-trained Transformer\\
+\textbf{LLaMA} & \  Large Language Model Meta AI\\
+\textbf{JSON} & \ JavaScript Object Notation\\
+}
+
+
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%\clearpage % Start a new page
+
+%\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
+
+%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
+%{
+%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+
+%% Constant Name & Symbol & = & Constant Value (with units) \\
+%}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+%\setstretch{1.3} % Return the line spacing back to 1.3
+
+%\pagestyle{empty} % Page style needs to be empty for this page
+
+%\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
+
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+\input{Chapters/Chapter1}
+\input{Chapters/Chapter2} 
+\input{Chapters/Chapter3}
+\input{Chapters/Chapter4} 
+\input{Chapters/Chapter5} 
+\input{Chapters/Chapter6}
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+\input{Appendices/AppendixA}
+%\input{Appendices/AppendixB}
+%\input{Appendices/AppendixC}
+
+\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+
+\backmatter
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\label{Bibliography}
+
+\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+
+\bibliographystyle{apalike}  
+\bibliography{bibliography.bib}
+%\bibliographystyle{apalike} % Use the "apalike" BibTeX style for formatting the Bibliography
+
+%\bibliography{bibliography} % The references (bibliography) information are stored in the file named "bibliography.bib"
+
+\end{document}
