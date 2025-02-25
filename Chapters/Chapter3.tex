@@ -16,7 +16,7 @@ The system is structured into several interconnected modules, as shown in Figure
 \end{figure}
 
 \vspace{2cm}
-\begin{enumerate}
+\begin{enumerate}[itemsep=2em]
   \item \textbf{User Authentication and Role Identification:} 
     \begin{itemize}
         \item Upon user login, the system authenticates and decides the individual's role as either medical student or patient.
@@ -46,6 +46,7 @@ The system is structured into several interconnected modules, as shown in Figure
         \item The Mistral 13B Quantized Model generates context-aware, role-specific answers.
         \item Responses are tailored differently for educational depth (students) and practical advice (patients).
     \end{itemize}
+    \vspace{2cm}
   \item \textbf{Agentic Appointment Booking:}
     \begin{itemize}
         \item For patients, the system autonomously schedules appointments by integrating healthcare provider data.
@@ -60,7 +61,7 @@ The \textbf{Mistral 13B Quantized Model} serves as the core LLM for generating r
 \subsection{Overview and Architecture}
 \label{subsec:mistral_overview}
 The Mistral 13B Quantized Model is a variant of the Mistral architecture known for:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{Parameter Efficiency:} With 13 billion parameters, it achieves high performance while maintaining manageable resource requirements due to quantization.
     \item \textbf{Quantization Technique:} Utilizes Q3\_K\_M quantization, reducing memory footprint and speeding up inference without significantly sacrificing accuracy.
     \item \textbf{Transformer Architecture:} Built on a decoder-only architecture with multi-head self-attention and feed-forward layers, optimized for generative tasks.
@@ -76,11 +77,11 @@ The Mistral 13B Quantized Model is a variant of the Mistral architecture known f
             \item \emph{Simple, Actionable Advice} for patients, ensuring clarity and minimizing jargon.
         \end{itemize}
 \end{itemize}
-
+\vspace{2cm}
 \subsection{Role-Specific Prompting}
 \label{subsec:mistral_prompting}
 Different prompts are crafted based on user roles:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{For Medical Students:}
         \begin{itemize}
             \item Requests comprehensive explanations with references to academic sources.
@@ -103,7 +104,7 @@ The Mistral 13B Quantized Model has been specifically chosen for this system due
 \subsection{Embedding Model: \texttt{all-mpnet-base-v2}}
 \label{subsec:all_mpnet_base_v2}
 \texttt{all-mpnet-base-v2} is employed for converting text chunks and queries into 768-dimensional embeddings. Key features include:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
   \item \textbf{Contextual Semantic Representation:} Captures contextual meaning, enhancing query relevance.
   \item \textbf{Performance:} Consistently outperforms older models (like BERT) in semantic search tasks.
   \item \textbf{Compatibility:} Embeddings are stored in \emph{Pinecone} for rapid cosine similarity-based searches.
@@ -112,7 +113,7 @@ The Mistral 13B Quantized Model has been specifically chosen for this system due
 \subsection{Vector Database: Pinecone}
 \label{subsec:pinecone}
 \emph{Pinecone} is chosen as the vector database for its robust performance in managing high-dimensional embeddings and its seamless integration within the retrieval pipeline. Key features include:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{Scalability:} Pinecone is designed to efficiently index and manage millions of embeddings, ensuring low-latency retrieval even as the data volume grows. This scalability makes it ideal for applications with rapidly expanding datasets.
     \item \textbf{Metric Support:} By utilizing cosine similarity as the primary metric for relevance ranking, Pinecone delivers highly accurate and meaningful search results, which are critical for ensuring that the most contextually relevant information is retrieved.
     \item \textbf{High Performance:} The database is optimized for speed, enabling real-time searches and updates. This is essential for applications requiring immediate responses, such as the medical chatbot system.
@@ -141,7 +142,7 @@ The system autonomously handles appointment booking by:
 \subsection{Flask UI}
 \label{subsec:flask_ui}
 \emph{Flask} is used for:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{User Authentication:} Role-based access control for students and patients.
     \item \textbf{File Upload:} Allowing PDF uploads for medical students.
     \item \textbf{Query Form:} Basic input form for submitting questions.
@@ -152,7 +153,7 @@ The Flask UI is designed to handle user authentication, registration, and file u
 \subsection{Chainlit UI}
 \label{subsec:chainlit_ui}
 \emph{Chainlit} provides a chat-centric interface designed to enhance user engagement through interactive and dynamic conversation flows. Key features include:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{Role-Specific Chat Profiles:} The system supports different conversation modes tailored for medical students and patients. Each profile presents customized prompts and responses, ensuring that the dialogue remains relevant to the user's context—whether that involves detailed academic discussions or clear, actionable health advice.
     \item \textbf{Interactive Conversation Elements:} Chainlit UI incorporates features such as real-time feedback, adaptive conversation threads, and dynamic content loading. This enables users to interact fluidly with the chatbot, with the interface automatically adjusting based on user input and query context.
     \item \textbf{Enhanced User Engagement:} By integrating multimedia elements and interactive buttons, Chainlit helps to create a more engaging experience. For example, users can click on suggested topics or follow-up questions, which makes navigating complex information more intuitive.
@@ -160,7 +161,7 @@ The Flask UI is designed to handle user authentication, registration, and file u
     \item \textbf{Customization and Scalability:} The modular design of Chainlit allows for easy customization of chat elements and conversation flows. This flexibility supports ongoing improvements and scalability as new features are integrated or as user needs evolve.
 \end{itemize}
 
-
+\vspace{5cm}
 \section{Summary}
 \label{sec:methodology_summary}
 In summary, this chapter outlines a robust design for an AI-driven medical chatbot that effectively serves two distinct user groups: medical students and patients. The system's modular architecture incorporates user authentication, PDF processing, semantic embedding using \texttt{all-mpnet-base-v2}, and a vector database via Pinecone for rapid retrieval. A retrieval-augmented generation pipeline seamlessly integrates the powerful \textbf{Mistral 13B Quantized Model} to generate context-aware responses. Furthermore, the solution provides specialized functionalities, such as role-based interaction and autonomous appointment booking, ensuring that educational and practical needs are both addressed efficiently. The integration between the Flask UI and the Chainlit chat interface is a key component, enabling dynamic, real-time engagement that leverages user-specific data to tailor responses and services. The next chapter will delve into the implementation details, system deployment, and further integration strategies.

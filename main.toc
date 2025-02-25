@@ -1,7 +1,7 @@
-\contentsline {chapter}{List of Figures}{vii}{dummy.2}%
-\contentsline {chapter}{List of Tables}{viii}{dummy.4}%
-\contentsline {chapter}{Listings}{ix}{dummy.6}%
-\contentsline {chapter}{Abbreviations}{x}{dummy.8}%
+\contentsline {chapter}{List of Figures}{vi}{dummy.2}%
+\contentsline {chapter}{List of Tables}{vii}{dummy.4}%
+\contentsline {chapter}{Listings}{viii}{dummy.6}%
+\contentsline {chapter}{Abbreviations}{ix}{dummy.8}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.11}%
 \contentsline {section}{\numberline {1.1}Introduction}{1}{section.12}%
 \contentsline {section}{\numberline {1.2}Motivation}{3}{section.18}%
@@ -14,70 +14,59 @@
 \contentsline {subsection}{\numberline {2.2.1}Evolving Role of LLMs in Healthcare and Medical Education}{10}{subsection.40}%
 \contentsline {subsection}{\numberline {2.2.2}Decentralized Architectures for Data Privacy}{11}{subsection.41}%
 \contentsline {subsection}{\numberline {2.2.3}Conversational AI for Patient Engagement and Education}{11}{subsection.42}%
-\contentsline {subsection}{\numberline {2.2.4}Methodological Innovations in Topic Modelling and Information Retrieval}{12}{subsection.43}%
-\contentsline {section}{\numberline {2.3}Methodologies}{12}{section.44}%
-\contentsline {subsection}{\numberline {2.3.1}Retrieval-Augmented Generation (RAG)}{12}{subsection.45}%
-\contentsline {subsection}{\numberline {2.3.2}Advanced Embedding Techniques}{12}{subsection.46}%
-\contentsline {subsection}{\numberline {2.3.3}Dimensionality Reduction and Clustering}{13}{subsection.47}%
-\contentsline {subsection}{\numberline {2.3.4}Topic Extraction via LLMs}{13}{subsection.48}%
-\contentsline {subsection}{\numberline {2.3.5}Integrated System Architecture}{13}{subsection.49}%
-\contentsline {section}{\numberline {2.4}Challenges}{14}{section.50}%
-\contentsline {subsection}{\numberline {2.4.1}Factual Accuracy and Mitigating Hallucination}{14}{subsection.51}%
-\contentsline {subsection}{\numberline {2.4.2}Data Privacy, Security, and Ethical Considerations}{14}{subsection.52}%
-\contentsline {subsection}{\numberline {2.4.3}Computational and Resource Constraints}{15}{subsection.53}%
-\contentsline {subsection}{\numberline {2.4.4}Complexity in Evaluation and Benchmarking}{15}{subsection.54}%
-\contentsline {section}{\numberline {2.5}Evaluation Strategies}{15}{section.55}%
-\contentsline {subsection}{\numberline {2.5.1}Quantitative Metrics}{15}{subsection.56}%
-\contentsline {subsection}{\numberline {2.5.2}Human-Centric Evaluations}{15}{subsection.57}%
-\contentsline {subsection}{\numberline {2.5.3}Comparative Benchmarking}{16}{subsection.58}%
-\contentsline {section}{\numberline {2.6}System Architectures}{16}{section.59}%
-\contentsline {subsection}{\numberline {2.6.1}Decentralized Data Architectures and Personal Data Stores (PDS)}{16}{subsection.60}%
-\contentsline {subsection}{\numberline {2.6.2}Modular and Layered Conversational Frameworks}{16}{subsection.61}%
-\contentsline {subsection}{\numberline {2.6.3}Integration of RAG within a Secure, Decentralized Framework}{17}{subsection.62}%
-\contentsline {section}{\numberline {2.7}Future Directions}{17}{section.63}%
-\contentsline {subsection}{\numberline {2.7.1}Enhancing Model Reliability and Factual Accuracy}{17}{subsection.64}%
-\contentsline {subsection}{\numberline {2.7.2}Expanding Privacy, Security, and Ethical Frameworks}{17}{subsection.65}%
-\contentsline {subsection}{\numberline {2.7.3}Overcoming Computational and Scalability Constraints}{17}{subsection.66}%
-\contentsline {subsection}{\numberline {2.7.4}Integrating Multimodal and Cross-Domain Capabilities}{18}{subsection.67}%
-\contentsline {subsection}{\numberline {2.7.5}Standardizing Evaluation Protocols}{18}{subsection.68}%
-\contentsline {section}{\numberline {2.8}Summary}{18}{section.69}%
-\contentsline {chapter}{\numberline {3}Design and Methodology}{20}{chapter.70}%
-\contentsline {section}{\numberline {3.1}High-Level Architecture}{20}{section.71}%
-\contentsline {section}{\numberline {3.2}Mistral 13B Quantized Model}{21}{section.80}%
-\contentsline {subsection}{\numberline {3.2.1}Overview and Architecture}{22}{subsection.81}%
-\contentsline {subsection}{\numberline {3.2.2}Contextual Response Generation}{22}{subsection.82}%
-\contentsline {subsection}{\numberline {3.2.3}Role-Specific Prompting}{22}{subsection.83}%
-\contentsline {subsection}{\numberline {3.2.4}Additional Explanation of the Mistral 13B Quantized Model}{22}{subsection.84}%
-\contentsline {section}{\numberline {3.3}Embedding and Vector Database}{23}{section.85}%
-\contentsline {subsection}{\numberline {3.3.1}Embedding Model: \texttt {all-mpnet-base-v2}}{23}{subsection.86}%
-\contentsline {subsection}{\numberline {3.3.2}Vector Database: Pinecone}{23}{subsection.87}%
-\contentsline {section}{\numberline {3.4}Agentic Appointment Booking}{24}{section.88}%
-\contentsline {subsection}{\numberline {3.4.1}Triggering Conditions and Workflow}{24}{subsection.89}%
-\contentsline {section}{\numberline {3.5}User Interface Approaches}{24}{section.94}%
-\contentsline {subsection}{\numberline {3.5.1}Flask UI}{24}{subsection.95}%
-\contentsline {subsection}{\numberline {3.5.2}Chainlit UI}{25}{subsection.96}%
-\contentsline {section}{\numberline {3.6}Summary}{25}{section.97}%
-\contentsline {chapter}{\numberline {4}Implementation}{27}{chapter.98}%
-\contentsline {section}{\numberline {4.1}Libraries}{27}{section.99}%
-\contentsline {section}{\numberline {4.2}Code Implementation}{30}{section.100}%
-\contentsline {subsection}{\numberline {4.2.1}Preprocessing}{30}{subsection.106}%
-\contentsline {subsection}{\numberline {4.2.2}Embedding}{32}{subsection.160}%
-\contentsline {subsection}{\numberline {4.2.3}Dimensionality Reduction}{34}{subsection.193}%
-\contentsline {subsection}{\numberline {4.2.4}Clustering}{35}{subsection.201}%
-\contentsline {subsection}{\numberline {4.2.5}Large Language Model}{36}{subsection.235}%
-\contentsline {section}{\numberline {4.3}Web Application for Smaller Text Corpus}{40}{section.327}%
-\contentsline {subsection}{\numberline {4.3.1}Methodlogy and Technologies Used}{40}{subsection.328}%
-\contentsline {section}{\numberline {4.4}Summary}{41}{section.331}%
-\contentsline {chapter}{\numberline {5}Evaluation}{42}{chapter.332}%
-\contentsline {section}{\numberline {5.1}Evaluation Design}{42}{section.333}%
-\contentsline {section}{\numberline {5.2}Cluster Evaluation}{43}{section.338}%
-\contentsline {section}{\numberline {5.3}Topic Generation with other LLMs}{44}{section.343}%
-\contentsline {section}{\numberline {5.4}Discussion}{45}{section.345}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{47}{chapter.346}%
-\contentsline {section}{\numberline {6.1}Conclusion}{47}{section.347}%
-\contentsline {section}{\numberline {6.2}Answers to Research Questions}{48}{section.348}%
-\contentsline {section}{\numberline {6.3}Future Work and Challenges}{50}{section.352}%
+\contentsline {section}{\numberline {2.3}Methodologies}{12}{section.43}%
+\contentsline {subsection}{\numberline {2.3.1}Decentralized Data Management for Enhanced Privacy}{12}{subsection.44}%
+\contentsline {subsection}{\numberline {2.3.2}Leveraging Large Language Models for Patient Engagement}{13}{subsection.45}%
+\contentsline {subsection}{\numberline {2.3.3}Integration and Synergy}{14}{subsection.46}%
+\contentsline {section}{\numberline {2.4}System Architecture}{14}{section.49}%
+\contentsline {subsection}{\numberline {2.4.1}Decentralized Data Management}{14}{subsection.50}%
+\contentsline {subsection}{\numberline {2.4.2}Conversational AI Engine}{15}{subsection.51}%
+\contentsline {subsection}{\numberline {2.4.3}Integration with Clinical Workflows}{16}{subsection.52}%
+\contentsline {subsection}{\numberline {2.4.4}Data Flow and Security}{16}{subsection.53}%
+\contentsline {section}{\numberline {2.5}Challenges}{16}{section.54}%
+\contentsline {section}{\numberline {2.6}Evaluation Strategies}{17}{section.55}%
+\contentsline {subsection}{\numberline {2.6.1}Quantitative Metrics}{17}{subsection.56}%
+\contentsline {subsection}{\numberline {2.6.2}Human-Centric Evaluations}{18}{subsection.57}%
+\contentsline {subsection}{\numberline {2.6.3}Comparative Benchmarking}{18}{subsection.58}%
+\contentsline {section}{\numberline {2.7}Future Directions}{19}{section.59}%
+\contentsline {section}{\numberline {2.8}Summary}{20}{section.60}%
+\contentsline {chapter}{\numberline {3}Design and Methodology}{21}{chapter.61}%
+\contentsline {section}{\numberline {3.1}High-Level Architecture}{21}{section.62}%
+\contentsline {section}{\numberline {3.2}Mistral 13B Quantized Model}{23}{section.71}%
+\contentsline {subsection}{\numberline {3.2.1}Overview and Architecture}{23}{subsection.72}%
+\contentsline {subsection}{\numberline {3.2.2}Contextual Response Generation}{23}{subsection.73}%
+\contentsline {subsection}{\numberline {3.2.3}Role-Specific Prompting}{24}{subsection.74}%
+\contentsline {subsection}{\numberline {3.2.4}Additional Explanation of the Mistral 13B Quantized Model}{24}{subsection.75}%
+\contentsline {section}{\numberline {3.3}Embedding and Vector Database}{24}{section.76}%
+\contentsline {subsection}{\numberline {3.3.1}Embedding Model: \texttt {all-mpnet-base-v2}}{24}{subsection.77}%
+\contentsline {subsection}{\numberline {3.3.2}Vector Database: Pinecone}{25}{subsection.78}%
+\contentsline {section}{\numberline {3.4}Agentic Appointment Booking}{26}{section.79}%
+\contentsline {subsection}{\numberline {3.4.1}Triggering Conditions and Workflow}{26}{subsection.80}%
+\contentsline {section}{\numberline {3.5}User Interface Approaches}{26}{section.85}%
+\contentsline {subsection}{\numberline {3.5.1}Flask UI}{26}{subsection.86}%
+\contentsline {subsection}{\numberline {3.5.2}Chainlit UI}{26}{subsection.87}%
+\contentsline {section}{\numberline {3.6}Summary}{28}{section.88}%
+\contentsline {chapter}{\numberline {4}Implementation}{29}{chapter.89}%
+\contentsline {section}{\numberline {4.1}Libraries}{29}{section.90}%
+\contentsline {section}{\numberline {4.2}Code Implementation}{32}{section.91}%
+\contentsline {subsection}{\numberline {4.2.1}Preprocessing}{32}{subsection.97}%
+\contentsline {subsection}{\numberline {4.2.2}Embedding}{34}{subsection.151}%
+\contentsline {subsection}{\numberline {4.2.3}Dimensionality Reduction}{36}{subsection.184}%
+\contentsline {subsection}{\numberline {4.2.4}Clustering}{37}{subsection.192}%
+\contentsline {subsection}{\numberline {4.2.5}Large Language Model}{38}{subsection.226}%
+\contentsline {section}{\numberline {4.3}Web Application for Smaller Text Corpus}{42}{section.318}%
+\contentsline {subsection}{\numberline {4.3.1}Methodlogy and Technologies Used}{42}{subsection.319}%
+\contentsline {section}{\numberline {4.4}Summary}{43}{section.322}%
+\contentsline {chapter}{\numberline {5}Evaluation}{44}{chapter.323}%
+\contentsline {section}{\numberline {5.1}Evaluation Design}{44}{section.324}%
+\contentsline {section}{\numberline {5.2}Cluster Evaluation}{45}{section.329}%
+\contentsline {section}{\numberline {5.3}Topic Generation with other LLMs}{46}{section.334}%
+\contentsline {section}{\numberline {5.4}Discussion}{47}{section.336}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{49}{chapter.337}%
+\contentsline {section}{\numberline {6.1}Conclusion}{49}{section.338}%
+\contentsline {section}{\numberline {6.2}Answers to Research Questions}{50}{section.339}%
+\contentsline {section}{\numberline {6.3}Future Work and Challenges}{52}{section.343}%
 \vspace {1em}
-\contentsline {chapter}{\numberline {A}Source Code}{51}{appendix.353}%
+\contentsline {chapter}{\numberline {A}Source Code}{53}{appendix.344}%
 \vspace {1em}
-\contentsline {chapter}{Bibliography}{52}{dummy.354}%
+\contentsline {chapter}{Bibliography}{54}{dummy.345}%
