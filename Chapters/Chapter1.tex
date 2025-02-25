@@ -2,34 +2,42 @@
 
 \label{Chapter1}
 \section{Introduction}
-Artificial Intelligence (AI) has become increasingly integral to modern healthcare and medical education, offering the promise of both better patient outcomes and more effective training for medical students. Traditionally, patient-facing solutions have relied on either rule-based systems or static information portals, often lacking deeper contextual understanding, adaptability, and the ability to perform autonomous tasks. Simultaneously, educational tools in medicine have mainly taken the form of passive content repositories or limited interactive platforms, providing a less-than-optimal experience for learning complex medical concepts.
-
+AI (Artificial Intelligence) has seamlessly integrated with modern medicine and medical education, with the potential to improve patient outcomes and successfully train the next generation of physicians. Traditionally, patient-oriented solutions have either been rule-based systems or static information portals, and generally missed the capacity to comprehend context comprehensively, to adjust in a ﬂuid manner, and to execute driving operations without human supervision. Likewise, learning tools in medicine have largely been passive, forcing users into static content repositories or low-interactivity platforms that fail to capture the complexity of medical concepts.
 \noindent This thesis addresses these limitations by proposing a role-based \textbf{AI-driven medical chatbot} capable of serving two distinct user groups:
 \begin{itemize}
-    \item \textbf{Medical Students:} An interactive learning environment where students can ask in-depth questions about medical topics and receive dynamic, evidence-based responses.
-    \item \textbf{Patients:} A user-friendly interface for symptom assessment, healthcare provider recommendations, and automated appointment scheduling.
+    \item \textbf{Medical Students:} Learners find themselves in an interactive learning atmosphere, which allows students to ask about medical topics and get real-time, evidence-based answers.
+    \item \textbf{Patients:} A simple interface for automatic appointment booking, healthcare provider suggestions, and symptom evaluation.
 \end{itemize}
+
+
 
 \noindent The system’s architecture harmonizes several advanced technologies:
-\begin{enumerate}
-    \item \textbf{Data Ingestion and Chunking:} Relevant medical texts (such as PDFs, articles, or curated training materials) are first broken into smaller, semantically coherent segments to facilitate granular retrieval and reduce extraneous information.
-    \item \textbf{Embedding and Vector Storage:} Each chunk is converted into a numerical embedding via a specialized model (e.g., a general LLM-based encoder). These embeddings are then indexed in a \emph{vector database}, allowing high-speed similarity searches to quickly identify the text segments most relevant to a user’s query.
-    \item \textbf{Retrieval-Augmented Generation (RAG):} When a user submits a query, the system retrieves the top-matching chunks from the vector database. The large language model (LLM) then leverages these retrieved segments as context, enhancing the accuracy and trustworthiness of its generated responses.
-    \item \textbf{Role-based Large Language Models:} The chatbot differentiates between “student mode” (providing detailed medical knowledge and conceptual explanations) and “patient mode” (offering symptom-based advice and potential next steps). This role-specific approach ensures \emph{in-depth} responses for students and \emph{accessible} guidance for patients.
-    \item \textbf{Agentic AI for Appointment Booking:} The system integrates an \emph{agentic} component that allows it to autonomously schedule or reschedule appointments. This feature reduces administrative overhead for providers and streamlines patient journeys, potentially leading to faster access to care.
+\begin{enumerate}[itemsep=2em]
+    \item \textbf{Data Ingestion and Chunking:} Relevant medical texts (e.g., PDFs, articles, or curated training materials) are split into smaller, semantically consistent segments for informative retrieval and information reduction.
+    
+    \item \textbf{Embedding and Vector Storage:} Embed every item under a model, say an LLM-based encoder employing numerical embedding and vector storage. By use of a vector database indexing, these embeddings exhibit fast similarity. Underline quickly sections from the database most likely appropriate for a user's search.
+    
+    \item \textbf{Retrieval-Augmented Generation (RAG):} The system searches the top-matching chunks from the vector database upon user query submission, hence augmenting the generation. The language model (LLM) then makes use of these acquired segments as background, therefore improving the validity and accuracy of its produced answers.
+    
+    \item \textbf{Role-based Large Language Models:} The chatbot distinguishes between "patient mode" (giving symptom-based guidance and possible next actions) and "student mode," which provides comprehensive medical knowledge and conceptual explanations. This role-specific strategy guarantees patients have easily available assistance and in-depth answers for pupils.
+    
+    \item \textbf{Agentic AI for Appointment Booking:} The system combines an agentic component that enables autonomous scheduling or rescheduling of appointments. This function simplifies patient travels and lowers administrative overhead for physicians, therefore maybe improving access to care.
 \end{enumerate}
 
-\noindent The proposed chatbot thus spans a wide range of capabilities—from deep academic support for medical students to practical, real-world patient solutions. By uniting \emph{embedding-based retrieval}, \emph{role-aware LLMs}, and \emph{autonomous scheduling}, the architecture tackles existing gaps in both user groups’ experiences: medical students gain a dynamic tutor that can recall and contextualize complex material, while patients receive an accessible, on-demand assistant that not only provides preliminary information but also handles logistical tasks like finding the right specialist and booking an appointment.
+
+
+
+\noindent From profound academic support for medical students to pragmatic, real-world patient treatments, the suggested chatbot therefore covers a wide spectrum of capabilities. The architecture addresses current gaps in both user groups' experiences by combining embedding-based retrieval, role-aware LLMs, and autonomous scheduling: medical students acquire a dynamic tutor that can recall and contextualize complex material, while patients receive an accessible, on-demand assistant that not only provides initial information but also handles logistical tasks like finding the right specialist and booking an appointment.
 
 \noindent Furthermore, ensuring a robust, user-centric design requires addressing core challenges. These include:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{Data Quality and Scope:} The medical knowledge base must be reliable, up-to-date, and appropriately chunked to avoid misinformation.
     \item \textbf{Model Accuracy and Safety:} Large language models can exhibit “hallucination” or produce erroneous conclusions; thus, retrieval of verifiable source chunks is critical.
-    \item \textbf{Ethical and Regulatory Considerations:} Patient data privacy, informed consent, and adherence to healthcare regulations remain paramount, particularly in managing personal health information and scheduling details.
-    \item \textbf{User Experience Across Roles:} The interface must distinguish clearly between student and patient usage, providing advanced conceptual detail to students while simplifying medical jargon for patients.
+    \item \textbf{Ethical and Regulatory Considerations:} Especially with managing personal health information and schedule details, patient data protection, informed permission, and adherence to healthcare standards remain first priorities.
+    \item \textbf{User Experience Across Roles:} The interface has to be able to easily differentiate between student and patient use, give students advanced conceptual detail and reduce medical language for patients.
 \end{itemize}
 
-\noindent Through systematic experimentation, including real-time feedback from both students and healthcare providers, this thesis evaluates the effectiveness of the proposed chatbot architecture in meeting these goals. The subsequent chapters detail the underlying technologies, design methodologies, system evaluation metrics, and future enhancements that together shape an advanced, \emph{role-based} AI solution for bridging medical education and patient-centric healthcare. 
+\noindent This thesis assesses the performance of the suggested chat-bot architecture in fulfilling these objectives by means of methodical experimentation involving real-time input from both patients and healthcare practitioners. The next chapters cover the fundamental technologies, design approaches, system assessment criteria, and future developments that together define an advanced, role-based AI solution bridging medical education and patient-centric healthcare.
 
 
 % ============================================================================
@@ -38,30 +46,39 @@ Artificial Intelligence (AI) has become increasingly integral to modern healthca
 \section{Motivation}
 \label{sec:motivation}
 
-Modern healthcare simultaneously faces escalating patient demands and a persistent shortage of medical professionals. On one hand, patients often require immediate attention and convenient scheduling mechanisms to mitigate anxiety, enhance treatment adherence, and reduce missed diagnoses. On the other hand, medical students and early-career clinicians must navigate the complexities of specialized knowledge, hands-on practice, and ever-evolving guidelines to stay current. Traditional educational methods—such as static textbooks and passive lectures—can be inadequate for preparing learners to handle complex, real-time scenarios.
+Modern healthcare deals with a constant scarcity of medical experts as well as rising patient expectations at once.  On one side, patients may need quick attention and easy scheduling systems to lower missed diagnosis, improve therapy compliance, and ease anxiety.  To remain current, medical students and early-careers doctors must negotiate the complexity of specialized knowledge-based, hands-on practice and always changing policies.  Static textbooks and passive lectures are among the conventional teaching strategies that might not be sufficient for equipping students to manage challenging, real-time situations.
 
-\noindent In parallel, conventional patient-facing tools, such as basic symptom checkers or rule-based triage systems, rarely provide sufficient context or personalized guidance. They also lack direct integration with hospital resources for scheduling appointments. Consequently, patients may feel uncertain about the seriousness of their symptoms or spend valuable time consulting multiple, unverified online sources.
+
+\noindent Concurrently, traditional patient-facing instruments as rule-based triage systems or simple symptom checks seldom offer enough background or tailored advice.  They also lack direct connection with hospital resources for appointment scheduling.  Patients could thus be unsure about the severity of their symptoms or spend significant time researching several, dubious web sites.
+
 
 \noindent These challenges point toward a critical need for a comprehensive solution that offers:
-\begin{itemize}
+\begin{itemize}[itemsep=2em]
     \item \textbf{On-demand access to credible information:} 
-    For patients, this means efficient triage and clarity regarding symptoms. For students, it entails interactive learning tools that simulate realistic, complex queries.
+    This translates for patients into effective triage and clear symptom interpretation. It means interactive learning tools for pupils that replicate reasonable, sophisticated searches.
+    
     \item \textbf{Reduced administrative barriers:} 
-    Automating tasks like appointment booking frees up health professionals’ time and ensures that patients receive timely care. 
+    Automating chores like appointment scheduling guarantees that patients get timely treatment and frees the time of health professionals.
+    
     \item \textbf{Seamless retrieval of validated data:} 
-    Whether it is up-to-date medical guidelines or localized healthcare provider information, the system must unify relevant data and present it contextually. 
+    Whether it's localised healthcare provider information or current medical guidelines, the system has to combine pertinent data and provide it in context.
+    
     \item \textbf{Adaptability for different user roles:}
-    Advanced question-answering for students differs substantially from straightforward symptom analysis and scheduling for patients. A single chatbot must fluidly handle these distinct modes.
+    Advanced question-answering for students is somewhat different from simple patient scheduling and symptom analysis. One chatbot has to be able to manage these several modes fluidly.
 \end{itemize}
 
-\noindent By harnessing \emph{large language models (LLMs)}, advanced embedding-based \emph{retrieval systems}, and \emph{agentic} AI capable of autonomously interacting with scheduling APIs, it becomes possible to unify medical education and patient-centric services in a single platform. This unified approach promises immediate benefits:
-\begin{enumerate}
-    \item \textbf{Enhanced Learning:} Students can query the system at any complexity level, receiving deep, evidence-based explanations and case scenarios, thus bridging the gap between theoretical knowledge and real-world clinical encounters.
-    \item \textbf{Better Patient Outcomes:} Prompt appointment booking and symptom clarity can reduce treatment delays, lowering the risk of complications and alleviating patient stress.
-    \item \textbf{Administrative Efficiency:} Automated booking workflows diminish the overhead for healthcare facilities, reducing staff workload and the chance of scheduling errors or gaps.
+
+\noindent Medical education and patient-centric services may be united on a single platform by using sophisticated embedding-based retrieval systems, agentic artificial intelligence capable of autonomous interaction with scheduling APIs, and large language models (LLMs). This coherent strategy provides quick advantages:
+\begin{enumerate}[itemsep=2em]
+    \item \textbf{Enhanced Learning:} At every degree of complexity, students may ask questions of the system and get thorough, evidence-based answers and case studies, therefore bridging the gap between theoretical knowledge and practical experience.
+    \item \textbf{Better Patient Outcomes:} Clear symptom expression and early appointment scheduling serve to minimize treatment delays, therefore lowering the possibility of issues and so decreasing patient stress.
+    \item \textbf{Administrative Efficiency:} Automated booking solutions simplify staff effort and reduce the chance of scheduling errors or gaps, therefore helping healthcare organizations to reduce their over-heads.
 \end{enumerate}
 
-\noindent Ultimately, the motivation for developing this dual-mode medical chatbot is to transcend the limitations of single-purpose educational platforms or simplistic symptom checkers. Instead, an \textbf{integrated AI-driven framework} is poised to deliver tailored user experiences, ensure seamless data flow, and cultivate both improved healthcare accessibility for patients and a transformative learning ecosystem for medical students.
+
+\noindent Developing a dual-mode medical chatbot is ultimately driven by transcending the constraints of single-purpose teaching platforms or basic symptom checks.  Rather, an integrated AI-driven framework is ready to provide customized user experiences, guarantee flawless data flow, and create a transforming learning environment for medical students as well as better healthcare accessible for patients.
+
+
 
 % ============================================================================
 % section : problem statement
@@ -69,24 +86,27 @@ Modern healthcare simultaneously faces escalating patient demands and a persiste
 \vspace{2cm}
 \section{Problem Statement and Challenges}
 \label{sec:problem-statement}
+\sloppy
 
-Two problems define modern healthcare: patients require consistent counsel when faced with conflicting symptoms; medical students need basic access to current, accurate material to improve their core knowledge and prepare ready for clinical practice. Often missing the timeliness, complexity, and contextual clarity needed for complicated medical situations are existing solutions such simple symptom checklists or static web-based services. Furthermore, these stand-alone technologies seldom provide for timely scheduling or referral, thus leaving patients wondering about their next line of action on their medical route.
+\noindent Two issues characterize modern healthcare: patients need consistent advice when confronted with contradicting symptoms; medical students need basic access to updated, accurate material to increase their core knowledge and be ready for clinical practice. Often lacking the timeliness, complexity, and contextual clarity required for complicated medical conditions are current solutions such as basic symptom checklists or static web-based systems. Moreover, these stand-alone technologies hardly provide for quick scheduling or referral, therefore leaving patients wondering about their next course of action on their medical path.
 
-With regard to medical students especially, the difficulty is in Five Short Notes Names Especially when doing so in real time or when referencing other disciplines (pharmacy and pathology, for example), negotiating enormous numbers of research articles, medical textbooks, and clinical case reports can be challenging. Conventional e-learning systems barely combine theoretical knowledge with practical, scenario-based learning and lack efficient Q\&A systems that fit to user inquiries.
+Regarding medical students particularly, the challenge is in Five Short Notes Names. Negotiating vast numbers of research publications, medical textbooks, and clinical case reports may be difficult, especially when doing so in real time or when referring to other fields (pharmacy and pathology, for example). Conventional e-learning systems lack effective Q and A systems suitable to user questions and hardly connect academic information with practical, scenario-based learning.
 
-\noindent \textbf{Timeliness and Accuracy:} Medical technology is evolving so rapidly that conventional resources could soon become extinct. Students run the danger of picking out outdated methods without fast, current sources.
+\noindent \textbf{Timeliness and Accuracy:} The pace of development of medical technology is so rapid that even conventional resources find it impossible to survive. Students take the risk of selecting obsolete techniques without fast, modern resources.
 
-About the patients, the challenges are equally important: Deciding whether their symptoms call for frequent visits or urgent care can be challenging for people, which could lead to worry and maybe postpone treatment.
+With respect to the patients, the struggles are equally important: people can sometimes struggle with knowing whether their symptoms warrant routine care or a trip to an urgent treatment center, which can lead to anxiety and potentially a delay in treatment.
 
-\noindent \textbf{Obstacles blocking healthcare access:} Usually involving many phone calls or internet searches, making an appointment with a specialist or follow-up visit delays patients from receiving proper treatment---especially those unclear of the sort of expert to see.
+\noindent \textbf{Obstacles blocking healthcare access:} Usually taking multiple phone calls or online searches, scheduling a specialist or follow-up visit slows patients from getting appropriate treatment especially those confused about the type of expert to see.
 
-\noindent \textbf{Unverified or contradicting information:} Patients may be pushed to self-diagnose via questionable online sources as basic symptom-checking websites may be inadequate or non-personalized.
+\noindent \textbf{Unverified or contradicting information:} Patients might be driven to self-diagnose via dubious internet sources as standard symptom-checking websites could be insufficient or not tailored.
 
 Thus, the main challenge is designing a single, synthetic intelligence-powered system that satisfies both sets of needs:
 \begin{enumerate}
-    \item A comprehensive teaching tool for medical students responding in-depth, contextually sensitively to specific questions derived from properly chosen clinical and scholarly sources. Allays any concerns, rapidly links patients to pertinent medical experts, and offers initial direction based on a patient-facing symptom analysis and triage mechanism.
-    \item Agentic appointment management helps to reduce administrative load and fill the information gap between pragmatic healthcare measures by enabling the system autonomously organize or postpone patient appointments. 
+    \item A comprehensive teaching tool for medical students responding in-depth, contextually sensitively to specific questions derived from properly chosen clinical and scholarly sources. It allays any concerns, rapidly links patients to pertinent medical experts, and offers initial direction based on a patient-facing symptom analysis and triage mechanism.
+    \item Agentic appointment management helps to reduce administrative load and fill the information gap between pragmatic healthcare measures by enabling the system to autonomously organize or postpone patient appointments.
 \end{enumerate}
+
+
 
 These underlines the requirement of including Large Language Models (LLMs), embedding-based data retrieval, and user role-aware interactions. One such strategy is: Abbreviations 6 covers the academic demands needed for medical school as well as the pragmatic, immediate concerns patients have when presented with health issues. The next parts will address how this integrated chatbot idea may provide medical students and patients accurate, ethically acceptable, contextually relevant advice.
 
@@ -94,52 +114,43 @@ These underlines the requirement of including Large Language Models (LLMs), embe
 % ============================================================================
 % section : research questions
 % =============================================================================
-
 \section{Research Questions}
-To answer the problem statements, following research questions needs to be answered.
-Below-mentioned research questions are obtained from the above-mentioned problem statements.
+\label{sec:research-questions}
 
-\noindent\textbf{Research question 1: }  
-Does topic modelling aid in the extraction of topic process from the dataset of past interviews?
+Modern healthcare faces two major challenges. First, patients often receive inconsistent advice when confronted with ambiguous symptoms, which can lead to anxiety and delays in seeking proper care. Second, medical students frequently struggle to access the most current and accurate information needed to build their knowledge, especially when they have to sift through vast amounts of literature and clinical reports. In addition, existing systems rarely integrate practical features such as automated appointment scheduling or provider recommendations, leaving both patients and healthcare professionals with fragmented support.
 
-\noindent The best topic modelling techniques for extracting topics from the dataset must be analyzed to answer 
-this research issue, which calls for a review of the literature.
+This thesis aims to address these challenges by exploring the development of an integrated medical assistant tool that serves both patients and medical students. In particular, the study is guided by the following questions:
+\begin{enumerate}[itemsep=2em]
+    \item \textbf{Supporting Medical Education:} How can a system be built to provide medical students with timely, thorough, context-rich responses from current clinical literature thereby strengthening their basis for practice?
+    \item \textbf{Improving Patient Guidance:} How can the tool clearly advise whether a routine consultation or urgent care is suitable and fairly evaluate patient-reported symptoms?
+    \item \textbf{Healthcare Provider Recommendations:} Based on a patient's particular symptoms and location, how may the system efficiently suggest surrounding healthcare providers?
+    \item \textbf{Autonomous Appointment Management:} How can the technology be turned on to automatically arrange and control patient visits, therefore lowering administrative load and closing the distance between diagnosis and treatment?
+\end{enumerate}
 
-\noindent\textbf{Research question 2: }
-How can we use various clustering techniques to extract information and cluster them from the German dataset?
 
-\noindent Different types of clustering algorithms must be understood by reading through the literature to 
-choose which algorithm is most suited for completing the work at hand. This question will provide to understand 
-and chose the right algorithm.
+Together, these questions aim to develop a unified solution that not only enhances the educational experience for future healthcare professionals but also offers practical, immediate support for patients.
 
-\noindent\textbf{Research question 3: }
-How can language models be applied for topic modelling of German datasets?
-
-\noindent Finding language models that perform well in German frequently requires a careful reading through many research articles that cover 
-multilingual models or models created especially for German text.
 % ============================================================================
 % section : Thesis Structure
 % =============================================================================
-\vspace{10cm}
+\vspace{12cm}
 \section{Thesis Structure}
+\label{sec:thesis-structure}
 
-This section will provide an overview and also explain the structure about the chapters which will be covered as part of the thesis:
+This thesis is organized into six main chapters, as outlined below:
 
-Chapter 2 gives a broad overview of state-of-the-art methodologies which will help to understand the various techniques which are
- used in past to overcome the issue and the technique used for implementation of the thesis. Each of these methodologies is 
- meticulously elucidated, offering a thorough understanding of their application and significance.
+\begin{enumerate}[itemsep=2em]
+    \item \textbf{Introduction:} This chapter defines the issue statement, introduces the topic, clarifies the driving force of the effort, and lists the research questions thereby setting the scene. It also describes the difficulties contemporary healthcare encounters with regard to medical education and patient treatment.
+    
+    \item \textbf{State of the Art:} Reviewed in this chapter are present literature and accepted methods pertinent to the project. Topics cover traditional approaches and their constraints as well as the usage of Large Language Models and embedding techniques in healthcare. The backdrop this study offers helps one to grasp the setting of the suggested remedy.
+    
+    \item \textbf{Design and Methodology:} This chapter describes the general system architecture and the techniques applied to build the medical chatbot. It addresses preprocessing and data collecting; it integrates language models with embedding-based data retrieval; it clarifies the agentic aspect of autonomous appointment management.
+    
+    \item \textbf{Implementation:} The technological features of the project are then under discussion. The chapter details the tools, programming models, and procedures followed in system development. It also clarifies the way several modules were carried out and combined.
+    
+    \item \textbf{Evaluation:} This chapter offers qualitative as well as numerical evaluations of the system. To show the success of the suggested strategy, it comprises performance criteria, user testing comments, and analogies with current solutions.
+    
+    \item \textbf{Conclusion and Future Work:} The last chapter reviews the main conclusions of the studies, emphasizes the thesis's contributions, and addresses potential areas for next development.
+\end{enumerate}
 
-Chapter 3 explains about the thesis implementation pipeline, providing a comprehensive overview of each step included
- within the thesis framework. In this chapter, short explanations for every component of the thesis implementation process
-  are also discussed.
-
-Chapter 4 focuses on the practical implementation phase, were essential libraries are mentioned and gain a comprehensive understanding
- of the models employed to accomplish our task. This chapter provides a thorough breakdown of the libraries utilized throughout the 
- code, specifying their roles in different sections of the code.
-
-Chapter 5 is about the evaluation of the methodologies used to evaluate the cluster formation and topic extraction. 
-It explains about the performance of  the models and talks about the best performing model.
-
-Chapter 6 is the final chapter and will provides the thesis conclusion and mention some of the challenges faced during
-the implementation of thesis along with the ideas on how the model can be improved and which other LLM models can be used
-as a part of the future work.
+Additional sections, such as the Appendices and the Bibliography, provide supplementary material, including source code, detailed experimental results, and a comprehensive list of references.

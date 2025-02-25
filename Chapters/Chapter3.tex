@@ -1,208 +1,167 @@
 \chapter{Design and Methodology}
+\label{chap:design_methodology}
 
-\label{Chapter3}
+This chapter includes a comprehensive review of the design and methods used adopted for developing the AI-driven medical chatbot. The system is tailored to cater to two distinct cohorts: patients and students of medicine, approached from an educational standpoint and pragmatic support including symptom evaluation and independent management of appointments. The complete system flow and design are shown in Figure 3.1.
 
-\lhead{Chapter 3. \emph{Design and Methodology}}
+\section{High-Level Architecture}
+\label{sec:high_level_architecture}
 
-This chapter is about the blueprint and the Methodologies used in the thesis involves a systematic progression of 
-the steps to ensure a careful exploration of the topic modelling techniques. The process contains various steps and the implementation 
-will start from the point of data collection and then analysing the data leading to the interpretation of results and their 
-alignment with the initial research objective. The collected data is analysed then transformed into a format that is conductive
-for the effective processing which involves few steps like removal of unwanted data, combining the data, cleaning the data, and 
-so on then, the data is used to feed into the model to obtain the results. Finally, the thesis concludes with a discussion
-of findings, implications, and potential avenues for future research, presenting a well-rounded culmination of the research endeavour.
-Figure 3.1 shows the implementation steps. These steps will be explained further below,
-
+The system is structured into several interconnected modules, as shown in Figure 3.1.
 \begin{figure}[htbp]
     \begin{center}
-      \includegraphics[width=15cm]{./Images/Thesis.png}
+      \includegraphics[width=16cm,height=10cm]{./Images/Thesis.png}
        \caption{Thesis implementation phases}
        \label{fig: Thesis implementation phases}
     \end{center}
-    \end{figure}
-% ============================================================================
-% section : Data Collection and Analysis
-% =============================================================================
-\section{Data Collection and Analysis}
+\end{figure}
 
-The data for this thesis is taken from the Fern Universität in Hagen, Germany. From the early 1980s to the present, 
-Fern University has conducted numerous interviews as part of its contemporary history research projects. These include 
-biographical interviews were individuals interviewees narrate their own stories and also gives their point of view on 
-the events that occurred during that time. Apart from these biographical interviews, autobiographies, written texts and 
-various letters are also collected from many people with different culture background but have a connection to social events 
-in Germany. The video interviews are also present which has wide information about various topics like work councils, trade 
-unionists, migrants, concentration camp survivors, and so on. The interviews contain some information
-about the Germany history. There are about 350 Video interviews as part of the research which are convert into transcripts. 
-The transcript of this dataset and contains three columns:
-
+\vspace{2cm}
 \begin{enumerate}
-    \item\textbf{Timecode:} As the video interview is convert into transcript, the timecode is used to identify the 
-    start and end of the interview. It is in the format of $hh:mm:ss$.
-    \item\textbf{Sprecher:}  The name of the speaker in the interview.
-    \item\textbf{Transcript:}  The interview transcript the conversation between the speakers.
+  \item \textbf{User Authentication and Role Identification:} 
+    \begin{itemize}
+        \item Upon user login, the system authenticates and decides the individual's role as either medical student or patient.
+        \item Role-based access controls the assignment of users to a particular dashboard and capabilities.
+    \end{itemize}
+  \item \textbf{Role-Based Interaction:} 
+    \begin{itemize}
+        \item \emph{Medical Student Mode:} Medical Student Mode: Provides exhaustive study aids such as PDF files with scholarly question-and-answer sessions.
+        \item \emph{Patient Mode:} Gives a symptom analysis with suggestions for location based doctor recommendation with agentic appointment system.
+    \end{itemize}
+  \item \textbf{PDF Processing and Text Chunking:} 
+    \begin{itemize}
+        \item Extracts text from uploaded PDFs and segments them into manageable chunks for embedding and retrieval.
+    \end{itemize}
+  \item \textbf{Embedding and Vector Storage:}
+    \begin{itemize}
+        \item Uses \texttt{all-mpnet-base-v2} for semantic embeddings.
+        \item Stores embeddings in a vector database (\emph{Pinecone}) for efficient similarity-based retrieval.
+    \end{itemize}
+  \item \textbf{Retrieval-Augmented Generation (RAG):} 
+    \begin{itemize}
+        \item User queries are embedded and matched against stored vectors to retrieve relevant chunks.
+        \item The retrieved context is then used to generate accurate responses using the \textbf{Mistral 13B Quantized Model}.
+    \end{itemize}
+  \item \textbf{LLM Response Generation:}
+    \begin{itemize}
+        \item The Mistral 13B Quantized Model generates context-aware, role-specific answers.
+        \item Responses are tailored differently for educational depth (students) and practical advice (patients).
+    \end{itemize}
+  \item \textbf{Agentic Appointment Booking:}
+    \begin{itemize}
+        \item For patients, the system autonomously schedules appointments by integrating healthcare provider data.
+    \end{itemize}
 \end{enumerate}
-% ============================================================================
-% section : Data Preprocessing
-% =============================================================================
-\section{Data Preprocessing}
 
-Once the data is analysed it needs be Pre-processed in order to use it as the data might have mistaken, redundancies, 
-missing values, or inconsistencies due to all these reasons it needs to be cleaned so that, we will be able to use it for 
-further analysis. For example, during the training of a machine learning model it is important to clean the data in order 
-to avoid overfitting or underfitting or wrong predictions. Hence, before using the dataset to any tasks it is better do some 
-data cleaning if needed. There is not much Preprocessing is used in the thesis, but it is important to clean the data before 
-using it. Few steps are followed in this thesis is mentioned below,
+\section{Mistral 13B Quantized Model}
+\label{sec:mistral_model}
 
+The \textbf{Mistral 13B Quantized Model} serves as the core LLM for generating responses. It is chosen for its balance between performance and computational efficiency.
+
+\subsection{Overview and Architecture}
+\label{subsec:mistral_overview}
+The Mistral 13B Quantized Model is a variant of the Mistral architecture known for:
+\begin{itemize}
+    \item \textbf{Parameter Efficiency:} With 13 billion parameters, it achieves high performance while maintaining manageable resource requirements due to quantization.
+    \item \textbf{Quantization Technique:} Utilizes Q3\_K\_M quantization, reducing memory footprint and speeding up inference without significantly sacrificing accuracy.
+    \item \textbf{Transformer Architecture:} Built on a decoder-only architecture with multi-head self-attention and feed-forward layers, optimized for generative tasks.
+\end{itemize}
+
+\subsection{Contextual Response Generation}
+\label{subsec:mistral_response}
+\begin{itemize}
+    \item The model generates responses by leveraging the context retrieved through the \emph{RAG} pipeline.
+    \item Role-specific prompts guide the model in generating:
+        \begin{itemize}
+            \item \emph{Educational Explanations} for medical students with detailed references.
+            \item \emph{Simple, Actionable Advice} for patients, ensuring clarity and minimizing jargon.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Role-Specific Prompting}
+\label{subsec:mistral_prompting}
+Different prompts are crafted based on user roles:
+\begin{itemize}
+    \item \textbf{For Medical Students:}
+        \begin{itemize}
+            \item Requests comprehensive explanations with references to academic sources.
+            \item Example: “Explain the mechanism of action of beta-blockers with clinical implications.”
+        \end{itemize}
+    \item \textbf{For Patients:}
+        \begin{itemize}
+            \item Prompts the model to generate concise, easy-to-understand guidance.
+            \item Example: “What should I do if I experience chest pain?”
+        \end{itemize}
+\end{itemize}
+
+\subsection{Additional Explanation of the Mistral 13B Quantized Model}
+\label{subsec:mistral_explanation}
+The Mistral 13B Quantized Model has been specifically chosen for this system due to its excellent balance between computational efficiency and high-quality response generation. The quantization process significantly reduces the model’s memory footprint and speeds up inference times, which is critical for delivering real-time responses in a production environment. Despite its compact size, the model maintains robust performance across diverse tasks, making it well-suited for both the detailed educational requirements of medical students and the clear, actionable advice needed by patients.
+
+\section{Embedding and Vector Database}
+\label{sec:embedding_vector_db}
+
+\subsection{Embedding Model: \texttt{all-mpnet-base-v2}}
+\label{subsec:all_mpnet_base_v2}
+\texttt{all-mpnet-base-v2} is employed for converting text chunks and queries into 768-dimensional embeddings. Key features include:
+\begin{itemize}
+  \item \textbf{Contextual Semantic Representation:} Captures contextual meaning, enhancing query relevance.
+  \item \textbf{Performance:} Consistently outperforms older models (like BERT) in semantic search tasks.
+  \item \textbf{Compatibility:} Embeddings are stored in \emph{Pinecone} for rapid cosine similarity-based searches.
+\end{itemize}
+
+\subsection{Vector Database: Pinecone}
+\label{subsec:pinecone}
+\emph{Pinecone} is chosen as the vector database for its robust performance in managing high-dimensional embeddings and its seamless integration within the retrieval pipeline. Key features include:
+\begin{itemize}
+    \item \textbf{Scalability:} Pinecone is designed to efficiently index and manage millions of embeddings, ensuring low-latency retrieval even as the data volume grows. This scalability makes it ideal for applications with rapidly expanding datasets.
+    \item \textbf{Metric Support:} By utilizing cosine similarity as the primary metric for relevance ranking, Pinecone delivers highly accurate and meaningful search results, which are critical for ensuring that the most contextually relevant information is retrieved.
+    \item \textbf{High Performance:} The database is optimized for speed, enabling real-time searches and updates. This is essential for applications requiring immediate responses, such as the medical chatbot system.
+    \item \textbf{Integration with Retrieval Pipelines:} Pinecone seamlessly integrates with frameworks like LangChain, simplifying the process of embedding storage and retrieval. This tight integration helps maintain a smooth workflow from query embedding to final response generation.
+    \item \textbf{Reliability and Consistency:} Pinecone offers a reliable infrastructure that ensures data consistency and durability, which is critical for systems handling sensitive and large-scale information.
+    \item \textbf{Ease of Use:} With a user-friendly API and robust documentation, Pinecone enables developers to implement and manage the vector database with minimal overhead, facilitating faster development cycles.
+\end{itemize}
+
+
+\section{Agentic Appointment Booking}
+\label{sec:agentic_booking}
+
+\subsection{Triggering Conditions and Workflow}
+\label{subsec:booking_workflow}
+The system autonomously handles appointment booking by:
 \begin{enumerate}
-    \item\textbf{Removal of Unwanted columns}
-    
-    As the dataset has three columns of data, the timecode, the Sprecher and the transcript. In the Timecode column except 
-    the timestamp of the video we don't have any information which can be used for analysis. Hence, it is removed.
-    Sprecher column is removed as it is not required for the analysis. Since, it consists of the who speak that particular 
-    sentence in the conversation and after analysis for the few transcripts it was not making much sense. Hence, it is removed.
-    Transcript column is the key column which contains the main information of the conversation which is required for the analysis. 
-    Here, the rows of the interviewer is not removed as may  contains the information which might be essential for the thesis.
-
-    \item\textbf{Combining the data}
-    
-    As the dataset was in the excel format and each conversation transcript was in the form of a new line in the column 
-    Transcript, it was necessary to combine the data into one single corpus. Hence, it is necessary to combine the data into 
-    one a paragraph so that contexts of the conversation can be maintained, and which will help in the future phases. 
-    On the other hand, the video conversation of each individual was available in the separate sheets in the excel file. 
-    Hence, it is necessary to merge the data into a single text document. As the looping through each page and combining 
-    them into a paragraph will take more time than the combination of the whole data. So, combining the data in one document
-    will help to reduce the time taken for the analysis.
-
-    \item\textbf{Removing the short sentences}
-    
-    As the transcript column was combined into a paragraph and there we have lot of sentences which are smaller than 3 words.
-     This Sentence will act as nosie as there are repeated words, Stopwords, punctuations, etc. have formed the sentence which 
-     is doesn't add value to the analysis as it is act like a noise in the data. Hence, it is necessary to remove all the sentences 
-     that are smaller than 3 words. As it doesn't make sense to have a sentence with less than 3 words. So, filtered the short 
-     sentences out of the dataset was done as it was like a noise in the data.
-
+    \item Detecting user intent through keywords (e.g., “book an appointment”).
+    \item Collecting details like location and specialty.
+    \item Querying a dynamic dataset of 7,000+ healthcare providers scraped from Bing Maps.
+    \item Generating a booking link via Doctolib and sending it through Twilio SMS integration.
 \end{enumerate}
 
-There are few other steps that can be done to clean the data like Stopwords, punctuations, lemmatization, etc., which I haven't 
-considered as it is not required. Since, these preprocessing is only required when we are doing word embedding hence, I have not 
-considered it in the thesis. As I'll will doing sentence embedding which will help to capture the meaning of the sentences in 
-the paragraph and get better results.
-% ============================================================================
-% section : Modelling
-% =============================================================================
+\section{User Interface Approaches}
+\label{sec:user_interface}
+
+\subsection{Flask UI}
+\label{subsec:flask_ui}
+\emph{Flask} is used for:
+\begin{itemize}
+    \item \textbf{User Authentication:} Role-based access control for students and patients.
+    \item \textbf{File Upload:} Allowing PDF uploads for medical students.
+    \item \textbf{Query Form:} Basic input form for submitting questions.
+\end{itemize}
+
+The Flask UI is designed to handle user authentication, registration, and file uploads seamlessly. It also integrates with a separate Chainlit process that provides a chat-centric interface. Upon successful login, Flask starts Chainlit in a new thread, passing the user's email via environment variables so that Chainlit can fetch role-specific details from the database. This integration ensures that users are quickly redirected to a dynamic and responsive chatbot interface after authentication.
+
+\subsection{Chainlit UI}
+\label{subsec:chainlit_ui}
+\emph{Chainlit} provides a chat-centric interface designed to enhance user engagement through interactive and dynamic conversation flows. Key features include:
+\begin{itemize}
+    \item \textbf{Role-Specific Chat Profiles:} The system supports different conversation modes tailored for medical students and patients. Each profile presents customized prompts and responses, ensuring that the dialogue remains relevant to the user's context—whether that involves detailed academic discussions or clear, actionable health advice.
+    \item \textbf{Interactive Conversation Elements:} Chainlit UI incorporates features such as real-time feedback, adaptive conversation threads, and dynamic content loading. This enables users to interact fluidly with the chatbot, with the interface automatically adjusting based on user input and query context.
+    \item \textbf{Enhanced User Engagement:} By integrating multimedia elements and interactive buttons, Chainlit helps to create a more engaging experience. For example, users can click on suggested topics or follow-up questions, which makes navigating complex information more intuitive.
+    \item \textbf{Seamless Integration with Back-End Systems:} The UI is designed to work in tandem with the underlying retrieval and generation pipelines. It receives context-aware responses from the \textbf{Mistral 13B Quantized Model} and displays them in an easily digestible format, while also allowing users to refine or extend their queries interactively.
+    \item \textbf{Customization and Scalability:} The modular design of Chainlit allows for easy customization of chat elements and conversation flows. This flexibility supports ongoing improvements and scalability as new features are integrated or as user needs evolve.
+\end{itemize}
 
 
-\section{Modelling}
-In this stage, the approach of achieve topic modelling will be eaxplained. As the Preprocessing of the dataset is done. 
-The dataset is ready for topic modelling where it will undergoes stages like embedding,
- dimensional reduction, clustering and generating the topic name using the language model. The various stages and mentioned 
- modelling techniques are explained by,
- \begin{figure}[htbp]
-    \begin{center}
-      \includegraphics[width=16cm]{./Images/Modelling Workflow.png}
-       \caption{Modelling Workflow}
-       \label{fig: Modelling Workflow}
-    \end{center}
-    \end{figure}
-% ============================================================================
-% subsection : Sentence Embedding
-% =============================================================================
-\subsection{Sentence Embedding}
-
-After the Preprocessing of the dataset is done. The dataset is ready for embedding and as Sentence Embedding approach will 
-be used to get the numerical representation of the text data which will help the machine learning model to understand the text data.
-As the dataset is in German language choosing the good sentence embedding model is important to get better result as most of the 
-embedding model are mostly trained on the English language Primary and then there are few models which are trained on multiple 
-languages. So, choosing the good model is important to get better results. So, after careful examine some of the model for 
-German language and few of the model is mentioned below,
-
- \begin{enumerate}
-    \item GBERT Derived Embedding Models
-    \item Sentence-T5 derived Models
-    \item Paraphrase-multilingual
-    \item Cross English \& German Roberta
-    \item Jina embedding-v2-base-de
-    \item German Sematic\_STS\_v2 and etc.,
-\end{enumerate}
-
-After comparing the models embedding and evaluating them, Jina embedding-v2-base-de and Cross English \& German Roberta model 
-which work well in my scenario and by considering  all the other factors  like computational power, runtime, etc., 
-I have chosen Jina embedding-v2-base-de model. As this model have a capabilities to handle both English and German text data 
-along with it has been to work well in monolingual and cross-lingual applications without bias.
-
-% ============================================================================
-% subsection : Dimensionality Reduction
-% =============================================================================
-
-\subsection{Dimensionality Reduction}
-
-The output of the embedding will be in very high dimensional space, and this cannot be used for further tasks. 
-Therefore, in order to transform a high-dimensional vector space into a low-dimensional vector space, dimensionality
- reduction is necessary. There are lot of techniques that can be used for dimensionality reduction like PCA, t-SNE,
- UMAP, etc... For this thesis I have chosen UMAP reduction technique as it is a powerful and versatile dimensionality 
- reduction technique which has some of the advantages when compared to PCA (Principal Component Analysis), t-SNE 
- (t-distributed Stochastic Neighbour Embedding) and other techniques. Here is some of the reason why I have chosen 
- UMAP reduction technique,
-
-\begin{enumerate}
-    \item  It preserves the local and global structure of the data as it maintains the relationships between the data points
-    at multiple scales, ensuring small groups and the global structure of the data is well represented at the reduced dimensional space.
-    \item It is highly scalable and can be used for large datasets and its computational complexity is suitable for both small 
-    and large sentence embeddings.
-    \item One important aspect of sentence embedding is that it provides freedom in selecting the distance metric that is 
-    used to determine the degree of similarity between the data points.
-    \item It is faster and produces high quality embedding especially for large datasets when compared other technique.
-    \item It will help to increase better cluster separation.
-    \item This technique is quite versatile as it can be used for both dimensionality reduction and visualization.
-\end{enumerate}
-
-As UMAP, have lot of benefits like it is very scalable, efficient, flexible and can be used for large datasets and 
-it doesn't consume much computational power when compared to other techniques.
-This helps for producing meaningful results. 
-% ============================================================================
-% subsection : Clustering
-% =============================================================================
-\subsection{Clustering}
-
-After the Dimensionality reduction is carried out for the embedding, the data is now ready for the clustering. In this phase, there are two cluster technique based on the scenario which can be used i.e., K-Means and HDBSCAN clustering.
-By comparing the K-means and HDBSCAN clustering, I have chosen HDBSCAN as it is works well and has ability to cluster is well when compared to K-Means. Here are some of the reasons for choosing HDBSCAN over K-Means, 
-
-\begin{enumerate}
-    \item For K-Means Clustering, it is necessary to specify in advance how many clusters there are.
-    \item It struggle we it tries to deal with the handling outliers.
-    \item It tries to form uniform clusters of similar size as it assumes that all the clusters will be of same size.
-\end{enumerate}
-
-After looking into these aspects and choosing the HDBSCAN clustering, the technique works effectively for identifying the clusters of varying densities and robust to the noise which is suitable for our dataset. 
-As HDBSCAN approach doesn't have a control on the creation of the clusters but, it can be configured with the help of parameters like minimum cluster size, minimum samples and dew other parameters which will help 
-to form the clusters by considering the core point which ensures that the clustering process efficiently irrespective of data. By applying the HDBSCAN and UMAP technique, we will be able to uncover distinct clusters 
-of semantically similar sentence to group them together and by filtering the noise and outliers. The formed clusters will be stored in the json format to feed the formed clusters to the Llama 3.1 model.
-% ============================================================================
-%  subsection : Language Model
-% =============================================================================
-\subsection{Language Model}
-This is the final phase which will help to generate the topics for the given text. the clusters formed in the previous stage will be feed to Large Language model Llama 3.1. By providing the prompt along with the cluster, which will help 
-the Language model to understand the sentences in the cluster and generate a generalized topic name for the particular clusters. This process involves leveraging the model’s ability to process and synthesize information from multiple 
-sentences, producing a coherent and meaningful topic label for each cluster. The use of Llama 3.1 model ensures that the generated topic names are contextually appropriate and semantically meaningful, enhancing the interpretability
-and utility of the cluster results. In this stage Llama 3.1 version model is used for the generation of topic names as it is the latest version open source model available and one of the powerful model which works efficiently 
-for tasks like labelling, summarization, information retrieval, text generation and so on.
-
-\section{Evaluation}
- The quality of the generated topics can be evaluated by comparing them with the human generated labels and by feeding the clusters to other open source large language model and models like LDA,
-  NMF and BERTopic will give us a clarity of the quality of the generated topics. For evaluation of clustering, I have used Silhouette coefficient, davies bouldin score and calinski harabasz score.
-  which will give the clear understanding of the quality of the clusters formed and also based on this we can identify how good the embedding model is. The metric helps to choose the right embedding
-  model for the given dataset as embedding of text data is very important. If the embedding model is not well suited for the dataset, it will not be able to generate good clusters. So, with the help of
-  Silhouette coefficient, davies bouldin score and calinski harabasz score we can understanding of the quality of the clusters formed  and how good the embedding has been done for the dataset.
-  Along with this the topic generated by the Llama 3 model is compared with the human estimation so that, we can understand the quality of the topics generated and by feeding the clusters to other
-  open source large language model which will give us a clarity of the quality of the generated topics. With the help of these metrics, I have compared the clusters formed and the generated topics of the model with human estimation.
-
-% ============================================================================
-% section : Summary
-% =============================================================================
 \section{Summary}
-
-This chapter was about the explanation of step-by-step process which was followed to accomplish this thesis. Starting from data collection where data was understood and analysed to know the structure of the data then,
- preprocessing of the data were unwanted columns and noise were eliminated and combined into a single paragraph was done. After that, the data was converted into numerical representation using the embedding technique 
- followed by dimensionality reduction and clustering.
-
+\label{sec:methodology_summary}
+In summary, this chapter outlines a robust design for an AI-driven medical chatbot that effectively serves two distinct user groups: medical students and patients. The system's modular architecture incorporates user authentication, PDF processing, semantic embedding using \texttt{all-mpnet-base-v2}, and a vector database via Pinecone for rapid retrieval. A retrieval-augmented generation pipeline seamlessly integrates the powerful \textbf{Mistral 13B Quantized Model} to generate context-aware responses. Furthermore, the solution provides specialized functionalities, such as role-based interaction and autonomous appointment booking, ensuring that educational and practical needs are both addressed efficiently. The integration between the Flask UI and the Chainlit chat interface is a key component, enabling dynamic, real-time engagement that leverages user-specific data to tailor responses and services. The next chapter will delve into the implementation details, system deployment, and further integration strategies.
 
