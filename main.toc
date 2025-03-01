@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {2.6.3}Comparative Benchmarking}{18}{subsection.58}%
 \contentsline {section}{\numberline {2.7}Future Directions}{19}{section.59}%
 \contentsline {section}{\numberline {2.8}Summary}{20}{section.60}%
-\contentsline {chapter}{\numberline {3}Design and Methodology}{21}{chapter.61}%
+\contentsline {chapter}{\numberline {3}System Architecture}{21}{chapter.61}%
 \contentsline {section}{\numberline {3.1}High-Level Architecture}{21}{section.62}%
 \contentsline {section}{\numberline {3.2}Mistral 13B Quantized Model}{23}{section.71}%
 \contentsline {subsection}{\numberline {3.2.1}Overview and Architecture}{23}{subsection.72}%
@@ -42,31 +42,31 @@
 \contentsline {subsection}{\numberline {3.3.2}Vector Database: Pinecone}{25}{subsection.78}%
 \contentsline {section}{\numberline {3.4}Agentic Appointment Booking}{26}{section.79}%
 \contentsline {subsection}{\numberline {3.4.1}Triggering Conditions and Workflow}{26}{subsection.80}%
-\contentsline {section}{\numberline {3.5}User Interface Approaches}{26}{section.85}%
-\contentsline {subsection}{\numberline {3.5.1}Flask UI}{26}{subsection.86}%
-\contentsline {subsection}{\numberline {3.5.2}Chainlit UI}{26}{subsection.87}%
-\contentsline {section}{\numberline {3.6}Summary}{28}{section.88}%
-\contentsline {chapter}{\numberline {4}Implementation}{29}{chapter.89}%
-\contentsline {section}{\numberline {4.1}Libraries}{29}{section.90}%
-\contentsline {section}{\numberline {4.2}Code Implementation}{32}{section.91}%
-\contentsline {subsection}{\numberline {4.2.1}Preprocessing}{32}{subsection.97}%
-\contentsline {subsection}{\numberline {4.2.2}Embedding}{34}{subsection.151}%
-\contentsline {subsection}{\numberline {4.2.3}Dimensionality Reduction}{36}{subsection.184}%
-\contentsline {subsection}{\numberline {4.2.4}Clustering}{37}{subsection.192}%
-\contentsline {subsection}{\numberline {4.2.5}Large Language Model}{38}{subsection.226}%
-\contentsline {section}{\numberline {4.3}Web Application for Smaller Text Corpus}{42}{section.318}%
-\contentsline {subsection}{\numberline {4.3.1}Methodlogy and Technologies Used}{42}{subsection.319}%
-\contentsline {section}{\numberline {4.4}Summary}{43}{section.322}%
-\contentsline {chapter}{\numberline {5}Evaluation}{44}{chapter.323}%
-\contentsline {section}{\numberline {5.1}Evaluation Design}{44}{section.324}%
-\contentsline {section}{\numberline {5.2}Cluster Evaluation}{45}{section.329}%
-\contentsline {section}{\numberline {5.3}Topic Generation with other LLMs}{46}{section.334}%
-\contentsline {section}{\numberline {5.4}Discussion}{47}{section.336}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{49}{chapter.337}%
-\contentsline {section}{\numberline {6.1}Conclusion}{49}{section.338}%
-\contentsline {section}{\numberline {6.2}Answers to Research Questions}{50}{section.339}%
-\contentsline {section}{\numberline {6.3}Future Work and Challenges}{52}{section.343}%
+\contentsline {section}{\numberline {3.5}User Interface Approaches}{26}{section.84}%
+\contentsline {subsection}{\numberline {3.5.1}Flask UI}{26}{subsection.85}%
+\contentsline {subsection}{\numberline {3.5.2}Chainlit UI}{26}{subsection.86}%
+\contentsline {section}{\numberline {3.6}Summary}{28}{section.87}%
+\contentsline {chapter}{\numberline {4}Implementation}{29}{chapter.88}%
+\contentsline {section}{\numberline {4.1}Libraries}{29}{section.89}%
+\contentsline {section}{\numberline {4.2}Code Implementation}{32}{section.90}%
+\contentsline {subsection}{\numberline {4.2.1}Preprocessing}{32}{subsection.96}%
+\contentsline {subsection}{\numberline {4.2.2}Embedding}{34}{subsection.150}%
+\contentsline {subsection}{\numberline {4.2.3}Dimensionality Reduction}{36}{subsection.183}%
+\contentsline {subsection}{\numberline {4.2.4}Clustering}{37}{subsection.191}%
+\contentsline {subsection}{\numberline {4.2.5}Large Language Model}{38}{subsection.225}%
+\contentsline {section}{\numberline {4.3}Web Application for Smaller Text Corpus}{42}{section.317}%
+\contentsline {subsection}{\numberline {4.3.1}Methodlogy and Technologies Used}{42}{subsection.318}%
+\contentsline {section}{\numberline {4.4}Summary}{43}{section.321}%
+\contentsline {chapter}{\numberline {5}Evaluation}{44}{chapter.322}%
+\contentsline {section}{\numberline {5.1}Evaluation Design}{44}{section.323}%
+\contentsline {section}{\numberline {5.2}Cluster Evaluation}{45}{section.328}%
+\contentsline {section}{\numberline {5.3}Topic Generation with other LLMs}{46}{section.333}%
+\contentsline {section}{\numberline {5.4}Discussion}{47}{section.335}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{49}{chapter.336}%
+\contentsline {section}{\numberline {6.1}Conclusion}{49}{section.337}%
+\contentsline {section}{\numberline {6.2}Answers to Research Questions}{50}{section.338}%
+\contentsline {section}{\numberline {6.3}Future Work and Challenges}{52}{section.342}%
 \vspace {1em}
-\contentsline {chapter}{\numberline {A}Source Code}{53}{appendix.344}%
+\contentsline {chapter}{\numberline {A}Source Code}{53}{appendix.343}%
 \vspace {1em}
-\contentsline {chapter}{Bibliography}{54}{dummy.345}%
+\contentsline {chapter}{Bibliography}{54}{dummy.344}%
