@@ -1,7 +1,7 @@
-\contentsline {chapter}{List of Figures}{vi}{dummy.2}%
-\contentsline {chapter}{List of Tables}{vii}{dummy.4}%
-\contentsline {chapter}{Listings}{viii}{dummy.6}%
-\contentsline {chapter}{Abbreviations}{ix}{dummy.8}%
+\contentsline {chapter}{List of Figures}{vii}{dummy.2}%
+\contentsline {chapter}{List of Tables}{viii}{dummy.4}%
+\contentsline {chapter}{Listings}{ix}{dummy.6}%
+\contentsline {chapter}{Abbreviations}{x}{dummy.8}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.11}%
 \contentsline {section}{\numberline {1.1}Introduction}{1}{section.12}%
 \contentsline {section}{\numberline {1.2}Motivation}{3}{section.18}%
@@ -48,25 +48,29 @@
 \contentsline {section}{\numberline {3.6}Summary}{28}{section.87}%
 \contentsline {chapter}{\numberline {4}Implementation}{29}{chapter.88}%
 \contentsline {section}{\numberline {4.1}Libraries}{29}{section.89}%
-\contentsline {section}{\numberline {4.2}Code Implementation}{32}{section.90}%
-\contentsline {subsection}{\numberline {4.2.1}Preprocessing}{32}{subsection.96}%
-\contentsline {subsection}{\numberline {4.2.2}Embedding}{34}{subsection.150}%
-\contentsline {subsection}{\numberline {4.2.3}Dimensionality Reduction}{36}{subsection.183}%
-\contentsline {subsection}{\numberline {4.2.4}Clustering}{37}{subsection.191}%
-\contentsline {subsection}{\numberline {4.2.5}Large Language Model}{38}{subsection.225}%
-\contentsline {section}{\numberline {4.3}Web Application for Smaller Text Corpus}{42}{section.317}%
-\contentsline {subsection}{\numberline {4.3.1}Methodlogy and Technologies Used}{42}{subsection.318}%
-\contentsline {section}{\numberline {4.4}Summary}{43}{section.321}%
-\contentsline {chapter}{\numberline {5}Evaluation}{44}{chapter.322}%
-\contentsline {section}{\numberline {5.1}Evaluation Design}{44}{section.323}%
-\contentsline {section}{\numberline {5.2}Cluster Evaluation}{45}{section.328}%
-\contentsline {section}{\numberline {5.3}Topic Generation with other LLMs}{46}{section.333}%
-\contentsline {section}{\numberline {5.4}Discussion}{47}{section.335}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{49}{chapter.336}%
-\contentsline {section}{\numberline {6.1}Conclusion}{49}{section.337}%
-\contentsline {section}{\numberline {6.2}Answers to Research Questions}{50}{section.338}%
-\contentsline {section}{\numberline {6.3}Future Work and Challenges}{52}{section.342}%
-\vspace {1em}
-\contentsline {chapter}{\numberline {A}Source Code}{53}{appendix.343}%
-\vspace {1em}
-\contentsline {chapter}{Bibliography}{54}{dummy.344}%
+\contentsline {section}{\numberline {4.2}Code Implementation}{34}{section.90}%
+\contentsline {section}{\numberline {4.3}User Authentication and Role Identification}{34}{section.91}%
+\contentsline {section}{\numberline {4.4}PDF Processing (Text Extraction and Chunking)}{35}{section.92}%
+\contentsline {section}{\numberline {4.5}Embedding Generation}{35}{section.93}%
+\contentsline {section}{\numberline {4.6}Retrieval-Augmented Generation Pipeline}{35}{section.94}%
+\contentsline {section}{\numberline {4.7}Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}{36}{section.95}%
+\contentsline {section}{\numberline {4.8}Symptom Analysis, Provider Recommendation, and Appointment Booking}{36}{section.96}%
+\contentsline {section}{\numberline {4.9}Front-End Integration}{36}{section.97}%
+\contentsline {section}{\numberline {4.10}Error Handling and Logging}{37}{section.98}%
+\contentsline {section}{\numberline {4.11}User Authentication and Role Identification}{37}{section.99}%
+\contentsline {subsection}{\numberline {4.11.1}Initialization of the Database}{39}{subsection.180}%
+\contentsline {subsection}{\numberline {4.11.2}Signup Logic}{40}{subsection.181}%
+\contentsline {subsection}{\numberline {4.11.3}Login Logic}{40}{subsection.182}%
+\contentsline {subsection}{\numberline {4.11.4}Role Identification \& Usage}{40}{subsection.185}%
+\contentsline {subsection}{\numberline {4.11.5}Chainlit Integration}{41}{subsection.190}%
+\contentsline {subsection}{\numberline {4.11.6}Overall Flow}{41}{subsection.193}%
+\contentsline {section}{\numberline {4.12}PDF Processing (Text Extraction and Chunking)}{42}{section.199}%
+\contentsline {section}{\numberline {4.13}Embedding Generation}{45}{section.236}%
+\contentsline {section}{\numberline {4.14}Retrieval-Augmented Generation Pipeline}{47}{section.260}%
+\contentsline {section}{\numberline {4.15}Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}{52}{section.349}%
+\contentsline {section}{\numberline {4.16}Symptom Analysis, Provider Recommendation, and Appointment Booking}{55}{section.408}%
+\contentsline {section}{\numberline {4.17}Front-End Integration}{59}{section.474}%
+\contentsline {subsection}{\numberline {4.17.1}Login and Signup Pages (Flask Templates)}{59}{subsection.475}%
+\contentsline {subsection}{\numberline {4.17.2}Chainlit Chat UI}{61}{subsection.531}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}Loading Page (Optional)}{62}{subsubsection.532}%
+\contentsline {subsection}{\numberline {4.17.3}Overall Flow}{62}{subsection.544}%

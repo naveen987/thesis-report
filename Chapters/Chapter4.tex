@@ -4,553 +4,1230 @@
 
 \lhead{Chapter 4. \emph{Implementation}}
 
-In this chapter, a comprehensive overview of the libraries utilized throughout and the functions applied for 
-achieving topic modelling, specifying their roles in different sections of the code is given. Through deeper 
-understanding of the inner workings od modelling and explaining the implementation of the algorithms, the thesis is concluded.
+In this chapter, a comprehensive overview of the libraries utilized throughout the project is presented, 
+alongside the roles each library plays in different sections of the code. By offering deeper insight 
+into how each component works and how the algorithms are implemented, this thesis is brought to its conclusion.
 
-For implementation of the thesis, I have used platform like VS Code(Visual Studio Code) and Jupyter Notebook(Jupyter Notebook).
-VS code is integrated developement environment and Jupyter Notebook is a web based IDE, where both this IDE will support various 
-languages and frameworks for the model implementation and developement.
+For the implementation of the thesis, I have used platforms such as VS Code (Visual Studio Code) and Jupyter Notebook. 
+While VS Code is an integrated development environment (IDE) suitable for a variety of languages and extensions, 
+Jupyter Notebook offers a web-based environment that is well-suited for interactive coding and data visualization.
 
-%%%%%%%%%% Librarues %%%%%%%%%%%
+\vspace{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Libraries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this section, we focus on the various libraries used in the project and how they contribute to the overall model implementation process.
 
-In this section, we will focus on certain aspects of libraries and their uses in the model implementation process.
+\vspace{0.4cm}
+%%%%%%%%%% sqlite3 %%%%%%%%%%
+\noindent\textbf{sqlite3:}
 
-%%%%%%%%%% Pandas %%%%%%%%%%%
-\noindent\textbf{Pandas:}
+\noindent
+The \texttt{sqlite3} module is part of Python’s standard library, enabling lightweight database operations. 
+It is used here to store and retrieve user information, roles, and session data. This is particularly helpful 
+for managing authentication details in a local, file-based database, without requiring an external database server \cite{pythonlibrary}.
 
-Pandas is a library that is commonly used for data analysis and manipulation. It provides different functions and methods that are compatible with 
-structured data such as data frames, CSV files, Excel sheets, etc. This library is very helpful in projects related to data science, 
-machine learning and data analytics because it facilitates tasks such as: data cleaning; pre-processing; manipulation; visualization among others. \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% httpcore %%%%%%%%%%
+\noindent\textbf{httpcore (TimeoutException):}
 
+\noindent
+\texttt{httpcore} is a low-level HTTP library used to manage connection pooling, timeouts, and retries. 
+In this thesis, it is mainly leveraged to handle \texttt{TimeoutException} cases, ensuring the application 
+does not hang indefinitely during network calls \cite{pythonlibrary}.
 
-%%%%%%%%%% NumPy %%%%%%%%%%%
+\vspace{0.4cm}
+%%%%%%%%%% Selenium %%%%%%%%%%
+\noindent\textbf{Selenium:}
 
-\noindent\textbf{NumPy:}
+\noindent
+Selenium automates browsers, enabling dynamic web scraping. It is used in conjunction with the Edge WebDriver
+to navigate pages, locate elements, and extract data. Relevant classes such as \texttt{Service}, \texttt{Options}, 
+and \texttt{WebDriverWait} help in configuring and controlling the browser for scraping tasks \cite{pythonlibrary}.
 
-NumPy is a fundamental package for scientific computing in the python which provides a multidimensional array object, 
-derived object (like masked array and matrices) and an assortment of routines for fast operations on arrays which 
-includes mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic algebra,
- statistical operations, and much more. NumPy have been used in few places in this thesis, like converting the 
- embedded data into an array so that it can be used for dimensional reduction and to find
-the total number of clusters formed \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% BeautifulSoup %%%%%%%%%%
+\noindent\textbf{BeautifulSoup (bs4):}
 
-%%%%%%%%%% Pickle %%%%%%%%%%%
-\noindent\textbf{Pickle:}
+\noindent
+\texttt{BeautifulSoup} parses HTML (and XML) content, transforming the raw webpage data into a navigable tree. 
+Used together with Selenium, it allows the program to extract specific tags, links, or other structured elements 
+from the loaded pages \cite{pythonlibrary}.
 
- Pickle is one of the most used libraries in python for data serialization and deserialization as it converts objects 
- into bytes streams for storage and restore them into original form. As pickle can handles objects of python includes 
- list, dictionaries and so on, using different protocols optimized for efficiency. Common use cases include saving 
- objects states, caching, and inter-process communication. The pickle library is used to store the embedded data 
- formed as the data set is huge and running embedding every time takes lot of time \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% time %%%%%%%%%%
+\noindent\textbf{time:}
 
-  %%%%%%%%%% Json %%%%%%%%%%%
-\noindent\textbf{Json:}
+\noindent
+This built-in Python module provides sleep intervals and basic time management. Incorporating small delays can prevent 
+overwhelming target servers, especially when performing repetitive automated scraping \cite{pythonlibrary}.
 
-The python json module will offers a means of encoding and decoding data in the lightweight, text-based JSON (Javascript Object Notation)
-format which is frequently used for data transmission. The module allows you to serialize python objects, 
-such as dictionaries, lists into json strings and deserialize json strings into python objects. Json is a human readable 
-and language independent which can be used for web APIs and configuration files. Json format is used for storing the 
-clustered data as this format is human readable and can be used for APIs as the clustered data will be feeded into the 
-large language model \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% json %%%%%%%%%%
+\noindent\textbf{json:}
 
- %%%%%%%%%% umap-learn %%%%%%%%%%%
-\noindent\textbf{umap-learn:}
+\noindent
+The \texttt{json} module encodes and decodes data in JSON (JavaScript Object Notation). It is both human-readable
+and language-independent, making it ideal for transmitting and storing structured data. In this project, JSON 
+formats are used to manage intermediate results, user sessions, or to pass data between components \cite{pythonlibrary}.
 
-umap-learn is an open-source python package will helps to implement the Uniform Manifold Approximation and Projection 
-algorithm for dimensionality reduction. It does this by first learning a high-dimensional graph representation of 
-the data, and thereafter, optimizes a low-dimensional layout which captures the local structure. 
-The umap-learn package offers an easy-to-use interface, in addition to native interfaces to other 
-well-known data science libraries like Pandas, Scikit-learn, and NumPy. It can also deal with supervised and 
-unsupervised learning, which turns out to be versatile for many applications. Of these, a very notable one is 
-dimensionality reduction of feature spaces, hence improving efficiency to downstream tasks like data visualization, 
-classification or clustering \cite{pythonlibrary}. 
-\vspace{2cm}
-%%%%%%%%%% hdbscan %%%%%%%%%%%
+\vspace{0.4cm}
+%%%%%%%%%% chainlit %%%%%%%%%%
+\noindent\textbf{chainlit:}
 
-\noindent\textbf{hdbscan:}
+\noindent
+\texttt{chainlit} provides a framework for building chat-based interfaces around large language models (LLMs). 
+It handles session management, real-time conversation flows, and prompt configuration, giving users an 
+intuitive platform to interact with AI-driven functionalities \cite{pythonlibrary}.
 
-hdbscan is a Python package that implements the HDBSCAN (Hierarchical Density-Based Spatial Clustering 
-of Applications with Noise) algorithm. This package is often used in tasks which involves complex data
- like biology, image processing, grouping the text etc., and this can be easily integrated with the other
-  libraries like Pandas and scikit-learn. This algorithm is used for discovering the patterns in large 
-  dataset where number of clusters is unknown \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% src.helper (download_hugging_face_embeddings) %%%%%%%%%%
+\noindent\textbf{src.helper:}
 
-%%%%%%%%%% transformers %%%%%%%%%%%
-\noindent\textbf{transformers:}
+\noindent
+While not a standard library, this local module contains custom utilities such as \texttt{download\_hugging\_face\_embeddings}. 
+It automates loading the required embeddings from Hugging Face, ensuring consistent embedding generation 
+across the system \cite{pythonlibrary}.
 
-The transformers package is by Hugging Face is a powerful library that allows to access the wide range if pretrained transformers models for many NLP tasks. It supports both PyTorch and 
-TensorFlow and it is easy to use where APIs allows the user to load the models. tokenize data and fine tune them. The package also includes a convenient pipeline API for applying models 
-to various tasks with minimal code. With extensive documentation and a large community, transformers has become a go-to tool for state-of-the-art NLP \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% langchain_community.vectorstores (Pinecone) %%%%%%%%%%
+\noindent\textbf{langchain\_community.vectorstores (Pinecone):}
 
-%%%%%%%%%% torch %%%%%%%%%%%
-\noindent\textbf{torch:}
+\noindent
+This integration connects LangChain’s data processing workflows with the Pinecone vector database. By creating embeddings 
+and storing them in Pinecone, the system retrieves similar text chunks or documents quickly, enhancing response accuracy 
+in the chatbot \cite{pythonlibrary}.
 
- Troch is a deep learning library that is used for machine learning, and it is core library of PyTorch, a popular open source framework developed by Facebook's AI research lab. PyTorch is widely used 
- for building and training deep learning models due to its speed, flexibility, and ease of use. This package provides a range of functionalities, including tensor operations (Similar to Numpy arrays with 
- GPU acceleration), automatic differentiation, and building neural networks. It also supports GPU acceleration using CUDA, making it suitable for high-performance computing \cite{pythonlibrary}.
+\vspace{0.4cm}
+%%%%%%%%%% pinecone (PineconeClient, ServerlessSpec) %%%%%%%%%%
+\noindent\textbf{pinecone:}
 
+\noindent
+The \texttt{pinecone} SDK communicates with the Pinecone service, a specialized vector database built for high-speed 
+similarity search. \texttt{PineconeClient} handles index creation and queries, while \texttt{ServerlessSpec} configures 
+the underlying infrastructure \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% langchain.prompts (PromptTemplate) %%%%%%%%%%
+\noindent\textbf{langchain.prompts (PromptTemplate):}
+
+\noindent
+\texttt{PromptTemplate} structures how queries are fed into large language models. By separating static and dynamic 
+parts of a prompt, it creates systematic instructions for LLM-based generation \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% langchain_community.llms (CTransformers) %%%%%%%%%%
+\noindent\textbf{langchain\_community.llms (CTransformers):}
+
+\noindent
+\texttt{CTransformers} provides an interface for loading and running transformer models within the LangChain ecosystem. 
+It can be more memory-efficient and can help speed up inference in certain configurations \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% langchain.chains (RetrievalQA) %%%%%%%%%%
+\noindent\textbf{langchain.chains (RetrievalQA):}
+
+\noindent
+\texttt{RetrievalQA} coordinates the search of relevant vectors/documents before the final language model call. 
+This leads to more accurate, context-specific responses to user questions, making the chatbot more robust \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% langchain.document_loaders (PyPDFLoader) %%%%%%%%%%
+\noindent\textbf{langchain.document\_loaders (PyPDFLoader):}
+
+\noindent
+\texttt{PyPDFLoader} helps parse PDF documents into text chunks, enabling easy ingestion of content into the retrieval 
+system. This is crucial when dealing with PDF-based data sets \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% langchain.text_splitter (CharacterTextSplitter) %%%%%%%%%%
+\noindent\textbf{langchain.text\_splitter (CharacterTextSplitter):}
+
+\noindent
+Splits text into manageable chunks based on character count. By doing so, the system can embed and retrieve smaller, 
+more relevant pieces of information during user queries \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% dotenv (load_dotenv) %%%%%%%%%%
+\noindent\textbf{dotenv (load\_dotenv):}
+
+\noindent
+Loads environment variables from a \texttt{.env} file, preventing sensitive credentials (like API keys) from 
+being exposed in the source code. This approach enhances security and deployment flexibility \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% sentence_transformers (SentenceTransformer) %%%%%%%%%%
+\noindent\textbf{sentence\_transformers:}
+
+\noindent
+This library provides state-of-the-art models for sentence and paragraph embeddings. By embedding text into vector 
+representations, the system can compare semantic similarities and rank documents according to relevance \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% twilio.rest (Client) %%%%%%%%%%
+\noindent\textbf{twilio.rest (Client):}
+
+\noindent
+Twilio’s Python SDK handles sending SMS messages or other communications. The chatbot uses this to send appointment 
+reminders or booking confirmations to users, enhancing the system’s real-world utility \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% os %%%%%%%%%%
+\noindent\textbf{os:}
+
+\noindent
+A built-in Python module for OS-level interactions, such as file path handling and environment variable lookups. 
+Used to coordinate local file structure and manage \texttt{.env} variables \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% logging %%%%%%%%%%
+\noindent\textbf{logging:}
+
+\noindent
+\texttt{logging} is the standard Python library for capturing and recording logs, warnings, and error messages. 
+It helps in debugging and monitoring the application’s performance \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% warnings %%%%%%%%%%
+\noindent\textbf{warnings:}
+
+\noindent
+The \texttt{warnings} module is used to handle non-critical warnings in Python. In this context, it can hide or filter 
+out messages from dependencies that are not relevant to the end-user \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% asyncio %%%%%%%%%%
+\noindent\textbf{asyncio:}
+
+\noindent
+\texttt{asyncio} facilitates concurrent execution of tasks, leveraging an event loop to handle long-running or 
+I/O-bound processes without blocking other functionalities. Particularly useful for background tasks in chatbots \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% flask %%%%%%%%%%
 \noindent\textbf{Flask:}
 
-Flask, being an adaptable and simple web framework helps to create web apps with python.
-the server-side processing is handled via this tool while it also influences the web request
-management thanks to its essential utility for forming a web server and directing the requests
-between the front-end and back-end section of the application \cite{pythonlibrary}. 
-\vspace{1cm}
+\noindent
+Flask is a lightweight Python framework used to build web applications and RESTful APIs. 
+It manages server-side processes, routes, and user sessions, playing an important role in bridging
+the front-end user interface with back-end logic \cite{pythonlibrary}.
 
+\vspace{0.4cm}
+%%%%%%%%%% database (init_db, get_user, add_user) %%%%%%%%%%
+\noindent\textbf{database:}
+
+\noindent
+This local Python module contains functions like \texttt{init\_db}, \texttt{get\_user}, and \texttt{add\_user}, 
+supporting user registration, retrieval, and management. It leverages \texttt{sqlite3} to store and fetch user credentials \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% subprocess %%%%%%%%%%
+\noindent\textbf{subprocess:}
+
+\noindent
+The \texttt{subprocess} module lets you spawn new processes, connect to their input/output/error pipes,
+and obtain their return codes. This functionality is essential when starting or stopping auxiliary services 
+like a Chainlit server \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% threading %%%%%%%%%%
+\noindent\textbf{threading:}
+
+\noindent
+\texttt{threading} supports concurrency by running multiple threads in parallel. In this project, it helps 
+avoid blocking the main application by delegating tasks (such as server checks) to background threads \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% requests %%%%%%%%%%
+\noindent\textbf{requests:}
+
+\noindent
+\texttt{requests} simplifies making HTTP requests. It is used to communicate with external APIs (e.g., Pinecone, 
+Twilio, or third-party services) and verify that local services like Chainlit are up and running \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% numpy %%%%%%%%%%
+\noindent\textbf{numpy:}
+
+\noindent
+\texttt{numpy} provides a multi-dimensional array object and routines for fast array manipulations, 
+serving as the fundamental package for numerical computations in Python \cite{pythonlibrary}.
+
+\vspace{0.4cm}
+%%%%%%%%%% plotly.graph_objects %%%%%%%%%%
+\noindent\textbf{plotly.graph\_objects:}
+
+\noindent
+\texttt{plotly} is a plotting library that generates interactive data visualizations. 
+The \texttt{graph\_objects} module provides granular control over chart elements, 
+suitable for in-depth analysis of chatbot performance data \cite{pythonlibrary}.
+
+\vspace{1cm}
 \noindent\textbf{HTML/CSS:}
 
-The application's front-end was developed with HTML for structure and CSS for styling. This combination ensures the user interface is functional and attractive.
-Hence, it is able to carry out its task without much ado and in a commendable way as well. User input is collected using HTML forms while CSS serves the purpose of improving on webpage aesthetics.
-
+The front-end user interface is structured using HTML and styled with CSS. HTML forms gather user input, 
+while CSS ensures the layout is visually appealing and user-friendly. This combo supports usability 
+and meets the requirements for practical deployment.
 
 %%%%%%%%%% Code Implementation %%%%%%%%%%%
 
 \section{Code Implementation}
 
-This section will explain how the code is implemented in the thesis to achieve topic modelling. 
-This section consist of subsection as follows:
+In this chapter, we map the major steps of our **architecture** (see Figure~\ref{fig:system-architecture}) to their respective **code components**. Each section follows the flow of data and logic from user authentication all the way to generating a final answer.
+
+\section{User Authentication and Role Identification}
+\label{sec:auth-role}
+User management begins with:
+\begin{itemize}
+    \item \textbf{Signup \& Role Assignment:} A new user provides an email and password. The system assigns the role (\textit{e.g., patient} or \textit{medical student}) by storing it in a lightweight database (e.g., using \texttt{sqlite3}).
+    \item \textbf{Login:} On login, the code checks the role from the database to serve the correct chatbot mode.
+    \item \textbf{Session Handling:} Flask or Chainlit stores session data (e.g., user email and role) so each request can correctly route to patient or student logic.
+\end{itemize}
+
+\section{PDF Processing (Text Extraction and Chunking)}
+\label{sec:pdf-chunking}
+PDF documents (e.g., medical articles) are uploaded by students:
+\begin{itemize}
+    \item \textbf{Extraction:} The code typically uses a library like \texttt{PyPDFLoader} to read and convert PDF pages to raw text.
+    \item \textbf{Chunking:} Long text is split into manageable pieces via \texttt{CharacterTextSplitter} or custom splitting logic, ensuring each chunk remains semantically coherent. 
+    \item \textbf{Preprocessing:} Code may further remove stopwords or apply cleaning to each chunk before embedding.
+\end{itemize}
+
+\section{Embedding Generation}
+\label{sec:embedding}
+Each text chunk is converted into a numerical representation (an \textit{embedding}):
+\begin{itemize}
+    \item \textbf{Model Setup:} A pretrained model (e.g., \texttt{all-mpnet-base-v2} or \texttt{SentenceTransformer}) is loaded.
+    \item \textbf{Batch Embedding:} The code loops through chunks and feeds them into the embedding model. This step often includes concurrency or batch processing to optimize runtime.
+    \item \textbf{Storage:} Embeddings are passed either to an in-memory structure or a vector database (such as Pinecone) for fast retrieval.
+\end{itemize}
+
+\section{Retrieval-Augmented Generation Pipeline}
+\label{sec:rag-pipeline}
+To handle user queries, we blend retrieval (based on embeddings) with LLM generation:
+\begin{itemize}
+    \item \textbf{Query Handling:} Once a user query arrives, the system transforms it into an embedding (using the same model as above).
+    \item \textbf{Similarity Search:} This embedding is compared against stored embeddings in Pinecone (or another vector store). The top-$k$ relevant chunks are returned.
+    \item \textbf{Prompt Augmentation:} These chunks are appended to the user’s query to form a “context window” for the Large Language Model (LLM).
+    \item \textbf{Response Generation:} The LLM (e.g., Mistral 13B) produces an answer grounded in the retrieved text. The code also applies any prompt template rules or role-specific instructions.
+\end{itemize}
+
+\section{Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}
+\label{sec:role-logic}
+In the code, a conditional block or chain-level branching typically handles:
+\begin{itemize}
+    \item \textbf{Student Mode (Learning AI Assistant)}:  
+    Provides detailed, in-depth explanations with references.
+    \item \textbf{Patient Mode (Agentic Diagnostic AI)}:  
+    Focuses on simpler language, symptom triage, or booking logic. 
+    When users mention booking an appointment, an agentic step can automatically interact with a scheduling API.
+\end{itemize}
+
+\section{Symptom Analysis, Provider Recommendation, and Appointment Booking}
+\label{sec:extended-capabilities}
+For patient-focused tasks, code sections may:
+\begin{itemize}
+    \item \textbf{Symptom Analysis}: Use a rule-based approach or LLM prompts fine-tuned on medical data to interpret user symptoms.
+    \item \textbf{Provider Recommendation}: Parse a local database (or external service) of doctors. The code filters by specialty or location, returning suitable recommendations.
+    \item \textbf{Appointment Booking}: Integrate with an external API (e.g., Twilio for SMS, Doctolib for scheduling). The code triggers a request, confirms details, and notifies the user.
+\end{itemize}
+
+\section{Front-End Integration}
+\label{sec:frontend}
+\begin{itemize}
+    \item \textbf{Flask or Chainlit Routes}: A Python route handles file uploads (for PDFs) or query input. These routes pass data to the back-end logic (embedding, retrieval, LLM).
+    \item \textbf{User Interface}: HTML/CSS or a Chainlit-based chat bubble interface. The code updates the chat context in real-time and displays responses from the LLM.
+    \item \textbf{Templating}: If using Flask, Jinja templates might render dynamic pages with user-specific data.
+\end{itemize}
+
+\section{Error Handling and Logging}
+\label{sec:error-logging}
+Throughout the system:
+\begin{itemize}
+    \item \textbf{Try-Except Blocks}: Key places (e.g., PDF loading, retrieval queries, LLM calls) are wrapped in \texttt{try-except} to gracefully handle failures.
+    \item \textbf{Logging}: The Python \texttt{logging} module or a custom logger records warnings, debug info, and errors. This helps in diagnosing issues without exposing them to end users.
+    \item \textbf{Notifications}: In critical scenarios (like an inability to retrieve from the vector database), the code might send an alert or fallback to a simpler pipeline.
+\end{itemize}
+
+\section{User Authentication and Role Identification}
+\label{sec:auth-role}
+
+Below is an excerpt of Python/Flask code illustrating how user login, signup, and role identification are handled:
+
+\begin{lstlisting}[language=Python, caption={User authentication and role assignment code}, basicstyle=\small\ttfamily]
+from flask import Flask, render_template, request, redirect, url_for
+from database import init_db, get_user, add_user
+import subprocess
+import threading
+import os
+import time
+import requests
+
+app = Flask(__name__)
+
+# Initialize the database
+init_db()
+
+FLASK_PORT = 5002
+CHATBOT_PORT = 8001
+chainlit_process = None
+
+def is_chainlit_running():
+    try:
+        response = requests.get(f"http://localhost:{CHATBOT_PORT}")
+        return response.status_code == 200
+    except requests.exceptions.ConnectionError:
+        return False
+
+def start_chainlit(email):
+    global chainlit_process
+    if is_chainlit_running():
+        print("Chainlit is already running.")
+        return
+
+    print(f"Launching Chainlit on port {CHATBOT_PORT}...")
+    chainlit_process = subprocess.Popen(
+        ["chainlit", "run", "app.py", "--port", str(CHATBOT_PORT)],
+        cwd=os.path.dirname(os.path.abspath(__file__)),
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        start_new_session=True,
+        env={
+            **os.environ,
+            "LOGGED_IN_EMAIL": email
+        }
+    )
+
+@app.route("/", methods=["GET", "POST"])
+def login():
+    """Login route to authenticate users and start Chainlit."""
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+        user = get_user(email)
+        if user and user[2] == password:
+            print(f"LOGIN SUCCESS: {email}")
+
+            # Start Chainlit if not running; pass the email to the new process
+            threading.Thread(target=start_chainlit, args=(email,), daemon=True).start()
+
+            # After login, display a loading page that will link to Chainlit
+            chatbot_url = f"http://localhost:{CHATBOT_PORT}/"
+            print(f"REDIRECTING TO: {chatbot_url}")
+            return render_template("loading.html", chatbot_url=chatbot_url)
+        else:
+            return render_template("login.html", error="Invalid email or password.")
+    return render_template("login.html")
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    """Signup route to register new users."""
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+        role = request.form.get("role")
+        if add_user(email, password, role):
+            return redirect(url_for("login"))
+        else:
+            return render_template("signup.html", error="Email already registered.")
+    return render_template("signup.html")
+
+if __name__ == "__main__":
+    app.run(port=FLASK_PORT, debug=True)
+\end{lstlisting}
+
+\subsection{Initialization of the Database}
+\begin{itemize}
+  \item \texttt{init\_db()}: Called immediately upon starting the Flask application to ensure that the local SQLite
+        database (or whichever database is being used) is properly initialized. This might create tables such as
+        \texttt{users} if they do not exist.
+\end{itemize}
+
+\subsection{Signup Logic}
+\label{subsec:signup}
+\begin{itemize}
+  \item \textbf{Route:} \texttt{/signup} handles both \texttt{GET} (displaying a signup form) and \texttt{POST} (processing form data).
+  \item \textbf{Form Inputs:} Users provide \texttt{email}, \texttt{password}, and \texttt{role} (for example, ``PATIENT'' or ``STUDENT'').
+  \item \textbf{add\_user}: A database function that inserts a new record into the \texttt{users} table. If the operation
+        is successful, the user is redirected to the login page; otherwise, an error is displayed
+        (e.g. ``Email already registered'').
+\end{itemize}
+
+\subsection{Login Logic}
+\label{subsec:login}
+\begin{itemize}
+  \item \textbf{Route:} \texttt{/} or \texttt{/login}, handling both \texttt{GET} (showing the login template) and
+        \texttt{POST} (verifying credentials).
+  \item \textbf{Credential Check:} The user’s provided email is passed to \texttt{get\_user(email)}, which queries the
+        database for a matching record (typically returning a tuple \((id, email, password, role)\)).
+  \item \textbf{Password Match:} \texttt{user[2] == password} ensures the stored password matches the user’s input.
+        If it matches, login is considered successful.
+  \item \textbf{Chainlit Process:} After a successful login, the function \texttt{start\_chainlit(email)} is triggered
+        in a background thread. This:
+        \begin{enumerate}
+            \item Checks if Chainlit is already running via \texttt{is\_chainlit\_running()}.
+            \item If not running, spawns a subprocess with the user’s email set as an environment variable. This email
+                  can then be used by the chatbot to fetch the user’s role from the database without needing URL parameters.
+        \end{enumerate}
+  \item \textbf{Redirect to Loading Screen:} 
+        \begin{itemize}
+          \item Renders the template \texttt{loading.html}, which contains a link or auto-redirect to the running Chainlit instance at \texttt{http://localhost:8001}.
+        \end{itemize}
+  \item \textbf{Error Handling:} If the email/password is incorrect, the user is shown the \texttt{login.html} form
+        again, this time with an error message (``Invalid email or password'').
+\end{itemize}
+
+\subsection{Role Identification \& Usage}
+\begin{itemize}
+  \item \textbf{During Signup:} 
+  \begin{enumerate}
+    \item The \texttt{role} field is selected by the user or assigned automatically (e.g., \texttt{PATIENT} or \texttt{STUDENT}).
+    \item \texttt{add\_user} stores the role in the database alongside the \texttt{email} and \texttt{password}.
+  \end{enumerate}
+  \item \textbf{During Login:}
+  \begin{enumerate}
+    \item Once the login is validated, the user’s \texttt{role} can be fetched from \texttt{user[3]}. 
+    \item In a fully built system, the chatbot interface might reference this role to load different conversation chains
+          or specialized functionality. For instance:
+          \begin{itemize}
+            \item \emph{Medical Students} might get an LLM chain focusing on advanced medical knowledge.
+            \item \emph{Patients} might see simplified symptom analysis tools and appointment booking flows.
+          \end{itemize}
+  \end{enumerate}
+\end{itemize}
+
+\subsection{Chainlit Integration}
+\label{subsec:chainlit}
+\begin{itemize}
+  \item \textbf{is\_chainlit\_running()}: Sends an HTTP GET request to \texttt{http://localhost:8001} (the configured Chainlit port).
+        If the server responds with a \texttt{200} status code, we assume Chainlit is active.
+  \item \textbf{start\_chainlit(email)}: 
+        \begin{enumerate}
+            \item Uses \texttt{subprocess.Popen} to run \texttt{chainlit} on the given port if not already running.
+            \item Exports \texttt{LOGGED\_IN\_EMAIL} as an environment variable. 
+                  This allows the Chainlit app to retrieve the user’s role from the database with the same email,
+                  applying role-specific logic during chatbot interactions.
+        \end{enumerate}
+\end{itemize}
+
+\subsection{Overall Flow}
 \begin{enumerate}
-  \item Preprocessing
-  \item Embedding
-  \item Dimensionality reduction
-  \item Clustering
-  \item Large Language Model
+  \item A new user signs up using \texttt{/signup}, providing email, password, and role.
+  \item The system calls \texttt{add\_user} to store these details in the local database.
+  \item The user then goes to \texttt{/login}, enters the same email and password, which \texttt{get\_user} verifies.
+  \item If successful, \texttt{start\_chainlit} is triggered, launching or reusing a Chainlit session for the user.
+  \item The user is redirected to a loading page and then to the Chainlit UI, where their role (retrieved from the database) 
+        dictates the AI chatbot’s behavior.
 \end{enumerate}
 
-%%%%%%%%%% Preprocessing %%%%%%%%%%%
-
-\subsection{Preprocessing}
-
-Once the initial data analysis has been done, the data will undergoes preprocessing steps as mentioned below,
-%%%%%%%%%%%% code %%%%%%%%%%%
-\begin{lstlisting}[language=Python , caption={Initialization of the list of noise}]
-# List of common filler words
-filler_words = {"ja", "hm", "mhm", "ach", "gut", "und", "eben", "ne", "ok", "aha", "ach so", "nicht", "ja", "nein", "wieder", "schon", "naja", "wieso", "wieso nicht", "wieso nicht"}
-
-\end{lstlisting}
-
-As there the data is the transcript of the video Interviews, it consists of lot noise in the data. There are lot of shot sentence, noise, repeated small sentences etc., hence, it is necessary to remove them.
-The below code has list of noise which can be removed from the data. and this is the initialization of the list.
-%%%%%%%%%%% code %%%%%%%%%%%
-
-\begin{lstlisting}[language=Python, caption={Filtering of noise from the data}]
-  def has_repeated_filler_patterns(sentence, filler_words):
-    # Check if any filler word appears repeatedly either consecutively or separated by commas or spaces in the sentence.
-      pattern = r'\b(' + '|'.join(re.escape(word) for word in filler_words) + r')\b(?:[\s,]+)+\1\b'
-      
-      if re.search(pattern, sentence):
-          return True
-      return False
-  \end{lstlisting}
-
- 
-  The function \texttt{has\_repeated\_filler\_patterns} is useful when talking about text because it helps by filtering out certain sentences from it while breaking the text down into different sentences through regular
-   expressions that look for punctuation marks showing end of sentence. This function checks a variety of factors including minimum word count as well as unique word count. If all these conditions are met, 
-   then that particular sentence will go into a filtered sentence list. In addition this could also call has repeated filler patterns to eliminate noise.
-%%%%%%%%%%% code %%%%%%%%%%%
-\begin{lstlisting}[language=Python, caption={Filter sentences from the text}]
-def filter_short_and_filler_sentences(text, filler_words, min_words, min_unique_words, min_characters):
-    # Filter sentences from the text based on length, unique words, minimum characters, and absence of repeated filler patterns.
-    sentences = text.split('. ')
-    filtered_sentences = []
-
-    for sentence in sentences:
-        words = sentence.split()
-        
-        if len(words) >= min_words and len(set(words)) >= min_unique_words and len(sentence) >= min_characters:
-            if not has_repeated_filler_patterns(sentence, filler_words):
-                filtered_sentences.append(sentence)
-    
-    return '. '.join(filtered_sentences)
-\end{lstlisting}
-
-The \texttt{filter\_short\_and\_filler\_sentences} function will process the text to filter out sentences and it splits the text into individual sentences using the regular expression to check the various
-punctuation marks that signify the end of a sentence. This function check several conditions like minimum number of words number of unique words and exceed the length in characters once these conditions are satisfied, 
-the sentence will be appended to the list of filtered sentences. 
-Additionally, it will call \texttt{has\_repeated\_filler\_patterns} function to identify and remove noise.
-\vspace{3cm}
-
-%%%%%% code %%%%%%%
-\begin{lstlisting}[language=Python, caption={Removing columns and combining the sentences to paragraphs}]
-
-    excel_data = pd.read_excel(file_path, sheet_name=None)
-
-    # Combining the sentences to paragraphs and applying the filtering
-    combined_paragraphs = {}
-    
-    for sheet_name, df in excel_data.items():
-        # Drop the 'Timecode' and 'Sprecher' columns
-        df = df.drop(columns=['Timecode', 'Sprecher'])
-        
-        # Convert the 'Transkript' column to a single string
-        df['Transkript'] = df['Transkript'].astype(str)
-        paragraph = ' '.join(df['Transkript'].tolist())
-        
-        # Filter short sentences and apply filler pattern filtering
-        filtered_paragraph = filter_short_and_filler_sentences(paragraph, filler_words, min_words, min_unique_words, min_characters)
-        
-        # Save the filtered paragraph by sheet name in the dictionary
-        combined_paragraphs[sheet_name] = filtered_paragraph
-    
-    # The `combined_paragraphs` dictionary now contains the filtered paragraphs for each sheet in memory.
-    # You can now use `combined_paragraphs` as needed in your code.
-    
-    print("Filtered paragraphs have been processed and stored in memory.")
-        
-\end{lstlisting}
-
-The above code will help to read the excel file, remove the columns and combine the sentences to paragraphs, where it reads the data from each sheet in the excel file and removes the columns Timecode and Sprecher. 
-It also combines the data into one single paragraph by adding the sheet name to the start of the paragraph. This code will call the \texttt{filter\_short\_and\_filler\_sentences} function
- to filter the sentences and adds the sheet name at the begin of the paragraph and save the 
-combined data to a text file and pickle file for the future use.
-
-%%%%%%%%%% Embedding %%%%%%%%%%%
-
-\subsection{Embedding}
- This the code will load the pre-trained Jina embeddings model and tokenizer the pre-processed text data. 
- The model will be used convert the text data into embeddings.
-
-%%%%%% code %%%%%%%
- \begin{lstlisting}[language=Python, caption={Load Jina AI embedding model and tokenizer}]
-
-# Load the pre-trained Jina embeddings model and tokenizer
-model_name = 'jinaai/jina-embeddings-v2-base-de'
-model = AutoModel.from_pretrained(model_name, trust_remote_code=True)
-tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-
-# Assigning the combined_paragraphs to the text variable
-text = combined_paragraphs
-# Split the text into sentences based on '. ' delimiter
-sentences = text.split('. ')
-# Define the batch size for processing
-batch_size = 32 # can be adjusted based on the computational power
-embeddings = []
-
-# Process the sentences in batches
-for i in range(0, len(sentences), batch_size):
-    batch_sentences = sentences[i:i+batch_size]
-    
-    # Tokenize the batch of sentences
-    inputs = tokenizer(batch_sentences, return_tensors='pt', padding=True, truncation=True, max_length=512)
-    # Compute embeddings without tracking gradients
-    with torch.no_grad():
-        outputs = model(**inputs).last_hidden_state
-        
-        # Compute the mean embedding for each sentence in the batch
-        batch_embeddings = outputs.mean(dim=1).cpu().numpy()
-        # Append the batch embeddings to the list
-        embeddings.extend(batch_embeddings)
-
-# Convert the list of embeddings to a NumPy array
-embeddings = np.array(embeddings)
-\end{lstlisting}
-
-\noindent\textbf{Load Model and Tokenizer:} It loads a pre-trained Jina embeddings model and its corresponding tokenizer. 
-The \texttt{trust\_remote\_code=True} argument ensures that remote code is trusted when loading the model.
-
-\noindent\textbf{Split Text:} The data is split into individual sentences using '. ' as the delimiter.
-As the text dataset has been combined into a paragraph, it is necessary to split the text into individual sentences.
-As the model can handle sequences length of the embeddings is 8192 and I have reduced to sequence length to 512 as in the future phase
-as the maximum sequence length need more computational power and memory. 
-
-\noindent\textbf{Batch Processing:} Sentences are processed in batches of size 32 to manage memory and computational efficiency.
-This will also reduces the runtime of the embedding process. The batch size can be alter based on the computational power.
-
-\noindent\textbf{Tokenization and Embedding Computation:} Each batch of sentences is tokenized using the model’s tokenizer. 
-The embeddings are computed without tracking gradients for efficiency. For every sentence, a fixed size embedding is 
-obtained by calculating the mean of the last concealed state across tokens.
-
-\noindent\textbf{Store Embeddings:} The embeddings for each batch are collected and converted into a NumPy array for further use.
-
-%%%%%%%%%% Dimensionality Reduction %%%%%%%%%%%%%
-
-\subsection{Dimensionality Reduction}
-
-As the embedding data will be having high dimensional space and it cannot be used for the visualization and clustering directly hence, the UMAP reduction
-technique is used which will helps to convert the high dimensional space into a low dimensional space.
-
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Dimensionality Reduction}}]
-import umap.umap_ as umap
-# Create a UMAP model instance with specified hyperparameters
-umap_model = umap.UMAP(n_neighbors=20, n_components=10, min_dist=0.1, metric='cosine', low_memory=True)
-
-# Fit the UMAP model to the filtered embeddings and transform the data
-umap_embeddings = umap_model.fit_transform(filtered_embeddings)
-\end{lstlisting}
-
-\noindent\textbf{Initialize UMAP Model:} The UMAP model is initialized with the following hyperparameters:
+\noindent
+In short, this code section ensures:
 \begin{itemize}
-    \item \texttt{n\_neighbors}: Number of neighboring points used in local approximations.
-    \item \texttt{n\_components}: The number of dimensions for the reduced embedding.
-    \item \texttt{min\_dist}: Minimum distance between points in the low-dimensional space.
-    \item \texttt{metric}: Distance metric used to calculate distances between points.
-    \item \texttt{low\_memory}: Optimizes memory usage by storing fewer intermediate results.
-\end{itemize}
-These hyperparameters will help to balance capturing both local and  global structure in the data while reducing the dimension of the data. Setting the \texttt{n\_neighbors}
-will allows the model to consider neighborhood size preserving both local relationships and broder patterns. The \texttt{n\_components} which will helps to retains the 
-important information for downstream tasks with any data loss. The \texttt{min\_dist} will relatively control the distance between groups and tightens the clusters making it easier for 
-grouping the distinct groups. The use of \texttt{low\_memory=True} will help to reduce the memory usage of the model whenever it is dealing with larger dataset.
-
-\noindent\textbf{Fit and Transform Data:} The UMAP model is trained on the \texttt{filtered\_embeddings} data to reduce its dimensionality from high-dimensional space to a 10-dimensional space. 
-The \texttt{fit\_transform()} method performs both fitting the model and transforming the data into the new lower-dimensional space. The transformed data is stored in \texttt{umap\_embeddings}.
-
-%%%%%%%%%% Clustering %%%%%%%%%%%%%
-
-\subsection{Clustering}
-HDBSCAN is used to cluster the embeddings obtained from UMAP. The clustering results are organized into a JSON file 
-to facilitate easy access and analysis of the clusters and their associated sentences.
-
-
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={HDBSCAN Clustering}}]
-
-# Create a HDBSCAN Clustering instance with specified hyperparameters
-clusterer = hdbscan.HDBSCAN(min_cluster_size=40, cluster_selection_epsilon=0.4, metric='euclidean', cluster_selection_method='eom')
-clusters = clusterer.fit_predict(umap_embeddings)
-
-# Print the number of clusters
-num_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
-print(f"Number of clusters: {num_clusters}")
-\end{lstlisting}
-
-\noindent\textbf{Initialize and Apply HDBSCAN:} The HDBSCAN clusterer is configured with:
-\begin{itemize}
-    \item \texttt{min\_cluster\_size}: Minimum size of clusters.
-    \item \texttt{cluster\_selection\_epsilon}: The parameter to regulate the clusters granularity.
-    \item \texttt{metric=}: The distance metric used for clustering.
-    \item \texttt{cluster\_selection\_method}: Method for selecting clusters (excess of mass).
-\end{itemize}
-The \texttt{fit\_predict()} method applies HDBSCAN to the \texttt{umap\_embeddings} and returns cluster labels.
-
-\noindent\textbf{Count and Print Number of Clusters:} The number of clusters is calculated by counting unique cluster labels and adjusting for the label \texttt{-1},
- which represents noise. The result is printed.
-\vspace{3cm}
-
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Count and Print Number of Clusters}}]
-# Create a list to hold clusters with their sentences
-clusters_list = []
-
-for cluster in np.unique(clusters):
-    # Convert the cluster ID to a regular Python int
-    cluster_id = int(cluster)
-    # Collect sentences for each cluster
-    sentences_in_cluster = [sentence for i, sentence in enumerate(sentences) if clusters[i] == cluster]
-    
-    # Create a dictionary for the cluster
-    cluster_dict = {
-        "cluster_id": cluster_id,
-        "sentences": sentences_in_cluster
-        }
-    # Add the cluster dictionary to the list
-    clusters_list.append(cluster_dict)
-    
-# Save the clusters to a JSON file
-output_json_file = 'clusters.json'
-with open(output_json_file, 'w', encoding='utf-8') as f:
-    json.dump(clusters_list, f, ensure_ascii=False, indent=4)
-
-print(f"Clusters have been saved to '{output_json_file}'")
-\end{lstlisting}
-
-\noindent\textbf{Organize and Store Clusters:} The code creates a list of dictionaries where each dictionary represents a cluster. Each dictionary contains:
-\begin{itemize}
-    \item \texttt{cluster\_id}: The ID of the cluster.
-    \item \texttt{sentences}: A list of sentences belonging to that cluster.
+    \item Secure handling of **login** and **signup** flows.
+    \item Automatic **role assignment** and **retrieval** from the database.
+    \item Seamless bridging between the Flask web server and the **Chainlit** chatbot interface.
 \end{itemize}
 
-\noindent\textbf{Save Clusters to JSON:} The list of clusters is saved to a JSON file named \texttt{clusters.json}. 
-The \texttt{json.dump()} function serializes the list and writes it to the file. A confirmation message is printed indicating successful saving.
+\section{PDF Processing (Text Extraction and Chunking)}
+\label{sec:pdf-chunking}
 
+In this part of the code, we handle the **user-uploaded PDF files**—from reading the file’s pages to splitting the text into smaller segments (chunks) that are later added to our **vector store** for retrieval. Below is a detailed snippet and explanation:
 
-%%%%%%%%%%%%%%%% large Language Model %%%%%%%%%%%%%%%%
+\begin{lstlisting}[language=Python, caption={PDF Processing and Chunking}, basicstyle=\small\ttfamily]
+# If user uploaded a file via paperclip
+if message.type == "file":
+    logging.info("Processing uploaded file from user via paperclip...")
 
-\subsection{Large Language Model}
+    # 1 Load the PDF using PyPDFLoader
+    loader = PyPDFLoader(message.file_path)
+    documents = loader.load()
 
-The cluster data which is stored in the JSON file is used to generate the topic names for each cluster. This process involves leveraging the model’s ability to process and synthesize information from multiple sentences,
-producing a coherent and meaningful topic label for each cluster.
+    # 2 Split text into smaller chunks
+    text_splitter = CharacterTextSplitter(chunk_size=4000, chunk_overlap=500)
+    texts = text_splitter.split_documents(documents)
 
-\noindent\textbf{Loading the Model and Tokenizer:} Accessing the pre-trained language model and tokenizer through Hugging 
-Face model hub with a script that has a name Meta-Llama-version, it is based on an 
-access token (this model is being used because of my compute resources constraints although other models may be possible too).
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Loading Llama 3 model}}]
-import json
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+    # 3 Add the chunks to the vector store in manageable batches
+    batch_size = 10
+    for i in range(0, len(texts), batch_size):
+        batch = [t.page_content for t in texts[i : i + batch_size]]
+        docsearch.add_texts(batch)
 
-# Debugging function to help track where issues might be occurring
-def debug_message(message):
-    print(f"[DEBUG] {message}")
-# Load the model and tokenizer once at the beginning
-try:
-    debug_message("Loading model and tokenizer...")
-    model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", token="HuggingFace access token")
-    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", token="HuggingFace access token")
-    debug_message("Model and tokenizer loaded successfully.")
-except Exception as e:
-    debug_message(f"Error loading model or tokenizer: {str(e)}")
-    raise
+    # 4 Notify the user about successful processing
+    await cl.Message(
+        content=(
+            "PDF uploaded and processed successfully! "
+            "You can now ask questions about its content."
+        )
+    ).send()
+
+    return
 \end{lstlisting}
 
-\noindent\textbf{Generating Topics:} A function named \texttt{generate\_topic} is used to generate a topic name for a set
- of sentences within a cluster. The sentences are combined into a corpus and fed to the language model using a prompt,
-  which returns a concise and specific topic of up to 5 words. 
-The topic generation process is wrapped in error handling to catch any issues that may arise. 
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Generate Topic}}]
-def generate_topic(sentences):
+\subsubsection*{Detailed Explanation}
+
+\begin{enumerate}
+    \item \textbf{Detecting a File Upload}
+    \begin{itemize}
+        \item The code checks if \texttt{message.type == "file"}. If so, it logs a message indicating that a PDF file has been received from the user through the **paperclip icon** in Chainlit.
+        \item Using an \texttt{if} condition around the file-logic ensures text messages and file uploads are handled separately in the same event function.
+    \end{itemize}
+
+    \item \textbf{Loading the PDF with \texttt{PyPDFLoader}}
+    \begin{itemize}
+        \item \texttt{PyPDFLoader} is a document loader that reads PDF files and converts them into a list of \texttt{Document} objects—one for each page. 
+        \item Internally, it might use a library like PyPDF2 or pdfplumber to extract text. Here, \texttt{loader.load()} creates an in-memory representation of the PDF content as \texttt{documents}.
+    \end{itemize}
+
+    \item \textbf{Splitting Text into Chunks}
+    \begin{itemize}
+        \item **Why split?** Large text blocks can overwhelm certain embedding or retrieval systems. Breaking down pages into chunks helps keep context manageable and supports more accurate retrieval results (since each chunk remains more focused on a single topic).
+        \item \texttt{CharacterTextSplitter}:
+        \begin{itemize}
+          \item \texttt{chunk\_size=4000} sets the maximum number of characters in a chunk.
+          \item \texttt{chunk\_overlap=500} ensures a 500-character overlap between consecutive chunks. This overlap helps preserve continuity of context between two consecutive chunks. When retrieving answers, slightly overlapping text can prevent abrupt context cuts.
+        \end{itemize}
+        \item \texttt{text\_splitter.split\_documents(documents)}:
+        \begin{itemize}
+            \item Loops over each \texttt{Document} (e.g., each PDF page) and subdivides it into multiple, partially-overlapping text segments.
+            \item Returns a list of \textit{split} text segments, stored in the \texttt{texts} variable. 
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Batch Insertion into the Vector Store}
+    \begin{itemize}
+        \item A \textit{vector store} (like Pinecone) is used to store embeddings so that relevant chunks can be quickly retrieved based on semantic similarity.
+        \item We define \texttt{batch\_size = 10} to avoid feeding all chunks at once, which could be memory-intensive if the PDF is large.
+        \item The loop \texttt{for i in range(0, len(texts), batch\_size)} processes chunks in increments of 10. Each iteration:
+        \begin{enumerate}
+            \item Slices a \texttt{batch} of 10 from the \texttt{texts} list.
+            \item Calls \texttt{docsearch.add\_texts(batch)} to add that subset of chunks to the vector database. 
+        \end{enumerate}
+        \item Splitting into batches ensures stable performance and reduces the risk of timeouts or memory spikes.
+    \end{itemize}
+
+    \item \textbf{User Notification}
+    \begin{itemize}
+        \item After successfully uploading and splitting the PDF content, the user is informed with a message (``PDF uploaded and processed successfully!''). 
+        \item This immediate feedback ensures a good user experience by confirming that the system is ready to handle queries about the newly indexed content.
+    \end{itemize}
+
+    \item \textbf{Return Statement}
+    \begin{itemize}
+        \item The function ends (\texttt{return}) to avoid further processing of the \texttt{message} as if it were a text query. 
+        \item This prevents any additional or conflicting logic from executing once the file-handling code finishes.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Why Chunking is Important}
+\begin{itemize}
+  \item \textbf{Efficient Retrieval:} Many LLM-based retrieval systems do best when dealing with smaller segments. Searching and re-ranking short chunks is often faster and more precise.
+  \item \textbf{Context Preservation:} Overlapping chunks maintain local context across boundary areas, which is crucial for question answering. If text relevant to a user’s question is split between the end of one chunk and the start of the next, the chunk overlap ensures minimal information loss.
+  \item \textbf{Scalability:} Large PDF files with dozens or even hundreds of pages become more manageable. The user can ask questions about any part of the document without manually referencing page numbers or paragraphs.
+\end{itemize}
+
+This upload, split, and index workflow is central to enabling a dynamic question-answer system, where each user can bring in new documents and instantly query them. Once the text is converted into vector form, the system can retrieve it for any subsequent queries, seamlessly integrating new medical or academic documents into the user’s knowledge base.
+
+\section{Embedding Generation}
+\label{sec:embedding-generation}
+
+This portion of the code lays out how we prepare a sentence-level embedding model and connect it to the vector database—ensuring that new text segments are converted into numerical vectors (embeddings). Below is the relevant snippet, with an in-depth discussion:
+
+\begin{lstlisting}[language=Python, caption={Embedding Model Setup and Pinecone Integration}, basicstyle=\small\ttfamily]
+# 1 Load embeddings for all-mpnet-base-v2 (768-dimensional embeddings)
+embedding_model = SentenceTransformer('all-mpnet-base-v2')
+embeddings = download_hugging_face_embeddings()
+
+# 2 Initialize Pinecone
+pinecone_instance = PineconeClient(api_key=PINECONE_API_KEY)
+if index_name not in [index.name for index in pinecone_instance.list_indexes()]:
+    pinecone_instance.create_index(
+        name=index_name,
+        dimension=768,
+        metric='cosine',
+        spec=ServerlessSpec(cloud='aws', region=PINECONE_API_ENV)
+    )
+
+# 3 Access the index
+docsearch = Pinecone.from_existing_index(index_name, embeddings)
+\end{lstlisting}
+
+\subsubsection*{Step-by-Step Explanation}
+\begin{enumerate}
+    \item \textbf{Loading the Embedding Model}
+    \begin{itemize}
+        \item \texttt{SentenceTransformer(\textquotesingle all-mpnet-base-v2\textquotesingle)}: 
+        We instantiate a pre-trained embedding model from the \emph{Sentence Transformers} family.  
+        \begin{itemize}
+            \item \emph{all-mpnet-base-v2} outputs vectors of size 768 for each sentence or text chunk.
+            \item This particular model is well-regarded for capturing semantic similarities, making it suitable for question answering or retrieval tasks.
+        \end{itemize}
+
+        \item \texttt{embeddings = download\_hugging\_face\_embeddings()}: 
+        A custom utility, presumably in \texttt{src.helper}, that either fetches or caches embedding-related data.  
+        \begin{itemize}
+            \item This may ensure version consistency, or optimize performance by not repeatedly downloading large model files.
+            \item The result is likely a reference to the same dimension/embedding pipeline used by \texttt{SentenceTransformer}, meaning the code can embed both documents and user queries in a matching format.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Initializing Pinecone (Vector Database)}
+    \begin{itemize}
+        \item \texttt{pinecone\_instance = PineconeClient(api\_key=PINECONE\_API\_KEY)}: 
+        This sets up communication with Pinecone’s vector database, using the API key provided via environment variables.
+        \item We then check whether our target \texttt{index\_name} (here, \texttt{zf}) exists:
+        \begin{itemize}
+            \item \texttt{pinecone\_instance.list\_indexes()} returns a list of existing indexes.
+            \item If \texttt{zf} is missing, we call \texttt{pinecone\_instance.create\_index(...)}:
+            \begin{itemize}
+                \item \texttt{dimension=768} aligns with the output dimension of \texttt{all-mpnet-base-v2}.
+                \item \texttt{metric='cosine'} ensures we measure distance (or similarity) in terms of cosine similarity, which is a common choice for text embeddings.
+                \item \texttt{ServerlessSpec} configures the environment (e.g., \texttt{cloud='aws'}, \texttt{region=PINECONE\_API\_ENV}), controlling where the index is hosted.
+            \end{itemize}
+        \end{itemize}
+        \item If an index called \texttt{zf} already exists, creation is skipped—this prevents overwriting data.
+    \end{itemize}
+
+    \item \textbf{Linking the Embedding Model to the Index}
+    \begin{itemize}
+        \item \texttt{docsearch = Pinecone.from\_existing\_index(index\_name, embeddings)}: 
+        We create a \emph{docsearch} object that uses the \texttt{embeddings} logic in tandem with our newly confirmed Pinecone index.
+        \item \emph{Why do we pass \texttt{embeddings} here?}  
+        This ensures any text we embed for Pinecone is done with the \texttt{all-mpnet-base-v2} model, so that stored vectors and newly embedded queries are directly comparable.
+        \item \textbf{Result:} A retrieval interface that can accept text (chunks, user queries, etc.), embed it, and perform similarity lookups within Pinecone.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{How the Embedding Pipeline Works in Practice}
+\begin{enumerate}
+    \item \textbf{Ingest Documents:} 
+    When the user uploads a PDF (as shown in Section~\ref{sec:pdf-chunking}), each chunk is sent to \texttt{docsearch.add\_texts(...)}. Under the hood, it uses \texttt{embeddings} to transform that chunk into a 768-dimensional vector, then stores it in Pinecone with a unique ID.
+    \item \textbf{User Queries:} 
+    At query time, the code uses the same embedding model to turn a question into a vector. Pinecone returns the most similar stored chunks (based on cosine similarity).
+    \item \textbf{Contextual Answering:} 
+    These top chunks (i.e., relevant lines/paragraphs) are then fed into a Large Language Model, which forms a final answer. 
+\end{enumerate}
+
+\subsubsection*{Advantages of a Shared Embedding Model}
+\begin{itemize}
+    \item \textbf{Consistency:} Both documents and queries are embedded using the same approach, guaranteeing semantic alignment.
+    \item \textbf{Scalability:} Additional PDFs or text blocks can be seamlessly integrated (embeddings stored) without reprocessing older data.
+    \item \textbf{Performance:} Cosine similarity in a vector database like Pinecone is highly optimized, allowing low-latency lookups—even at large scales.
+\end{itemize}
+
+\noindent Overall, this embedding generation mechanism is critical for bridging raw textual data with \emph{retrieval-augmented} chat capabilities. Once the embeddings are set up and the index is ready, the system can handle user queries and fetch relevant information in real time.
+
+\section{Retrieval-Augmented Generation Pipeline}
+\label{sec:rag-pipeline}
+
+A core feature of this system is its **retrieval-augmented generation (RAG)** approach, where a Large Language Model (LLM) incorporates relevant text chunks from a vector store (Pinecone) to ground its responses in factual context. Below is the relevant code snippet, followed by a detailed walkthrough:
+
+\begin{lstlisting}[language=Python, caption={Retrieval-Augmented Generation (RAG) Pipeline}, basicstyle=\small\ttfamily]
+# 9) Long-running QA task
+def long_running_task(input_data, llm):
+    logging.info("Generating response...")
+    qa = RetrievalQA.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=docsearch.as_retriever(search_kwargs={'k': 5}),
+        return_source_documents=True,
+        chain_type_kwargs={"prompt": PROMPT}
+    )
+    result = qa.invoke(input_data)
+    logging.info("Response generated: %s", result["result"])
+    return result["result"]
+
+async_long_running_task = cl.make_async(long_running_task)
+
+# ...
+
+@cl.on_message
+async def handle_message(message):
+    """
+    Main message handler that processes both text messages and file uploads.
+    When dealing with user queries, it triggers the RAG pipeline.
+    """
     try:
-        # Combine sentences into a single string
-        combined_sentences = " ".join(sentences)  
-        # Create a prompt for the model
-        prompt = f"Analysiere die folgenden Saetze und generiere einen praezisen, aussagekraeftigen Themennamen von maximal 5 Worten. Der Themenname sollte den Kerninhalt erfassen und spezifisch sein. Saetze: {combined_sentences} Thema:"
-        # Tokenize input and generate the topic
-        inputs = tokenizer(prompt, return_tensors="pt")
-        outputs = model.generate(**inputs, max_new_tokens=10, num_return_sequences=1)
-        # Decode the generated topic
-        return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
-            
+        # ...
+        # 1 Distinguish between PDF upload and text queries
+        if message.type == "file":
+            # [PDF upload handling code removed for brevity]
+            return
+
+        # 2 For text messages (i.e., user queries):
+        query = message.content.lower()
+
+        # [Optional: Role-based branching omitted here for brevity]
+        
+        # 3 Re-initialize the same LLM
+        llm = initialize_llm()
+
+        # 4 Notify the user that the system is working on the response
+        await cl.Message(
+            content="Processing your request, please wait..."
+        ).send()
+
+        # 5 Perform retrieval
+        retriever = docsearch.as_retriever(search_kwargs={'k': 5})
+        docs = retriever.invoke(query)
+        context = " ".join([doc.page_content for doc in docs])
+
+        # 6 Prepare the combined input data for the chain
+        input_data = {"query": query, "context": context}
+
+        # 7 Execute the retrieval-augmented QA pipeline asynchronously
+        result = await async_long_running_task(input_data, llm)
+
+        # 8 Send the final answer back to the user
+        await cl.Message(content=result).send()
+
     except Exception as e:
-        debug_message(f"Error during topic generation: {str(e)}")
-    return "Topic generation failed"
+        logging.error(f"Error occurred: {e}")
+        await cl.Message(
+            content="An error occurred while processing your request. Please try again."
+        ).send()
 \end{lstlisting}
 
-\noindent\textbf{Loading Clusters:} The clusters of sentences are loaded from a JSON file (\texttt{clusters.json}), 
-which contains a list of dictionaries. Each dictionary represents a cluster and includes a \texttt{cluster\_id} 
-and the corresponding \texttt{sentences}.
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Load Clusters from JSON}}]
-# Load the clusters from the JSON file
-input_json_file = 'clusters.json'
-try:
-    debug_message(f"Loading clusters from {input_json_file}...")
-    with open(input_json_file, 'r', encoding='utf-8') as f:
-        clusters_list = json.load(f)
-    debug_message("Clusters loaded successfully.")
-except Exception as e:
-    debug_message(f"Error loading clusters: {str(e)}")
-    raise
+\subsubsection*{Detailed Explanation}
+\begin{enumerate}
+    \item \textbf{Long-running QA Task (\texttt{long\_running\_task})}
+    \begin{itemize}
+        \item We define a function that bundles up \emph{Retrieval + Generation} into a single workflow:
+        \begin{itemize}
+            \item \texttt{RetrievalQA.from\_chain\_type(...) }: A LangChain method that composes two main elements:
+                \begin{enumerate}
+                    \item A \emph{retriever}, which fetches the most relevant chunks (here, using \texttt{docsearch.as\_retriever()})  
+                    \item A language model (\texttt{llm}) that we pass in as a parameter.  
+                \end{enumerate}
+            \item \texttt{chain\_type="stuff"}: Tells LangChain to “stuff” the retrieved chunks into a single prompt, which the LLM then processes.
+            \item \texttt{return\_source\_documents=True}: Ensures the pipeline can return which text chunks were used, aiding traceability and debug.
+            \item \texttt{chain\_type\_kwargs=\{"prompt": PROMPT\}}: Injects our custom prompt template, controlling how context and user query are combined in the final prompt.
+        \end{itemize}
+        \item \texttt{result = qa.invoke(input\_data)}: Takes the dict \{\texttt{"query"}, \texttt{"context"}\} and feeds it into the chain. The chain formats a prompt (via \texttt{PROMPT}), appends relevant text, and runs the final LLM call.
+        \item The function logs the output and returns \texttt{result["result"]}, the LLM’s textual answer.
+    \end{itemize}
 
-# List to hold the results with generated topics
-clusters_with_topics = []
+    \item \textbf{Asynchronous Execution (\texttt{async\_long\_running\_task})}
+    \begin{itemize}
+        \item \texttt{cl.make\_async} wraps the synchronous \texttt{long\_running\_task} so it can be awaited within an \texttt{async} function (\texttt{handle\_message}). 
+        \item This prevents the entire chatbot loop from blocking while the LLM generates a response—especially important if inference is slow or if many users are connected.
+    \end{itemize}
+
+    \item \textbf{Main Message Handler (\texttt{handle\_message})}
+    \begin{itemize}
+        \item This function processes every user message. It distinguishes between file uploads (\texttt{if message.type == "file"}) and text queries.
+        \item If it’s a \emph{text query}, the following steps occur:
+        \begin{enumerate}
+            \item \texttt{query = message.content.lower()}: The user’s text is captured.
+            \item \texttt{llm = initialize\_llm()}: We load or re-initialize the LLM (e.g., a Mistral model). 
+            \item \texttt{await cl.Message(content="...").send()}: A quick message is sent to let the user know the system is working.
+            \item \textbf{Retrieval}: 
+            \begin{itemize}
+                \item \texttt{retriever = docsearch.as\_retriever(search\_kwargs=\{'k': 5\})} uses the Pinecone-based docsearch to find up to five relevant chunks for the user’s query.
+                \item \texttt{docs = retriever.invoke(query)} runs the similarity lookup. 
+                \item Then we build a \texttt{context} string out of these chunks, typically by concatenating them with a space.
+            \end{itemize}
+            \item \textbf{Chain Input}: 
+            \begin{itemize}
+                \item \texttt{input\_data = \{"query": query, "context": context\}} is the dictionary that gets passed to our QA chain (via \texttt{long\_running\_task}).
+            \end{itemize}
+            \item \texttt{result = await async\_long\_running\_task(input\_data, llm)}: We run the RAG pipeline asynchronously.
+            \item Finally, we send the LLM’s answer back to the user with \texttt{await cl.Message(content=result).send()}.
+        \end{enumerate}
+    \end{itemize}
+
+    \item \textbf{Prompt Template (\texttt{PROMPT})}
+    \begin{itemize}
+        \item Defined elsewhere in the code, it might look like:
+\begin{lstlisting}[language=Python]
+PROMPT = PromptTemplate(
+    template=(
+        "You are a medical assistant. "
+        "Based on the following context, answer the question concisely:\n\n"
+        "Context: {context}\n\n"
+        "Question: {question}\n\n"
+        "Answer:"
+    ),
+    input_variables=["context", "question"]
+)
+\end{lstlisting}
+        \item The placeholders \texttt{{context}} and \texttt{{question}} are substituted with the text from the retriever. 
+        \item This structure forces the LLM to ground its answer in the retrieved snippets, mitigating hallucinations.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Why RAG Matters}
+\begin{itemize}
+    \item \textbf{Accuracy and Context}: The LLM is less likely to invent facts, since it sees the actual text relevant to the user’s question.
+    \item \textbf{Extensibility}: Users can add more documents over time. The system can then answer questions about newly introduced material without retraining the LLM.
+    \item \textbf{Traceability}: Because \texttt{return\_source\_documents=True} is set, the pipeline can record which chunks were used, enabling better debugging or even letting the user see those sources for reference.
+\end{itemize}
+
+\noindent
+Overall, **retrieval-augmented generation** fuses an \textit{external knowledge store} (Pinecone) with a powerful \textit{language model} (like Mistral). The final outcome is a **contextual, verifiable answer** that draws from user-uploaded PDFs or other indexed material, rather than relying solely on the LLM’s internal training data.
+
+\section{Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}
+\label{sec:role-logic}
+
+In this system, the user’s \emph{role}—either a \textbf{Student} in need of detailed, academic explanations or a \textbf{Patient} requiring concise diagnostic guidance—shapes the chatbot’s behavior. Below is a relevant code snippet from the \texttt{start\_chat} and \texttt{handle\_message} functions, illustrating how we differentiate between these modes:
+
+\begin{lstlisting}[language=Python, caption={Role-Based Logic Snippet}, basicstyle=\small\ttfamily]
+@cl.on_chat_start
+async def start_chat():
+    """
+    On chat start, we read LOGGED_IN_EMAIL from environment,
+    fetch the user's role from DB, store it in session, and greet them.
+    """
+    email = os.environ.get("LOGGED_IN_EMAIL", "")
+    role = None
+
+    if email:
+        user = get_user(email)  # e.g. (id, email, password, role)
+        if user:
+            role = user[3].strip().upper()  # e.g. 'PATIENT' or 'STUDENT'
+
+    cl.user_session.set("role", role)
+
+    if role == "PATIENT":
+        await cl.Message(
+            content=(
+                "Patient Chatbot\n\n"
+                "Welcome! You can upload a PDF (via the paperclip icon) or ask a biomedical question. "
+                "To book an appointment, type 'book an appointment'."
+            )
+        ).send()
+    elif role == "STUDENT":
+        await cl.Message(
+            content=(
+                "Student Chatbot\n\n"
+                "Welcome! You can upload a PDF (paperclip icon) or ask a biomedical question to get started."
+            )
+        ).send()
+    else:
+        await cl.Message(content="ERROR: Role not recognized. Contact Support.").send()
+
+@cl.on_message
+async def handle_message(message):
+    try:
+        role = cl.user_session.get("role")  # 'PATIENT' or 'STUDENT' or None
+
+        # If user is a PATIENT, handle special logic (e.g., appointment booking)
+        if role == "PATIENT":
+            # [omitted: user_appointment_info logic, location/specialty checks, etc.]
+
+            # If no special triggers, continue to normal query handling
+            # ...
+
+        # If user is a STUDENT, or we are done with appointment logic:
+        # ... (common retrieval + LLM steps go here)
+
+    except Exception as e:
+        logging.error(f"Error occurred: {e}")
+        await cl.Message(
+            content="An error occurred while processing your request. Please try again."
+        ).send()
 \end{lstlisting}
 
-\noindent\textbf{Processing Clusters Sequentially:} The function \texttt{process\_clusters\_sequentially} iterates through
- each cluster, skipping any noise clusters (identified by \texttt{cluster\_id} = -1). For each valid cluster, 
-the function generates a topic, appends the topic to the cluster data, and adds the updated cluster to a list 
-(\texttt{clusters\_with\_topics}). After processing each cluster, the script clears the CUDA memory (if using a GPU)
- to optimize memory usage.
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Process Clusters Sequentially}}]
-def process_clusters_sequentially():
-    for cluster in clusters_list:
-        try:
-            # Extract cluster information
-            cluster_id = cluster["cluster_id"]
-            # Skip the cluster with ID -1 (noise)
-            if cluster_id == -1:
-                debug_message(f"Skipping noise cluster {cluster_id}")
-                continue
+\subsubsection*{Detailed Explanation}
+
+\begin{enumerate}
+    \item \textbf{Role Extraction \& Storage}
+    \begin{itemize}
+        \item During \texttt{start\_chat}, the code retrieves the user’s email from environment variables (in this example, \texttt{LOGGED\_IN\_EMAIL}) and queries the database via \texttt{get\_user} to find the stored role (e.g., \texttt{'PATIENT'} or \texttt{'STUDENT'}).
+        \item \texttt{cl.user\_session.set("role", role)} saves this role in the session context, ensuring that each subsequent message from the user automatically references the same role without needing repeated lookups.
+    \end{itemize}
+
+    \item \textbf{Greeting the User}
+    \begin{itemize}
+        \item If the role is \texttt{PATIENT}, the chatbot introduces itself as a “Patient Chatbot,” highlighting PDF upload and biomedical question features. It also mentions the logic for appointment booking (i.e., “book an appointment”).
+        \item If the role is \texttt{STUDENT}, the chatbot welcomes them with a focus on deeper academic or learning-related inquiries, referencing file uploads for coursework or research documents.
+        \item If the system cannot identify a valid role, it displays an error message advising the user to contact support.
+    \end{itemize}
+
+    \item \textbf{Message Handling \& Conditional Flows}
+    \begin{itemize}
+        \item In \texttt{handle\_message}, we re-check the user’s role from the \texttt{cl.user\_session}.
+        \item \textbf{If \texttt{role == "PATIENT"}}, specialized appointment logic is available:
+            \begin{itemize}
+                \item For instance, searching for “book an appointment” triggers additional steps, such as collecting the user’s city and specialty, or sending a Twilio SMS with a booking link.
+                \item If no special triggers are detected, the code falls back to normal retrieval+LLM query handling.
+            \end{itemize}
+        \item \textbf{If \texttt{role == "STUDENT"}}, the user receives more in-depth, academically oriented assistance (e.g., expanded explanations, references).
+        \item In both cases, after role-specific checks, we eventually proceed to the standard retrieval pipeline for general Q\&A or synergy with the LLM.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Why Role-Based Logic?}
+
+\begin{itemize}
+    \item \textbf{Differentiated Interaction}: Patients have simple, symptom-focused questions and possibly need appointment scheduling. Meanwhile, students want detailed, academically rigorous explanations.
+    \item \textbf{Security \& Personalization}: Certain features, such as patient data or contact info, should not be accessible to a “student” user. Role-based checks help maintain the appropriate scope of functionalities.
+    \item \textbf{Modular Scalability}: Additional roles (e.g., “Doctor,” “Researcher,” or “Admin”) could be integrated in the future, each with specialized logic or expanded capabilities.
+\end{itemize}
+
+\noindent
+Overall, role-based logic ensures the chatbot adapts to the user’s specific needs. Patients can focus on receiving quick, practical medical guidance, while students can explore in-depth academic or biomedical topics—all handled smoothly in a single application.
+
+\section{Symptom Analysis, Provider Recommendation, and Appointment Booking}
+\label{sec:provider-appointment}
+
+Beyond general Q\&A functionality, the system also handles patient-centric tasks: analyzing user symptoms, 
+recommending healthcare providers, and even automating appointment bookings. Below is an excerpt illustrating 
+how these features appear in the \texttt{handle\_message} function for \texttt{role == "PATIENT"}:
+
+\begin{lstlisting}[language=Python, caption={Symptom Analysis \& Appointment Booking Snippet}, basicstyle=\small\ttfamily]
+# ...
+if role == "PATIENT":
+    query = message.content.lower()
+
+    # 1 Trigger for booking an appointment
+    if "book an appointment" in query:
+        user_appointment_info[message.author] = {}
+        await cl.Message(
+            content="Sure! What is your location (e.g., Berlin, Munich)?"
+        ).send()
+        return
+
+    # 2 If we already started booking logic
+    if message.author in user_appointment_info:
+        if "location" not in user_appointment_info[message.author]:
+            # Capture patients location
+            user_appointment_info[message.author]["location"] = message.content
+            await cl.Message(
+                content="Got it! What specialty do you need (e.g., cardiology, dermatology)?"
+            ).send()
+            return
+
+        elif "specialty" not in user_appointment_info[message.author]:
+            # Capture specialty
+            user_appointment_info[message.author]["specialty"] = message.content
+            await cl.Message(
+                content="Finally, please provide your phone number so we can send the booking link."
+            ).send()
+            return
+
+        elif "phone_number" not in user_appointment_info[message.author]:
+            # 3 Final step: generate & SMS booking link
+            user_appointment_info[message.author]["phone_number"] = message.content
             
-            sentences = cluster["sentences"]
-            # Debug: Show the cluster info
-            debug_message(f"Processing cluster {cluster_id} with {len(sentences)} sentences.")
+            # Convert city & specialty to German equivalents
+            city_raw = user_appointment_info[message.author]["location"].strip()
+            specialty_raw = user_appointment_info[message.author]["specialty"].strip()
+            # ... (use translation maps) ...
             
-            # Generate a topic for the cluster
-            topic = generate_topic(sentences)
-            # Add the generated topic to the cluster data
-            cluster["topic"] = topic
-            # Append the updated cluster to the results list
-            clusters_with_topics.append(cluster)
-            # Clear memory after processing each cluster
-            torch.cuda.empty_cache()  # If you're using a GPU, clear the cache
-            debug_message(f"Processed cluster {cluster_id}, Topic: {topic}")        
-        except Exception as e:
-            debug_message(f"An error occurred while processing cluster {cluster_id}: {str(e)}")
+            booking_link = f"https://www.doctolib.de/{specialty_converted}/{city_converted}"
+            twilio_client.messages.create(
+                body=f"Your appointment booking link: {booking_link}",
+                from_=TWILIO_PHONE_NUMBER,
+                to=user_appointment_info[message.author]["phone_number"]
+            )
+            await cl.Message(
+                content=f"Your booking link has been sent to {message.content}."
+            ).send()
+            # Clear user_appointment_info
+            del user_appointment_info[message.author]
+            return
 
-# Process all clusters sequentially
-try:
-    process_clusters_sequentially()
-except Exception as e:
-    debug_message(f"Error during cluster processing: {str(e)}")
-    raise
+    # 4 Symptom or general patient queries fall back to normal retrieval + LLM
+    # ...
 \end{lstlisting}
 
-\noindent\textbf{Saving Results:} Once all clusters have been processed, the updated clusters with generated topics 
-are saved to a new JSON file (\texttt{clusters\_with\_topics.json}) for further use.
-%%%%%% code %%%%%%%
-\begin{lstlisting}[{language=Python, caption={Save Clusters with Topics to JSON}}]  
-# Save the clusters with topics to a new JSON file
-output_json_file = 'clusters_with_topics.json'
-try:
-    debug_message(f"Saving clusters with topics to {output_json_file}...")
-    with open(output_json_file, 'w', encoding='utf-8') as f:
-        json.dump(clusters_with_topics, f, ensure_ascii=False, indent=4)
-    debug_message("Clusters with topics saved successfully.")
-except Exception as e:
-    debug_message(f"Error saving clusters: {str(e)}")
-    
+\subsubsection*{Detailed Explanation}
+
+\begin{enumerate}
+    \item \textbf{Triggering Appointment Booking}
+    \begin{itemize}
+        \item If a patient’s query includes the phrase \texttt{"book an appointment"}, the system captures their user ID (i.e., \texttt{message.author}) in a dictionary called \texttt{user\_appointment\_info}.
+        \item This dictionary then tracks key steps (location, specialty, phone number) needed to finalize an appointment.
+        \item A message is immediately returned asking for the user’s location, preventing further text processing for that round.
+    \end{itemize}
+
+    \item \textbf{Location \& Specialty Collection}
+    \begin{itemize}
+        \item Once the user flows into the “appointment” path, the logic checks which pieces of information are missing:
+        \begin{enumerate}
+            \item \texttt{location}: e.g., Berlin or Munich
+            \item \texttt{specialty}: e.g., Cardiology, Dermatology
+        \end{enumerate}
+        \item The code displays short messages at each step. This ensures the user is guided through a simplified multi-turn conversation.
+    \end{itemize}
+
+    \item \textbf{Phone Number \& Booking Link Generation}
+    \begin{itemize}
+        \item When the phone number is received, the code triggers a final step that:
+        \begin{enumerate}
+            \item Converts the city name and specialty into a German-compatible format via a dictionary lookup (\texttt{city\_translation\_map}, \texttt{translation\_map}).
+            \item Constructs a \texttt{booking\_link} to a medical appointment platform (e.g., Doctolib).
+            \item Sends the link via \texttt{twilio\_client.messages.create(...)}, delivering an SMS to the user.
+            \item Responds in chat with a confirmation message (``Your booking link has been sent...''), then removes the user from \texttt{user\_appointment\_info} to avoid confusion on future messages.
+        \end{enumerate}
+    \end{itemize}
+
+    \item \textbf{Symptom or General Queries}
+    \begin{itemize}
+        \item For patient queries that aren’t directly about booking (e.g., “I have a sore throat...”), the code can fall back to normal retrieval + LLM logic.
+        \item This might involve symptom analysis or retrieving from a relevant knowledge base. The snippet above omits that for brevity.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Provider Recommendation and Symptom Analysis}
+
+\begin{itemize}
+    \item \textbf{Provider Recommendation:}
+    \begin{itemize}
+        \item The specialized dictionaries (\texttt{city\_translation\_map}, \texttt{translation\_map}) map English city or specialty names to their German equivalents. This ensures the final booking URL matches the local healthcare provider listings.
+        \item Further expansions could include an internal or external “doctor directory,” letting the chatbot automatically suggest providers based on location and specialty, even before generating a link.
+    \end{itemize}
+    \item \textbf{Symptom Analysis:}
+    \begin{itemize}
+        \item If the user states symptoms (e.g., “I have frequent headaches”), the code can direct the user to appropriate follow-up logic or mention relevant specialties.  
+        \item In some advanced setups, an LLM prompt specifically includes “symptom triage” or references medical guidelines, bridging from text-based retrieval to real-time suggestions (the code snippet is mostly an outline for appointment logic).
+    \end{itemize}
+\end{itemize}
+
+\noindent
+Overall, this patient-focused portion of the system ensures that common tasks—like clarifying symptoms, picking the right specialist, and securing an appointment—are streamlined. By combining manual user input flow with automated translation logic and an SMS-based booking confirmation, the bot delivers a practical end-to-end healthcare assistance workflow.
+
+\section{Front-End Integration}
+\label{sec:frontend}
+
+While much of the system’s logic operates on the back end (via Flask and LangChain/Chainlit), the **front-end layer** is critical for user interaction. This section describes how the UI for login, signup, and Chainlit chat seamlessly tie into the back-end logic.
+
+\subsection{Login and Signup Pages (Flask Templates)}
+
+Below is an example of how we might structure the \texttt{login.html} and \texttt{signup.html} pages. They rely on **Flask**’s \texttt{render\_template} mechanism:
+
+\begin{lstlisting}[language=HTML, caption={login.html (Flask Template)}, basicstyle=\small\ttfamily]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/">
+        <label for="email">Email:</label>
+        <input type="text" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+    <p>
+        Don't have an account? 
+        <a href="{{ url_for('signup') }}">Sign up here</a>
+    </p>
+</body>
+</html>
 \end{lstlisting}
-Throughout this code, a debugging function (\texttt{debug\_message}) is used to print out messages for tracking the 
-progress and identifying potential issues.
 
-\vspace{5cm}
-% |---------------------------------------------------------------------------------|
-% Application for the smaller text
-% |--------------------------------------------------------------------------------|
+\noindent\textbf{Explanation:}
+\begin{itemize}
+    \item The page includes a simple form posting to \texttt{/} (the login route).
+    \item If there’s an \texttt{error} (set by Flask upon invalid credentials), it displays in red text.
+    \item A link leads users to the \texttt{signup} route if they have no account.
+\end{itemize}
 
-\section{Web Application for Smaller Text Corpus}
+\begin{lstlisting}[language=HTML, caption={signup.html (Flask Template)}, basicstyle=\small\ttfamily]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+    <h2>Create an Account</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/signup">
+        <label for="email">Email:</label>
+        <input type="text" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br><br>
 
-In this section, the development of the a web application designed to process the smaller text data with the above implementation.
-The primary goal of this application is to provide a user-friendly interface for analysis of the smaller text corpus. This application
-will also the same workflow but, the data will be directly feed into the embedding model which is followed by clustering then to the 
-LLM model (Llama).
+        <label for="role">Role (PATIENT / STUDENT):</label>
+        <input type="text" name="role" required><br><br>
 
-\subsection{Methodlogy and Technologies Used}
-To implement this web application the following Technologies are employed, I have used the function which i have used in 
-the previous section along with the flask and HTML/CSS. Here the flask is used to run the web application where is manage the 
-POST request and Get request. The HTML/CSS is used to design the user interface (UI). The data is processed in the same way 
-as in the previous section.
-Over here instead of loading the files the user can directly paste the text data which we want to do topic modelling. 
-Once the data is loaded then the user can change the minimum size of the cluster and click on process button to process the data. 
-The data will be undergo the same process which is mwntion in thw previous section like embedding, clustering and then
-to language model to generating the topic. 
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>
+        Already have an account? 
+        <a href="{{ url_for('login') }}">Login here</a>
+    </p>
+</body>
+</html>
+\end{lstlisting}
 
-\noindent Below are few snapshots of the web application, 
+\noindent\textbf{Explanation:}
+\begin{itemize}
+    \item This form posts to \texttt{/signup}.
+    \item The user specifies an \texttt{email}, \texttt{password}, and \texttt{role} (e.g., “PATIENT” or “STUDENT”).
+    \item If the email is already taken, an \texttt{error} message (like ``Email already registered.'') is shown.
+\end{itemize}
 
-This is the UI of the web application where the user can change the minimum size of the cluster and process the data.
-\begin{figure}[htbp]
-    \begin{center}
-      \includegraphics[width=12cm]{./Images/UI 1.png}
-       \caption{UI for the web application}
-       \label{fig: Web application UI}
-    \end{center}
-\end{figure}
+\subsection{Chainlit Chat UI}
 
-The output of the web application looks as attached below,
+\textbf{Chainlit} provides a sleek front-end interface out of the box. After the user logs in (and the Flask code launches or reuses a Chainlit instance), the user is redirected to the Chainlit UI, typically at \texttt{http://localhost:8001}. Some key features of the Chainlit interface:
 
-\begin{figure}[htbp]
-    \begin{center}
-      \includegraphics[width=12cm]{./Images/UI Result.png}
-       \caption{UI for the web application}
-       \label{fig: Web application Output UI}
-    \end{center}
-\end{figure}
+\begin{itemize}
+    \item **Interactive Chat Windows**: Users can type or upload PDFs (via the \emph{paperclip} icon) directly. 
+    \item **Session Awareness**: The environment variable \texttt{LOGGED\_IN\_EMAIL} and the role from the database guide how the chatbot greets or handles user messages.
+    \item **Chat Profiles**: As defined in \texttt{@cl.set\_chat\_profiles}, we can brand the chat or provide special instructions (e.g., “Mistral Biomedical” for medical queries).
+    \item **Real-time Updates**: The user sees status messages (like “Processing your request...”) and final LLM replies in real time.
+\end{itemize}
+
+\subsubsection{Loading Page (Optional)}
+
+A simple \texttt{loading.html} can serve as a bridge page after successful login, informing the user that **Chainlit** is starting up. For instance:
+
+\begin{lstlisting}[language=HTML, caption={loading.html (Flask Template)}, basicstyle=\small\ttfamily]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading Chatbot...</title>
+</head>
+<body>
+    <h2>Please wait, we are launching your chatbot session...</h2>
+    <p>If not redirected automatically, <a href="{{ chatbot_url }}">click here</a>.</p>
+</body>
+</html>
+\end{lstlisting}
+
+\noindent
+Flask’s login route references this by calling \texttt{render\_template("loading.html", chatbot\_url=chatbot\_url)}.
+
+\subsection{Overall Flow}
+
+\begin{enumerate}
+    \item \textbf{User Visits Login Page (\texttt{/})}:
+    \begin{itemize}
+        \item If they **POST** valid credentials, the server spawns or reuses a Chainlit process and redirects them to \texttt{loading.html}.
+    \end{itemize}
+    \item \textbf{Loading Screen}:
+    \begin{itemize}
+        \item The user is shown a simple “please wait” message. After a short wait, they can click (or get auto-redirected) to \texttt{http://localhost:8001}.
+    \end{itemize}
+    \item \textbf{Chainlit UI}:
+    \begin{itemize}
+        \item The front-end chat interface greets the user based on their role (Patient / Student).
+        \item Users can type questions or click the paperclip to upload a PDF. 
+        \item Each message is sent to the back-end event handlers, which respond with LLM-driven answers or further instructions (e.g., location prompts for appointment booking).
+    \end{itemize}
+\end{enumerate}
+
+\noindent
+By combining **Flask** for authentication and session management with **Chainlit** for conversational interaction, we achieve a user-friendly, cohesive experience:
+\begin{itemize}
+    \item **Flask**: Manages the database (login, signup, roles) and starts the Chainlit server if needed.
+    \item **Chainlit**: Provides the interactive “chat window,” letting users upload documents, ask questions, and receive LLM-powered responses in real time.
+\end{itemize}
 
 
-This web application is used to process the smaller text data and generate the topic in the same way as the previous section.
-This will help the user to process the data faster and can be used for both German and English language.
+\end{document}
 
 
-\section{Summary}
-This chapter gives the detailed explaination about the various libraries used for the implementation of the topic modelling and along with the web application for 
-smaller text corpus. The process of achieve the topic modelling on the historical biographical interview data using the embedding, clustering and large language 
-model is explained in the previous section. The web application is used to process the smaller text data and generate the topic in the same way as the previous section.
-With the help of this implementation approach for achieving topic modelling describe how LLMs can be used for topic modelling when the dealing with the larger text documents.
-With this chapter implementation of the thesis is completed and next chapter will be about checking the performance of the models implemented.
-
-
+\end{document}

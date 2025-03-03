@@ -441,9 +441,9 @@ INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\t1pcr.fd
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
-OUTPUT main.toc
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
+OUTPUT main.toc
 INPUT .\main.lof
 INPUT .\main.lof
 INPUT main.lof
@@ -505,60 +505,47 @@ INPUT .\Chapters\Chapter4.tex
 INPUT .\Chapters\Chapter4.tex
 INPUT .\Chapters\Chapter4.tex
 INPUT Chapters\Chapter4.tex
-INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI 1.png
-INPUT .\Images\UI Result.png
-INPUT .\Images\UI Result.png
-INPUT .\Images\UI Result.png
-INPUT .\Images\UI Result.png
-INPUT .\Images\UI Result.png
-INPUT .\Images\UI Result.png
-INPUT .\Images\UI Result.png
-INPUT .\Chapters\Chapter5.tex
-INPUT .\Chapters\Chapter5.tex
-INPUT .\Chapters\Chapter5.tex
-INPUT .\Chapters\Chapter5.tex
-INPUT Chapters\Chapter5.tex
-INPUT .\Images\cluster_legends.png
-INPUT .\Images\cluster_legends.png
-INPUT .\Images\cluster_legends.png
-INPUT .\Images\cluster_legends.png
-INPUT .\Images\cluster_legends.png
-INPUT .\Images\cluster_legends.png
-INPUT .\Images\cluster_legends.png
-INPUT .\Chapters\Chapter6.tex
-INPUT .\Chapters\Chapter6.tex
-INPUT .\Chapters\Chapter6.tex
-INPUT .\Chapters\Chapter6.tex
-INPUT Chapters\Chapter6.tex
-INPUT .\Appendices\AppendixA.tex
-INPUT .\Appendices\AppendixA.tex
-INPUT .\Appendices\AppendixA.tex
-INPUT .\Appendices\AppendixA.tex
-INPUT Appendices\AppendixA.tex
-INPUT .\main.bbl
-INPUT .\main.bbl
-INPUT main.bbl
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrb8t.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrb8t.vf
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrb8r.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1pcr.fd
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1pcr.fd
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1pcr.fd
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8c.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8c.vf
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrro8t.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrro8t.vf
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrro8r.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8t.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam7.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam7.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrb8a.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrb8a.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrr8a.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrr8a.pfb
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrro8a.pfb
+INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrro8a.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\palatino\uplb8a.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\palatino\uplb8a.pfb
 INPUT C:\Users\navi\AppData\Local\Programs\MiKTeX\fonts\type1\urw\palatino\uplr8a.pfb
