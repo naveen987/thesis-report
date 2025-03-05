@@ -5,7 +5,7 @@
 % The default font size and one-sided printing (no margin offsets)
 \graphicspath{{Pictures/}}% Specifies the directory where pictures are stored
 \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
-\usepackage[square, comma,  sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\usepackage[square, comma, sort&compress, numbers]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \usepackage{tikz}
 \usepackage{graphics}
 \hypersetup{urlcolor=black, colorlinks=true, citecolor=blue, linkcolor=Black} % Colors hyperlinks in blue - change to black if annoying
@@ -339,6 +339,7 @@ Your support and encouragement mean the world to me.
 \input{Chapters/Chapter4} 
 \input{Chapters/Chapter5} 
 \input{Chapters/Chapter6}
+\input{Chapters/Chapter7}
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
@@ -362,9 +363,9 @@ Your support and encouragement mean the world to me.
 \label{Bibliography}
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
-
 \bibliographystyle{apalike}  
 \bibliography{bibliography.bib}
+
 %\bibliographystyle{apalike} % Use the "apalike" BibTeX style for formatting the Bibliography
 
 %\bibliography{bibliography} % The references (bibliography) information are stored in the file named "bibliography.bib"

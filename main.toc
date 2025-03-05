@@ -49,24 +49,24 @@
 \contentsline {chapter}{\numberline {4}Implementation}{29}{chapter.88}%
 \contentsline {section}{\numberline {4.1}Libraries}{29}{section.89}%
 \contentsline {section}{\numberline {4.2}Code Implementation}{34}{section.90}%
-\contentsline {section}{\numberline {4.3}User Authentication and Role Identification}{35}{section.91}%
+\contentsline {section}{\numberline {4.3}User Authentication and Role Identification}{34}{section.91}%
 \contentsline {section}{\numberline {4.4}PDF Processing (Text Extraction and Chunking)}{35}{section.92}%
 \contentsline {section}{\numberline {4.5}Embedding Generation}{35}{section.93}%
-\contentsline {section}{\numberline {4.6}Pinecone Vector Database Integration}{36}{section.94}%
+\contentsline {section}{\numberline {4.6}Pinecone Vector Database Integration}{35}{section.94}%
 \contentsline {section}{\numberline {4.7}Retrieval-Augmented Generation Pipeline}{36}{section.95}%
-\contentsline {section}{\numberline {4.8}Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}{37}{section.96}%
+\contentsline {section}{\numberline {4.8}Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}{36}{section.96}%
 \contentsline {section}{\numberline {4.9}Symptom Analysis, Provider Recommendation, and Appointment Booking}{37}{section.97}%
 \contentsline {section}{\numberline {4.10}Front-End Integration}{37}{section.98}%
-\contentsline {section}{\numberline {4.11}Error Handling and Logging}{38}{section.99}%
+\contentsline {section}{\numberline {4.11}Error Handling and Logging}{37}{section.99}%
 \contentsline {section}{\numberline {4.12}User Authentication and Role Identification}{38}{section.100}%
 \contentsline {subsection}{\numberline {4.12.1}Initialization of the Database}{40}{subsection.181}%
-\contentsline {subsection}{\numberline {4.12.2}Signup Logic}{41}{subsection.182}%
+\contentsline {subsection}{\numberline {4.12.2}Signup Logic}{40}{subsection.182}%
 \contentsline {subsection}{\numberline {4.12.3}Login Logic}{41}{subsection.183}%
 \contentsline {subsection}{\numberline {4.12.4}Role Identification \& Usage}{41}{subsection.186}%
 \contentsline {subsection}{\numberline {4.12.5}Chainlit Integration}{42}{subsection.191}%
 \contentsline {subsection}{\numberline {4.12.6}Overall Flow}{42}{subsection.194}%
-\contentsline {section}{\numberline {4.13}PDF Processing (Text Extraction and Chunking)}{43}{section.200}%
-\contentsline {section}{\numberline {4.14}Embedding Generation}{46}{section.237}%
+\contentsline {section}{\numberline {4.13}PDF Processing (Text Extraction and Chunking)}{42}{section.200}%
+\contentsline {section}{\numberline {4.14}Embedding Generation}{45}{section.237}%
 \contentsline {section}{\numberline {4.15}Retrieval-Augmented Generation Pipeline}{48}{section.261}%
 \contentsline {section}{\numberline {4.16}Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}{53}{section.350}%
 \contentsline {section}{\numberline {4.17}Symptom Analysis, Provider Recommendation, and Appointment Booking}{56}{section.409}%
@@ -85,7 +85,3 @@
 \contentsline {section}{\numberline {6.1}Conclusion}{75}{section.749}%
 \contentsline {section}{\numberline {6.2}Answers to Research Questions}{76}{section.750}%
 \contentsline {section}{\numberline {6.3}Future Work and Challenges}{76}{section.755}%
-\vspace {1em}
-\contentsline {chapter}{\numberline {A}Source Code}{78}{appendix.756}%
-\vspace {1em}
-\contentsline {chapter}{Bibliography}{79}{dummy.757}%
