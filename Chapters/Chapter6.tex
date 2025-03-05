@@ -2,96 +2,34 @@
 
 \label{Chapter6}
 
-\lhead{Chapter 6. \emph{Conclusion and Future Work}}
+In this final chapter, we summarize the key contributions of this thesis and reflect on the outcomes of the research. We presented an AI-driven medical chatbot designed to serve both medical students and patients, integrating advanced natural language processing techniques, embedding-based retrieval, and large language models (LLMs) into a unified system. Our approach combines a robust data ingestion pipeline with role-based interaction, ensuring that each user receives tailored, context-aware responses. 
 
-This final chapter of the thesis serves to conclude the research, by presenting a comprehensive reflection on the various aspects explored and identifies potential 
-areas for the future research. This chapter will give an quick overview of the thesis by providing  the key findings, conclusion and future work. As the main
-objective of this thesis is to identify an unique approach which can handle the complex relationships among sentences in a text and to achieve the 
-topic modelingusing the latest techniques.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% section : Conclusion
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
+This thesis has demonstrated a novel framework for topic modeling and conversational AI in the medical domain by addressing critical challenges in both educational and patient support contexts. The main contributions can be summarized as follows:
+\begin{itemize}
+    \item \textbf{Dual-Mode Chatbot Architecture:} We designed a system that distinguishes between medical students and patients through secure user authentication, role assignment, and role-based logic. This allows the chatbot to deliver in-depth academic explanations to students while providing concise, practical guidance to patients.
+    \item \textbf{Robust Data Processing Pipeline:} The implementation includes comprehensive PDF processing, where documents are efficiently parsed, chunked, and preprocessed to facilitate accurate embedding generation.
+    \item \textbf{Embedding and Vector Storage:} By leveraging state-of-the-art models (such as \texttt{all-mpnet-base-v2}) and integrating with the Pinecone vector database, the system achieves rapid and scalable retrieval of contextually relevant text.
+    \item \textbf{Retrieval-Augmented Generation (RAG):} The RAG pipeline effectively combines retrieved text from the vector database with LLM-based response generation. This integration mitigates the risk of hallucination and grounds the chatbot's answers in factual, verifiable sources.
+    \item \textbf{Comprehensive Evaluation:} Both quantitative metrics (e.g., cosine similarity, Silhouette Score) and qualitative human evaluations were conducted. The results show that our approach provides high semantic alignment between expected and generated responses, validating the efficacy of the system.
+\end{itemize}
 
-This thesis proposes a new method of topic modeling, unlike the earlier methods in the forms of LDA, NMF, and LSA. 
-The conventional approaches have great capabilities in topic extraction, but they still strongly depend on word co-occurrence patterns.
- Besides, they cannot extract the deeper contextual understanding of text data. Meanwhile, BERTopic is a language model-based topic modeling 
- that covers an alternative by making use of embeddings, dimensionality reduction, clustering, and the representation of topics using c-TF-IDF and count 
-vectorizer techniques. Despite such merits, at the same time, BERTopic fails in completely capturing such complex semantic relationships among words in
- a text. Moreover, performance can be poor for smaller datasets, and results may slightly vary on runs with the same data.
-
-Considering these limitations, a new approach to topic modeling in an attempt to solve some of these challenges.
-In particular, this thesis focuses on improving topic modeling by providing better semantic understanding of relationships 
-among sentences and extracting more meaningful topics from text. While the novelty of this approach embeds, reduces the
-dimensionality, and clusters, it makes a further step by feeding the clustered sentences into large language models. 
-Large language models are better equipped to grasp complex semantic relationships and therefore allow for more 
-accurate and insightful topic generation. This, in turn, helps the researchers and analysts in identifying the 
-underlying themes and patterns in text data more appropriately.
-
-As the dataset is in German language, choosing the right embeddings model is a very important part of the process to get the best results.
-There are many embeddings models which can be used to tackle the problem but, I chose Jina embedding-v2-base-de model because of its 
-capabilities to handle both English and German languages data and gave better clustering results than other models and it 
-uses less computational power and time to process the data. For clustering the embedded data, I have used HDBSCAN algorithm over K-Means
-as it struggles to handle noise in the data and also need to specify the number of clusters in advance.
-As the language models are powerful in extracting the semantic relationships and most of the models are multilingual and handle German
-language feeding the clustered sentences to LLMs model will help to extract more meaningful topics for the text documents.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%section : answers to research questions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Answers to Research Questions}
-
-By answering the research questions that were formed earlier in this thesis, we shall be able to appreciate its possibilities and whether its objectives have been met.
+The research questions posed at the outset of this thesis have been addressed as follows:
 \begin{enumerate}
-    \item\textbf{Q1: How does topic modelling aid in the extraction of topic process from the dataset of past interviews?}
-    
-    The topic modelling approach can be used to extract the topics from the historical interview dataset as this question was made to understand the topic which were already 
-    exsited in the past to understand how the topic modeling has been achieved in the past and how it can be improved. This question help to understand the potential of the approaches
-    like LDA, NMF, LSA, BERTopic, prompt-topic-model etc., and how they can be improved in the past to achieve better results. With the help of this question, I was able to understand 
-    the workflow which has been used and about its advantages and disadvantages and how has been used in the past which various approaches to achieve better results. This question
-    helped me to understand the potential of the approaches and how it can be used for the interview dataset. This question also helped me to come up the idea of approaching the 
-    problem of handling the huge text data by using embedding, clustering and use of large language models.
-    
-    \vspace{0.3cm}
-    \item\textbf{Q2: How can we use various clustering techniques to extract information and cluster them from the German dataset?}
-    
-    This question will help me to understand the various clustering techniques and how they can be used to in this thesis to achieve topic modelling. There are many clustering techniques
-    like K-Means, DBSCAN, Hierarchical Clustering, HDBSCAN etc., which will help to cluster the data. This research support for choosing the clustering technique suitable for the dataset.
-    As these techniques are effective in grouping the data which are similar to each other. After understnading the pros and cons of various clustering techniques, which helped to achieve
-    better cluster formation for the text data in this thesis. As the number of topics present in the data is unknow and identifying the topics from the data is difficult this question helped
-    to understand how clustering techniques can be used to achieve the topic modelling. After understanding the various aspects of clustering algorithms, this question helped me to choose
-    the HDBSCAN algorithm to achieve better results. As this algorithm is effective in group the similar data point to each other, it can handle the noise in the data and it also doesn't 
-    require specifying the number of clusters in advance.
-    
-    \vspace{0.3cm}
-    \item\textbf{Q3: How can language models be applied for topic modelling of German datasets?}
-    
-    This question was asked in order to know how the language models can be applied to the German dataset. As well all know about the language models and how powerfull they are can be used
-    used for multilingual and cross lingual applications. So, the language models can be used for the German language datasets. However, to achieve topic modelling through language models
-    is not an easy task. As the LLM model can't be used to directly extract the topic from the data and this processing of large amount of data cannot be handled by LLM model. So, this question
-    helped to understand the potential of the approaches and as mention in research question 1, about the thesis approach where the data will undergoes embedding and clustering then, the clustered 
-    data will be fed to LLM model through the prompt to generate the topic names. In this way the LLM model can be used to extract the topic from the huge dataset. There are many advantages of using the
-    LLM model to extract the topic when compare to traditional approaches, as the traditional methods will extarct the topic based on the occurrence of the words in the data but, the LLM model
-    can understand the context of the sentences in the cluster and generate the topic names. There are many open source LLm model available and can be used based on the computational power of the device.
-
+    \item \textbf{Supporting Medical Education:} The chatbot provides dynamic, evidence-based answers that bridge theoretical knowledge and practical scenarios, thereby enhancing learning for medical students.
+    \item \textbf{Improving Patient Guidance:} By employing symptom analysis and retrieval-augmented generation, the system offers clear and contextually appropriate medical advice, assisting patients in deciding whether to seek routine or urgent care.
+    \item \textbf{Healthcare Provider Recommendations:} The integration of location- and specialty-based filters enables the system to suggest suitable healthcare providers, thereby streamlining patient referrals.
+    \item \textbf{Autonomous Appointment Management:} The agentic component successfully automates appointment booking by integrating with external APIs, reducing administrative burden and ensuring timely patient care.
 \end{enumerate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%section : future work and challenges
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Work and Challenges}
-
-The methods used in this thesis were effective for extracting the topics from the historical interview transcripts along with the corresponding
-challenges. Firstly, the noise present in the datast can be managed in much better way. The noise are not removed completely which is ending up in 
-forming a seperate cluster which is full of noise. Secondly, with the limited available of the computational power is major challenge 
-faced as the embedding model and language model needs high computational power to process the data. 
-Latest version of LLMs were not used due to the high computational power. 
-Thridly, handling of the noise in the data, as the removal stopwords and normalizing the data will have higher chance of losing the context of the
-information. Hence, the small amount of noise has been removed after looking into the cluster results but, the noise are not removed completely.
-
-In Future, with the help of better computational resources the challenges of using bigger and better embedding models and language models can be utilized
-for even better results. The prompting to the language models can be improved which will result in better topic name generation.
-Hyperparameters can be fine-tuned to get even better results. The web application can also be improved by using the better UI design and better styling.
-
-
+While the proposed system has shown promising results, several challenges remain and avenues for future research include:
+\begin{itemize}
+    \item \textbf{Handling Data Noise:} Despite effective preprocessing, some residual noise remains in the data. Future work could explore advanced noise-reduction techniques to further refine input quality.
+    \item \textbf{Scalability and Efficiency:} With the current computational resources, certain models had to be downscaled. As more powerful hardware becomes available, future iterations could employ larger, more sophisticated models to improve performance.
+    \item \textbf{Multimodal Data Integration:} Incorporating additional data sources (such as medical imaging or sensor data) could provide a more comprehensive understanding of patient conditions and enhance the chatbot’s recommendations.
+    \item \textbf{Enhanced Prompt Engineering:} Further research into prompt optimization for the LLM may reduce hallucinations and improve the accuracy of generated responses.
+    \item \textbf{User Interface Improvements:} Refining the front-end experience—both in the Flask templates and the Chainlit chat UI—could lead to higher user satisfaction and better overall interaction.
+\end{itemize}
+\clearpage

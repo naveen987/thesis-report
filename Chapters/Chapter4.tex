@@ -302,6 +302,21 @@ Each text chunk is converted into a numerical representation (an \textit{embeddi
     \item \textbf{Storage:} Embeddings are passed either to an in-memory structure or a vector database (such as Pinecone) for fast retrieval.
 \end{itemize}
 
+\section{Pinecone Vector Database Integration}
+\label{sec:pinecone}
+
+After the system generates embeddings for each text chunk (Section~\ref{sec:embedding}), the next step is to store them in a **vector database** for fast retrieval. Here, we integrate with \emph{Pinecone} to manage and query these embeddings efficiently:
+
+\begin{itemize}
+    \item \textbf{Index Creation}: The system checks whether an index (e.g., \texttt{"zf"}) already exists in Pinecone. If not, it creates one with a specified dimension (e.g., 768) and metric (e.g., \texttt{cosine}). This ensures compatibility with the selected embedding model (e.g., \texttt{all-mpnet-base-v2}).
+    \item \textbf{Batch Upload}: Each text chunk is embedded (transformed into a numerical vector) and then stored in Pinecone with a unique identifier. Doing so in batches reduces overhead when dealing with large datasets.
+    \item \textbf{High-Speed Retrieval}: When the user asks a question or enters a search query, the system converts their text into an embedding and performs a similarity search against the Pinecone index. The top-$k$ most relevant chunks are returned to provide context for LLM-based responses (Section~\ref{sec:rag-pipeline}).
+    \item \textbf{Scalability \& Flexibility}: Pinecone accommodates millions of embeddings and quickly returns nearest neighbors, allowing the system to handle ever-growing corpora of PDF documents, scraped data, or other text sources without re-processing older content.
+\end{itemize}
+
+By coupling embeddings (Section~\ref{sec:embedding}) with Pinecone’s vector database, the system can efficiently surface **contextual insights** and pass them to the Large Language Model for retrieval-augmented generation. This approach significantly boosts the accuracy and relevance of chatbot answers, particularly in a medical or academic setting where **precise factual references** are paramount.
+
+
 \section{Retrieval-Augmented Generation Pipeline}
 \label{sec:rag-pipeline}
 To handle user queries, we blend retrieval (based on embeddings) with LLM generation:
@@ -325,6 +340,9 @@ In the code, a conditional block or chain-level branching typically handles:
 
 \section{Symptom Analysis, Provider Recommendation, and Appointment Booking}
 \label{sec:extended-capabilities}
+
+
+
 For patient-focused tasks, code sections may:
 \begin{itemize}
     \item \textbf{Symptom Analysis}: Use a rule-based approach or LLM prompts fine-tuned on medical data to interpret user symptoms.
@@ -1226,8 +1244,125 @@ By combining **Flask** for authentication and session management with **Chainlit
     \item **Chainlit**: Provides the interactive “chat window,” letting users upload documents, ask questions, and receive LLM-powered responses in real time.
 \end{itemize}
 
+\section{Pinecone Vector Database}
+\label{sec:pinecone-db}
 
-\end{document}
+As part of our **retrieval architecture**, we leverage the Pinecone vector database to store, manage, and quickly
+retrieve vector embeddings. The following code snippet illustrates how scraped text data is converted into embeddings and
+uploaded to Pinecone:
 
+\begin{lstlisting}[language=Python, caption={Storing Scraped Data in Pinecone}, basicstyle=\small\ttfamily]
+import json
+from src.helper import download_hugging_face_embeddings
+from langchain.vectorstores import Pinecone
+from pinecone import Pinecone as PineconeClient, ServerlessSpec
+from dotenv import load_dotenv
+import os
 
-\end{document}
+# Load environment variables
+load_dotenv()
+
+PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
+PINECONE_API_ENV = os.environ.get('PINECONE_API_ENV')
+
+# 1 Read JSON file (scraped_data_subsections_c.json)
+with open('scraped_data_subsections_c.json', 'r', encoding='utf-8') as file1:
+    data1 = json.load(file1)
+
+# 2 Extract text chunks
+text_chunks = []
+for item in data1:
+    for subsection in item['subsections']:
+        heading = subsection.get('heading', '')
+        content = ' '.join(subsection.get('content', []))
+        text_chunks.append(f"{heading}: {content}")
+
+# 3 Obtain embeddings
+embeddings = download_hugging_face_embeddings()
+
+# 4 Initialize Pinecone client
+pinecone_instance = PineconeClient(api_key=PINECONE_API_KEY)
+index_name = "zf"
+
+# 5 Check if index exists, create if not
+if index_name not in [index.name for index in pinecone_instance.list_indexes()]:
+    print(f"Creating index '{index_name}'...")
+    pinecone_instance.create_index(
+        name=index_name,
+        dimension=768,
+        metric="cosine",
+        spec=ServerlessSpec(cloud="aws", region=PINECONE_API_ENV)
+    )
+
+# 6 Upload text chunks to the Pinecone index
+docsearch = Pinecone.from_texts(
+    text_chunks,
+    embeddings,
+    index_name=index_name
+)
+
+print("Data successfully uploaded to Pinecone!")
+\end{lstlisting}
+
+\subsubsection*{Detailed Explanation}
+
+\begin{enumerate}
+    \item \textbf{Loading the JSON Files}
+    \begin{itemize}
+        \item The example above specifically references \texttt{scraped\_data\_subsections\_c.json}, which contains
+        a list of items, each with \texttt{subsections}. Each \texttt{subsection} has a \texttt{heading} and
+        \texttt{content}. 
+        \item We loop through them, joining any arrays of strings in \texttt{content} into a single text string. 
+        \item As a result, each text chunk becomes something like \texttt{"Symptoms: shortness of breath, coughing..."}.
+    \end{itemize}
+
+    \item \textbf{Creating \texttt{text\_chunks}}
+    \begin{itemize}
+        \item \texttt{text\_chunks} is simply a Python list of strings, each representing one segment
+        of the scraped data. 
+        \item If desired, you could further refine or chunk the text if it’s large, but in this snippet
+        we store each subsection as a single chunk.
+    \end{itemize}
+
+    \item \textbf{Obtaining Embeddings}
+    \begin{itemize}
+        \item \texttt{download\_hugging\_face\_embeddings()} is a custom utility from \texttt{src.helper}.  
+        \item It likely returns a model or function that can convert text to a fixed-size vector (e.g., 768 dimensions).
+        \item This step ensures we have a consistent embedding pipeline for any text we want to store or query.
+    \end{itemize}
+
+    \item \textbf{Setting Up Pinecone Client}
+    \begin{itemize}
+        \item \texttt{PineconeClient(api\_key=PINECONE\_API\_KEY)}: Authenticates with Pinecone using your environment variables.
+        \item \texttt{index\_name = "zf"}: The name of our Pinecone index. 
+        \item We check if this index already exists. If not, we create it with:
+        \begin{itemize}
+            \item \texttt{dimension=768}: Matching the output size of our embedding model.
+            \item \texttt{metric="cosine"}: Cosine similarity for comparing vectors.
+            \item \texttt{ServerlessSpec(cloud="aws", region=PINECONE\_API\_ENV)}: Specifies a serverless deployment in the indicated AWS region.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Uploading Data via \texttt{from\_texts}}
+    \begin{itemize}
+        \item \texttt{Pinecone.from\_texts(text\_chunks, embeddings, index\_name=index\_name)}:
+        \begin{enumerate}
+            \item For each string in \texttt{text\_chunks}, the code uses the provided \texttt{embeddings} model to generate a vector.
+            \item These vectors are then batch-uploaded to the \texttt{zf} index in Pinecone, each entry typically assigned a unique ID.
+        \end{enumerate}
+        \item The returned \texttt{docsearch} object can later be used to perform \texttt{docsearch.similarity\_search(query)} or related retrieval operations.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Why Pinecone?}
+\begin{itemize}
+    \item \textbf{Scalability}:
+    Pinecone can handle millions of vectors, performing approximate or exact nearest-neighbor searches quickly.  
+    \item \textbf{Flexibility}:
+    You can store embeddings from different text sources (scraped data, user-provided PDFs, etc.) and query them all under the same index or separate ones if you prefer.  
+    \item \textbf{Integration with LangChain}:
+    The snippet uses \texttt{langchain.vectorstores} \texttt{Pinecone} object to easily unify embedding storage and retrieval logic, tying in seamlessly with the LLM retrieval pipeline.
+\end{itemize}
+
+\noindent
+By uploading the scraped medical data into Pinecone, the system can handle user queries with **retrieval-augmented generation**, bridging newly ingested text (e.g., from external websites or data files) with real-time chatbot interaction.
