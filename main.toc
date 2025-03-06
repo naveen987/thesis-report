@@ -79,17 +79,17 @@
 \contentsline {chapter}{\numberline {5}Results and Evaluation}{68}{chapter.608}%
 \contentsline {subsection}{\numberline {5.0.1}Mathematical Foundations}{68}{subsection.609}%
 \contentsline {subsection}{\numberline {5.0.2}Evaluation Code}{69}{subsection.613}%
-\contentsline {subsection}{\numberline {5.0.3}Workflow and Interpretation}{73}{subsection.741}%
-\contentsline {subsection}{\numberline {5.0.4}Significance in the Thesis}{74}{subsection.747}%
-\contentsline {section}{\numberline {5.1}Introduction to Chatbot Interactions}{74}{section.748}%
-\contentsline {section}{\numberline {5.2}Booking an Appointment (Patient Perspective)}{74}{section.749}%
-\contentsline {section}{\numberline {5.3}Student Role: Medical Explanations}{74}{section.751}%
-\contentsline {section}{\numberline {5.4}Symptom Analysis and Guidance}{78}{section.753}%
-\contentsline {section}{\numberline {5.5}Managing Gastrointestinal Issues}{78}{section.755}%
-\contentsline {section}{\numberline {5.6}Provider Recommendations}{78}{section.757}%
-\contentsline {section}{\numberline {5.7}Agentic Booking System}{81}{section.759}%
-\contentsline {section}{\numberline {5.8}Discussion of Chatbot Interaction Results}{81}{section.761}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{82}{chapter.762}%
-\contentsline {section}{\numberline {6.1}Conclusion}{82}{section.763}%
-\contentsline {section}{\numberline {6.2}Answers to Research Questions}{83}{section.764}%
-\contentsline {section}{\numberline {6.3}Future Work and Challenges}{83}{section.769}%
+\contentsline {subsection}{\numberline {5.0.3}Workflow and Interpretation}{78}{subsection.742}%
+\contentsline {subsection}{\numberline {5.0.4}Significance in the Thesis}{78}{subsection.748}%
+\contentsline {section}{\numberline {5.1}Introduction to Chatbot Interactions}{79}{section.749}%
+\contentsline {section}{\numberline {5.2}Booking an Appointment (Patient Perspective)}{79}{section.750}%
+\contentsline {section}{\numberline {5.3}Student Role: Medical Explanations}{79}{section.752}%
+\contentsline {section}{\numberline {5.4}Symptom Analysis and Guidance}{79}{section.754}%
+\contentsline {section}{\numberline {5.5}Managing Gastrointestinal Issues}{79}{section.756}%
+\contentsline {section}{\numberline {5.6}Provider Recommendations}{79}{section.758}%
+\contentsline {section}{\numberline {5.7}Agentic Booking System}{85}{section.760}%
+\contentsline {section}{\numberline {5.8}Discussion of Chatbot Interaction Results}{85}{section.762}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{86}{chapter.763}%
+\contentsline {section}{\numberline {6.1}Conclusion}{86}{section.764}%
+\contentsline {section}{\numberline {6.2}Answers to Research Questions}{87}{section.765}%
+\contentsline {section}{\numberline {6.3}Future Work and Challenges}{87}{section.770}%

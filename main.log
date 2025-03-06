@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  6 MAR 2025 12:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  6 MAR 2025 14:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -965,7 +965,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{C:/Users/navi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Images/SRHLogo.png>] [2]
+{C:/Users/navi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Images/SRHLogo.png>]
 ------------------------------------------------------------------------------
  Declaration of Authorship
 ------------------------------------------------------------------------------
@@ -1108,7 +1108,7 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 System Architecture
 ------------------------------------------------------------------------------
-<./Images/Thesis.png, id=829, 1595.9625pt x 505.13719pt>
+<./Images/Thesis.png, id=827, 1595.9625pt x 505.13719pt>
 File: ./Images/Thesis.png Graphic file (type png)
 <use ./Images/Thesis.png>
 Package pdftex.def Info: ./Images/Thesis.png  used on input line 12.
@@ -1616,44 +1616,113 @@ Underfull \hbox (badness 3333) in paragraph at lines 201--201
 []|\T1/ppl/m/n/12 irregular heart-beat;
  []
 
-[72] [73]
-<Images/doclink1.png, id=1693, 466.74374pt x 595.62524pt>
+
+Underfull \hbox (badness 3503) in paragraph at lines 212--213
+[]|\T1/ppl/m/n/12 i am re-ferred to
+ []
+
+
+Underfull \hbox (badness 7238) in paragraph at lines 212--213
+\T1/ppl/m/n/12 me why this is
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 212--213
+\T1/ppl/m/n/12 re-ferred from my
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 213--213
+[]|\T1/ppl/m/n/12 You have been re-ferred to car-diac re-ha-bil-i-ta-
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 217--217
+\T1/ppl/m/n/12 lot a chest burn-
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 217--217
+\T1/ppl/m/n/12 ing and pain in
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 220--220
+\T1/ppl/m/n/12 rhea from past 4
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 223--223
+\T1/ppl/m/n/12 lot a chest burn-
+ []
+
+
+Underfull \hbox (badness 4316) in paragraph at lines 223--223
+\T1/ppl/m/n/12 ing and pain in
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 233--234
+[]\T1/ppl/m/n/12 5. Avoid cer-tain foods: Cer-tain foods may
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 240--240
+[]|\T1/ppl/m/n/12 i have this body
+ []
+
+
+Underfull \hbox (badness 2529) in paragraph at lines 240--240
+\T1/ppl/m/n/12 itch-ing from two
+ []
+
+
+Underfull \hbox (badness 3108) in paragraph at lines 240--241
+\T1/ppl/m/n/12 sneez-ing, it is best to con-sult a health-care
+ []
+
+
+Underfull \hbox (badness 7326) in paragraph at lines 248--249
+\T1/ppl/m/n/12 Non-drowsy an-ti-his-tamines like Clar-itin or
+ []
+
+[72] [73] [74] [75] [76] [77] [78]
+<Images/doclink1.png, id=1711, 466.74374pt x 595.62524pt>
 File: Images/doclink1.png Graphic file (type png)
 <use Images/doclink1.png>
-Package pdftex.def Info: Images/doclink1.png  used on input line 257.
+Package pdftex.def Info: Images/doclink1.png  used on input line 317.
 (pdftex.def)             Requested size: 385.56963pt x 492.06035pt.
-<Images/pdfquestion.png, id=1695, 369.7815pt x 569.12625pt>
+<Images/pdfquestion.png, id=1713, 369.7815pt x 569.12625pt>
 File: Images/pdfquestion.png Graphic file (type png)
 <use Images/pdfquestion.png>
-Package pdftex.def Info: Images/pdfquestion.png  used on input line 270.
+Package pdftex.def Info: Images/pdfquestion.png  used on input line 330.
 (pdftex.def)             Requested size: 385.56963pt x 593.46654pt.
-<Images/stuentquestion.png, id=1697, 369.17924pt x 572.73975pt>
+<Images/stuentquestion.png, id=1715, 369.17924pt x 572.73975pt>
 File: Images/stuentquestion.png Graphic file (type png)
 <use Images/stuentquestion.png>
-Package pdftex.def Info: Images/stuentquestion.png  used on input line 282.
+Package pdftex.def Info: Images/stuentquestion.png  used on input line 342.
 (pdftex.def)             Requested size: 385.56963pt x 598.19589pt.
- [74] [75 <./Images/doclink1.png>] [76 <./Images/pdfquestion.png>] [77 <./Images/stuentquestion.png>]
-<Images/patientsymptoms.png, id=1718, 454.69875pt x 584.1825pt>
+<Images/patientsymptoms.png, id=1717, 454.69875pt x 584.1825pt>
 File: Images/patientsymptoms.png Graphic file (type png)
 <use Images/patientsymptoms.png>
-Package pdftex.def Info: Images/patientsymptoms.png  used on input line 294.
+Package pdftex.def Info: Images/patientsymptoms.png  used on input line 354.
 (pdftex.def)             Requested size: 385.56963pt x 495.37192pt.
-<Images/doctorrecom.png, id=1720, 473.97075pt x 591.4095pt>
+<Images/doctorrecom.png, id=1719, 473.97075pt x 591.4095pt>
 File: Images/doctorrecom.png Graphic file (type png)
 <use Images/doctorrecom.png>
-Package pdftex.def Info: Images/doctorrecom.png  used on input line 306.
+Package pdftex.def Info: Images/doctorrecom.png  used on input line 366.
 (pdftex.def)             Requested size: 385.56963pt x 481.09657pt.
-<Images/appointmentlink.png, id=1722, 1129.21875pt x 2445.135pt>
+<Images/appointmentlink.png, id=1721, 1129.21875pt x 2445.135pt>
 File: Images/appointmentlink.png Graphic file (type png)
 <use Images/appointmentlink.png>
-Package pdftex.def Info: Images/appointmentlink.png  used on input line 317.
+Package pdftex.def Info: Images/appointmentlink.png  used on input line 377.
 (pdftex.def)             Requested size: 136.0838pt x 294.63477pt.
- [78] [79 <./Images/patientsymptoms.png>] [80 <./Images/doctorrecom.png>]) (Chapters/Chapter6.tex [81 <./Images/appointmentlink.png>]
+ [79] [80 <./Images/doclink1.png>] [81 <./Images/pdfquestion.png>] [82 <./Images/stuentquestion.png>] [83 <./Images/patientsymptoms.png>] [84 <./Images/doctorrecom.png>]) (Chapters/Chapter6.tex [85 <./Images/appointmentlink.png>]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Conclusion and Future Work
 ------------------------------------------------------------------------------
-[82
+[86
 
 ]
 Underfull \hbox (badness 1448) in paragraph at lines 22--23
@@ -1665,7 +1734,7 @@ Underfull \hbox (badness 3601) in paragraph at lines 22--23
 \T1/ppl/m/n/12 specialty-based fil-ters en-ables the sys-tem to sug-gest suit-able health-care
  []
 
-[83] [84]) (Chapters/Chapter7.tex [85
+[87] [88]) (Chapters/Chapter7.tex [89
 
 
 ]
@@ -1673,12 +1742,12 @@ Underfull \hbox (badness 1205) in paragraph at lines 50--51
 []\T1/ppl/m/n/12 N. Her-nan-dez, L. Cas-tro, J. Medina-Quero, J. Favela, L. Michan, and W.
  []
 
-[86] [87]
+[90] [91]
 Underfull \hbox (badness 1152) in paragraph at lines 101--102
 \T1/ppl/m/n/12 Con-fer-ence on In-for-ma-tion Tech-nol-ogy for So-cial Good (GoodIT '23), 1--8.
  []
 
-[88]
+[92]
 Underfull \hbox (badness 2050) in paragraph at lines 116--117
 []\T1/ppl/m/n/12 T. Hard-ing, E. Cun-ning-ham, and A. Je-bran. 2023. \T1/ppl/m/it/12 Nav-i-gat-ing the Reg-u-la-
  []
@@ -1696,7 +1765,7 @@ Overfull \hbox (185.05852pt too wide) in paragraph at lines 116--117
 
 Package natbib Warning: There were undefined citations.
 
-[89] (main.aux)
+[93] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1709,20 +1778,20 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 130CAB22D26E8EB9368B393A6EF8345B;21296.
+(rerunfilecheck)             Checksum: 7D258CEBFFB3BAA617A226933705BDB1;21296.
  ) ) 
 Here is how much of TeX's memory you used:
- 34045 strings out of 474486
- 657362 string characters out of 5744227
- 2328542 words of memory out of 5000000
- 54817 multiletter control sequences out of 15000+600000
+ 34052 strings out of 474486
+ 657451 string characters out of 5744227
+ 2329542 words of memory out of 5000000
+ 54820 multiletter control sequences out of 15000+600000
  605453 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,87p,1105b,2874s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (101 pages, 1325724 bytes).
+Output written on main.pdf (104 pages, 1334055 bytes).
 PDF statistics:
- 2056 PDF objects out of 2073 (max. 8388607)
- 911 named destinations out of 1000 (max. 500000)
+ 2072 PDF objects out of 2073 (max. 8388607)
+ 915 named destinations out of 1000 (max. 500000)
  813 words of extra memory for PDF output out of 10000 (max. 10000000)
 
