@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  6 MAR 2025 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  6 MAR 2025 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -965,7 +965,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{C:/Users/navi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Images/SRHLogo.png>]
+{C:/Users/navi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Images/SRHLogo.png>] [2]
 ------------------------------------------------------------------------------
  Declaration of Authorship
 ------------------------------------------------------------------------------
@@ -1108,7 +1108,7 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 System Architecture
 ------------------------------------------------------------------------------
-<./Images/Thesis.png, id=825, 1595.9625pt x 505.13719pt>
+<./Images/Thesis.png, id=829, 1595.9625pt x 505.13719pt>
 File: ./Images/Thesis.png Graphic file (type png)
 <use ./Images/Thesis.png>
 Package pdftex.def Info: ./Images/Thesis.png  used on input line 12.
@@ -1617,33 +1617,33 @@ Underfull \hbox (badness 3333) in paragraph at lines 201--201
  []
 
 [72] [73]
-<Images/doclink1.png, id=1688, 466.74374pt x 595.62524pt>
+<Images/doclink1.png, id=1693, 466.74374pt x 595.62524pt>
 File: Images/doclink1.png Graphic file (type png)
 <use Images/doclink1.png>
 Package pdftex.def Info: Images/doclink1.png  used on input line 257.
 (pdftex.def)             Requested size: 385.56963pt x 492.06035pt.
-<Images/pdfquestion.png, id=1690, 369.7815pt x 569.12625pt>
+<Images/pdfquestion.png, id=1695, 369.7815pt x 569.12625pt>
 File: Images/pdfquestion.png Graphic file (type png)
 <use Images/pdfquestion.png>
 Package pdftex.def Info: Images/pdfquestion.png  used on input line 270.
 (pdftex.def)             Requested size: 385.56963pt x 593.46654pt.
-<Images/stuentquestion.png, id=1692, 369.17924pt x 572.73975pt>
+<Images/stuentquestion.png, id=1697, 369.17924pt x 572.73975pt>
 File: Images/stuentquestion.png Graphic file (type png)
 <use Images/stuentquestion.png>
 Package pdftex.def Info: Images/stuentquestion.png  used on input line 282.
 (pdftex.def)             Requested size: 385.56963pt x 598.19589pt.
  [74] [75 <./Images/doclink1.png>] [76 <./Images/pdfquestion.png>] [77 <./Images/stuentquestion.png>]
-<Images/patientsymptoms.png, id=1714, 454.69875pt x 584.1825pt>
+<Images/patientsymptoms.png, id=1718, 454.69875pt x 584.1825pt>
 File: Images/patientsymptoms.png Graphic file (type png)
 <use Images/patientsymptoms.png>
 Package pdftex.def Info: Images/patientsymptoms.png  used on input line 294.
 (pdftex.def)             Requested size: 385.56963pt x 495.37192pt.
-<Images/doctorrecom.png, id=1716, 473.97075pt x 591.4095pt>
+<Images/doctorrecom.png, id=1720, 473.97075pt x 591.4095pt>
 File: Images/doctorrecom.png Graphic file (type png)
 <use Images/doctorrecom.png>
 Package pdftex.def Info: Images/doctorrecom.png  used on input line 306.
 (pdftex.def)             Requested size: 385.56963pt x 481.09657pt.
-<Images/appointmentlink.png, id=1718, 1129.21875pt x 2445.135pt>
+<Images/appointmentlink.png, id=1722, 1129.21875pt x 2445.135pt>
 File: Images/appointmentlink.png Graphic file (type png)
 <use Images/appointmentlink.png>
 Package pdftex.def Info: Images/appointmentlink.png  used on input line 317.
@@ -1712,17 +1712,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 130CAB22D26E8EB9368B393A6EF8345B;21296.
  ) ) 
 Here is how much of TeX's memory you used:
- 34044 strings out of 474486
- 657354 string characters out of 5744227
+ 34045 strings out of 474486
+ 657362 string characters out of 5744227
  2329542 words of memory out of 5000000
  54817 multiletter control sequences out of 15000+600000
  605453 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,87p,1105b,2874s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (100 pages, 1325057 bytes).
+Output written on main.pdf (101 pages, 1325750 bytes).
 PDF statistics:
- 2052 PDF objects out of 2073 (max. 8388607)
- 910 named destinations out of 1000 (max. 500000)
+ 2056 PDF objects out of 2073 (max. 8388607)
+ 911 named destinations out of 1000 (max. 500000)
  813 words of extra memory for PDF output out of 10000 (max. 10000000)
 
