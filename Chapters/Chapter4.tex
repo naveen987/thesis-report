@@ -303,7 +303,7 @@ Each text chunk is converted into a numerical representation (an \textit{embeddi
     \item \textbf{Storage:} Embeddings are passed either to an in-memory structure or a vector database (such as Pinecone) for fast retrieval.
 \end{itemize}
 
-\section{Pinecone Vector Database Integration}
+\section{Pinecone Vector Database}
 \label{sec:pinecone}
 
 After the system generates embeddings for each text chunk (Section~\ref{sec:embedding}), the next step is to store them in a **vector database** for fast retrieval. Here, we integrate with \emph{Pinecone} to manage and query these embeddings efficiently:
@@ -351,7 +351,7 @@ For patient-focused tasks, code sections may:
     \item \textbf{Appointment Booking}: Integrate with an external API (e.g., Twilio for SMS, Doctolib for scheduling). The code triggers a request, confirms details, and notifies the user.
 \end{itemize}
 
-\section{Front-End Integration}
+\section{Front-End }
 \label{sec:frontend}
 \begin{itemize}
     \item \textbf{Flask or Chainlit Routes}: A Python route handles file uploads (for PDFs) or query input. These routes pass data to the back-end logic (embedding, retrieval, LLM).
@@ -368,7 +368,7 @@ Throughout the system:
     \item \textbf{Notifications}: In critical scenarios (like an inability to retrieve from the vector database), the code might send an alert or fallback to a simpler pipeline.
 \end{itemize}
 
-\section{User Authentication and Role Identification}
+\section{User Authentication and Role Identification Integration}
 \label{sec:auth-role}
 
 Below is an excerpt of Python/Flask code illustrating how user login, signup, and role identification are handled:
@@ -547,7 +547,7 @@ In short, this code section ensures:
     \item Seamless bridging between the Flask web server and the **Chainlit** chatbot interface.
 \end{itemize}
 
-\section{PDF Processing (Text Extraction and Chunking)}
+\section{PDF Processing (Text Extraction and Chunking) Integration}
 \label{sec:pdf-chunking}
 
 In this part of the code, we handle the **user-uploaded PDF files**—from reading the file’s pages to splitting the text into smaller segments (chunks) that are later added to our **vector store** for retrieval. Below is a detailed snippet and explanation:
@@ -646,7 +646,7 @@ if message.type == "file":
 
 This upload, split, and index workflow is central to enabling a dynamic question-answer system, where each user can bring in new documents and instantly query them. Once the text is converted into vector form, the system can retrieve it for any subsequent queries, seamlessly integrating new medical or academic documents into the user’s knowledge base.
 
-\section{Embedding Generation}
+\section{Embedding Generation Integration}
 \label{sec:embedding-generation}
 
 This portion of the code lays out how we prepare a sentence-level embedding model and connect it to the vector database—ensuring that new text segments are converted into numerical vectors (embeddings). Below is the relevant snippet, with an in-depth discussion:
@@ -735,7 +735,7 @@ docsearch = Pinecone.from_existing_index(index_name, embeddings)
 
 \noindent Overall, this embedding generation mechanism is critical for bridging raw textual data with \emph{retrieval-augmented} chat capabilities. Once the embeddings are set up and the index is ready, the system can handle user queries and fetch relevant information in real time.
 
-\section{Retrieval-Augmented Generation Pipeline}
+\section{RAG Pipeline Integration}
 \label{sec:rag-pipeline}
 
 A core feature of this system is its **retrieval-augmented generation (RAG)** approach, where a Large Language Model (LLM) incorporates relevant text chunks from a vector store (Pinecone) to ground its responses in factual context. Below is the relevant code snippet, followed by a detailed walkthrough:
@@ -884,7 +884,7 @@ PROMPT = PromptTemplate(
 \noindent
 Overall, **retrieval-augmented generation** fuses an \textit{external knowledge store} (Pinecone) with a powerful \textit{language model} (like Mistral). The final outcome is a **contextual, verifiable answer** that draws from user-uploaded PDFs or other indexed material, rather than relying solely on the LLM’s internal training data.
 
-\section{Role-Based Logic (Learning Assistant vs. Diagnostic Agent)}
+\section{Role-Based Logic (Learning Assistant vs. Diagnostic Agent) Integration}
 \label{sec:role-logic}
 
 In this system, the user’s \emph{role}—either a \textbf{Student} in need of detailed, academic explanations or a \textbf{Patient} requiring concise diagnostic guidance—shapes the chatbot’s behavior. Below is a relevant code snippet from the \texttt{start\_chat} and \texttt{handle\_message} functions, illustrating how we differentiate between these modes:
@@ -986,7 +986,7 @@ async def handle_message(message):
 \noindent
 Overall, role-based logic ensures the chatbot adapts to the user’s specific needs. Patients can focus on receiving quick, practical medical guidance, while students can explore in-depth academic or biomedical topics—all handled smoothly in a single application.
 
-\section{Symptom Analysis, Provider Recommendation, and Appointment Booking}
+\section{Symptom Analysis, Provider Recommendation, and Appointment Booking Integration}
 \label{sec:provider-appointment}
 
 Beyond general Q\&A functionality, the system also handles patient-centric tasks: analyzing user symptoms, 
@@ -1188,7 +1188,7 @@ Below is an example of how we might structure the \texttt{login.html} and \textt
     \item If the email is already taken, an \texttt{error} message (like ``Email already registered.'') is shown.
 \end{itemize}
 
-\subsection{Chainlit Chat UI}
+\subsection{Chainlit Chat UI Integration}
 
 \textbf{Chainlit} provides a sleek front-end interface out of the box. After the user logs in (and the Flask code launches or reuses a Chainlit instance), the user is redirected to the Chainlit UI, typically at \texttt{http://localhost:8001}. Some key features of the Chainlit interface:
 
@@ -1199,7 +1199,7 @@ Below is an example of how we might structure the \texttt{login.html} and \textt
     \item **Real-time Updates**: The user sees status messages (like “Processing your request...”) and final LLM replies in real time.
 \end{itemize}
 
-\subsubsection{Loading Page (Optional)}
+\subsubsection{Loading Page}
 
 A simple \texttt{loading.html} can serve as a bridge page after successful login, informing the user that **Chainlit** is starting up. For instance:
 
@@ -1245,7 +1245,7 @@ By combining **Flask** for authentication and session management with **Chainlit
     \item **Chainlit**: Provides the interactive “chat window,” letting users upload documents, ask questions, and receive LLM-powered responses in real time.
 \end{itemize}
 
-\section{Pinecone Vector Database}
+\section{Pinecone Vector Database Integration}
 \label{sec:pinecone-db}
 
 As part of our **retrieval architecture**, we leverage the Pinecone vector database to store, manage, and quickly

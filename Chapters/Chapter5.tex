@@ -161,6 +161,49 @@ if __name__ == "__main__":
     plot_evaluation(sim_scores, ret_scores)
 \end{lstlisting}
 
+\begin{table}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|p{3.5cm}|p{3.8cm}|p{3.8cm}|c|c|}
+    \hline
+    \textbf{Query} & \textbf{Chatbot Response} & \textbf{Expected Answer} & \textbf{Semantic Similarity} & \textbf{Avg. Retrieval Similarity} \\ 
+    \hline
+    What are the common symptoms of asthma? 
+    & wheezing, shortness of breath, chest tightness
+    & wheezing, shortness of breath, chest tightness, coughing 
+    & 0.95 
+    & 0.70 \\ 
+    \hline
+    What is anemia and what causes it? 
+    & deficiency of red blood cells or hemoglobin; caused by iron deficiency, vitamin deficiency, chronic disease
+    & deficiency of red blood cells or hemoglobin commonly caused by iron deficiency, vitamin deficiencies, chronic disease
+    & 0.92 
+    & 0.70 \\ 
+    \hline
+    What are the early signs of Alzheimer's disease? 
+    & memory loss, confusion, difficulty performing tasks, language problems
+    & memory loss, confusion, difficulty performing familiar tasks 
+    & 0.94 
+    & 0.65 \\ 
+    \hline
+    What types of arthritis exist and how are they treated? 
+    & osteoarthritis, rheumatoid arthritis; treated with anti-inflammatory drugs, pain relievers, DMARDs, physical therapy
+    & osteoarthritis, rheumatoid arthritis; treated with pain relievers, anti-inflammatory drugs, physical therapy 
+    & 0.92 
+    & 0.64 \\ 
+    \hline
+    What is atrial fibrillation and what are its risks? 
+    & irregular heartbeat; risks include stroke, heart failure, blood clots
+    & irregular heartbeat; stroke, heart failure, other heart complications 
+    & 0.87 
+    & 0.68 \\ 
+    \hline
+    \end{tabular}}
+    \label{tab:evaluation-results}
+    \caption{Evaluation Results of Chatbot Responses}
+    \end{table}
+    
+
 \subsection{Workflow and Interpretation}
 \begin{enumerate}
     \item \textbf{Load Test Cases.} Each entry in \texttt{test\_data} contains:
@@ -184,9 +227,6 @@ if __name__ == "__main__":
       \label{eq:retrieval-sim}
     \end{equation}
     where $D_i$ is the $i$-th retrieved document chunk. A higher $S_\mathrm{retr}$ suggests the vector store is returning relevant context.
-
-    \item \textbf{Visualization.}  
-    The function \texttt{plot\_evaluation} creates a line chart showing both $S_\mathrm{gen}$ and $S_\mathrm{retr}$ across all test cases. It also saves this plot as \texttt{evaluation\_graph.png}.
 \end{enumerate}
 
 \subsection{Significance in the Thesis}
@@ -202,3 +242,91 @@ if __name__ == "__main__":
 
 \noindent
 Overall, this evaluation approach, supported by Equations~\ref{eq:cosine-sim}, \ref{eq:generation-sim}, and \ref{eq:retrieval-sim}, provides a rigorous, automated way to measure how effectively the chatbot answers medical queries and how well its retrieval subsystem surfaces relevant evidence from the knowledge base.
+
+\label{sec:results}
+
+\section{Introduction to Chatbot Interactions}
+This section presents selected screenshots that illustrate how our chatbot addresses the research questions posed in this thesis. Each figure demonstrates different functionalities, user roles, and response flows, highlighting how the system handles both student and patient interactions.
+
+\section{Booking an Appointment (Patient Perspective)}
+\label{sec:booking-appointment}
+
+\begin{figure}[htbp]
+    \centering
+    % Adjust the width or use scale if necessary
+    \includegraphics[width=0.85\textwidth]{Images/doclink1.png}
+    \caption{A patient booking an appointment. The chatbot requests the location (e.g., Munich) and the specialty (e.g., Cardiology), then collects the user’s phone number to send a booking link.}
+    \label{fig:book-appointment}
+\end{figure}
+
+As shown in Figure~\ref{fig:book-appointment}, the chatbot confirms the patient’s location and medical specialty. Once the user provides a phone number, the system sends a direct link for appointment scheduling, thereby streamlining the booking process.
+
+\section{Student Role: Medical Explanations}
+\label{sec:student-role}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/pdfquestion.png}
+    \caption{A student asking for detailed medical information. The chatbot provides an academic explanation suited for learning, referencing embedded content.}
+    \label{fig:student-chatbot}
+\end{figure}
+
+Figure~\ref{fig:student-chatbot} highlights how a user with the \emph{Student} role can request deeper, evidence-based information. The chatbot uses context from embedded academic texts, ensuring that explanations remain precise and pedagogically useful.
+
+\section{Symptom Analysis and Guidance}
+\label{sec:patient-symptoms}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/stuentquestion.png}
+    \caption{A student asking specific medical questions (e.g., asthma-related issues) in order to learn more. The chatbot responds with context-aware guidance, referencing standard medical guidelines and educational sources.}
+    \label{fig:patient-symptoms}
+\end{figure}
+
+In Figure~\ref{fig:patient-symptoms}, a patient reports respiratory symptoms. The chatbot, using retrieval-augmented generation (RAG), provides relevant medical guidance while filtering out any sensitive data at the edge to maintain privacy compliance.
+
+\section{Managing Gastrointestinal Issues}
+\label{sec:diarrhea-question}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/patientsymptoms.png}
+    \caption{A patient scenario discussing diarrhea symptoms for four days. The chatbot suggests dietary measures and advises contacting a healthcare professional if symptoms worsen.}
+    \label{fig:diarrhea-question}
+\end{figure}
+
+Figure~\ref{fig:diarrhea-question} demonstrates how the chatbot uses user inputs (e.g., “four days of diarrhea”) to provide context-appropriate advice, such as recommending fluid intake and dietary modifications. The system also cautions the user to consult a professional if conditions do not improve.
+
+\section{Provider Recommendations}
+\label{sec:doctor-recommendations}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/doctorrecom.png}
+    \caption{Chatbot suggesting a list of nearby family doctors in Heidelberg, filtered by location and specialty.}
+    \label{fig:doctor-recom}
+\end{figure}
+In Figure~\ref{fig:doctor-recom}, the chatbot generates a list of nearby healthcare providers based on the patient’s location. This feature demonstrates the system’s ability to integrate location-based data with a specialty filter, simplifying the referral process.
+
+
+\section{Agentic Booking System}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{Images/appointmentlink.png}
+  \caption{Agentic AI demonstration: The system automatically integrates with Twilio 
+    to send the user an appointment booking link for a cardiology specialist in Munich.}
+  \label{fig:agentic_ai_booking}
+\end{figure}
+
+\section{Discussion of Chatbot Interaction Results}
+Overall, these screenshots illustrate the chatbot’s capacity to:
+\begin{itemize}
+    \item \textbf{Identify user roles} (patient vs.\ student) and deliver tailored content.
+    \item \textbf{Provide medical insights} based on retrieval-augmented generation (RAG).
+    \item \textbf{Offer practical guidance} such as appointment booking and provider recommendations.
+\end{itemize}
+
+These functionalities address the research questions outlined in the earlier chapters, showcasing how the system can effectively serve both educational and clinical needs in a unified platform.
+
