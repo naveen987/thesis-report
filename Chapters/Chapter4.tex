@@ -1,9 +1,6 @@
 \chapter{Implementation}
 
 \label{Chapter4}
-
-\lhead{Chapter 4. \emph{Implementation}}
-
 In this chapter, a comprehensive overview of the libraries utilized throughout the project is presented, 
 alongside the roles each library plays in different sections of the code. By offering deeper insight 
 into how each component works and how the algorithms are implemented, this thesis is brought to its conclusion.
@@ -26,7 +23,7 @@ In this section, we focus on the various libraries used in the project and how t
 \noindent
 The \texttt{sqlite3} module is part of Python’s standard library, enabling lightweight database operations. 
 It is used here to store and retrieve user information, roles, and session data. This is particularly helpful 
-for managing authentication details in a local, file-based database, without requiring an external database server \cite{pythonlibrary}.
+for managing authentication details in a local, file-based database, without requiring an external database server \cite{sqlite3}.
 
 \vspace{0.4cm}
 %%%%%%%%%% httpcore %%%%%%%%%%
@@ -35,7 +32,7 @@ for managing authentication details in a local, file-based database, without req
 \noindent
 \texttt{httpcore} is a low-level HTTP library used to manage connection pooling, timeouts, and retries. 
 In this thesis, it is mainly leveraged to handle \texttt{TimeoutException} cases, ensuring the application 
-does not hang indefinitely during network calls \cite{pythonlibrary}.
+does not hang indefinitely during network calls \cite{httpcore}.
 
 \vspace{0.4cm}
 %%%%%%%%%% Selenium %%%%%%%%%%
@@ -44,7 +41,7 @@ does not hang indefinitely during network calls \cite{pythonlibrary}.
 \noindent
 Selenium automates browsers, enabling dynamic web scraping. It is used in conjunction with the Edge WebDriver
 to navigate pages, locate elements, and extract data. Relevant classes such as \texttt{Service}, \texttt{Options}, 
-and \texttt{WebDriverWait} help in configuring and controlling the browser for scraping tasks \cite{pythonlibrary}.
+and \texttt{WebDriverWait} help in configuring and controlling the browser for scraping tasks \cite{selenium}.
 
 \vspace{0.4cm}
 %%%%%%%%%% BeautifulSoup %%%%%%%%%%
@@ -53,7 +50,7 @@ and \texttt{WebDriverWait} help in configuring and controlling the browser for s
 \noindent
 \texttt{BeautifulSoup} parses HTML (and XML) content, transforming the raw webpage data into a navigable tree. 
 Used together with Selenium, it allows the program to extract specific tags, links, or other structured elements 
-from the loaded pages \cite{pythonlibrary}.
+from the loaded pages \cite{beautifulsoup}.
 
 \vspace{0.4cm}
 %%%%%%%%%% time %%%%%%%%%%
@@ -61,7 +58,7 @@ from the loaded pages \cite{pythonlibrary}.
 
 \noindent
 This built-in Python module provides sleep intervals and basic time management. Incorporating small delays can prevent 
-overwhelming target servers, especially when performing repetitive automated scraping \cite{pythonlibrary}.
+overwhelming target servers, especially when performing repetitive automated scraping \cite{time}.
 
 \vspace{0.4cm}
 %%%%%%%%%% json %%%%%%%%%%
@@ -70,7 +67,7 @@ overwhelming target servers, especially when performing repetitive automated scr
 \noindent
 The \texttt{json} module encodes and decodes data in JSON (JavaScript Object Notation). It is both human-readable
 and language-independent, making it ideal for transmitting and storing structured data. In this project, JSON 
-formats are used to manage intermediate results, user sessions, or to pass data between components \cite{pythonlibrary}.
+formats are used to manage intermediate results, user sessions, or to pass data between components \cite{json}.
 
 \vspace{0.4cm}
 %%%%%%%%%% chainlit %%%%%%%%%%
@@ -79,7 +76,7 @@ formats are used to manage intermediate results, user sessions, or to pass data 
 \noindent
 \texttt{chainlit} provides a framework for building chat-based interfaces around large language models (LLMs). 
 It handles session management, real-time conversation flows, and prompt configuration, giving users an 
-intuitive platform to interact with AI-driven functionalities \cite{pythonlibrary}.
+intuitive platform to interact with AI-driven functionalities \cite{chainlit}.
 
 \vspace{0.4cm}
 %%%%%%%%%% src.helper (download_hugging_face_embeddings) %%%%%%%%%%
@@ -88,7 +85,7 @@ intuitive platform to interact with AI-driven functionalities \cite{pythonlibrar
 \noindent
 While not a standard library, this local module contains custom utilities such as \texttt{download\_hugging\_face\_embeddings}. 
 It automates loading the required embeddings from Hugging Face, ensuring consistent embedding generation 
-across the system \cite{pythonlibrary}.
+across the system \cite{pinecone}.
 
 \vspace{0.4cm}
 %%%%%%%%%% langchain_community.vectorstores (Pinecone) %%%%%%%%%%
@@ -97,7 +94,7 @@ across the system \cite{pythonlibrary}.
 \noindent
 This integration connects LangChain’s data processing workflows with the Pinecone vector database. By creating embeddings 
 and storing them in Pinecone, the system retrieves similar text chunks or documents quickly, enhancing response accuracy 
-in the chatbot \cite{pythonlibrary}.
+in the chatbot \cite{langchain}.
 
 \vspace{0.4cm}
 %%%%%%%%%% pinecone (PineconeClient, ServerlessSpec) %%%%%%%%%%
@@ -106,7 +103,7 @@ in the chatbot \cite{pythonlibrary}.
 \noindent
 The \texttt{pinecone} SDK communicates with the Pinecone service, a specialized vector database built for high-speed 
 similarity search. \texttt{PineconeClient} handles index creation and queries, while \texttt{ServerlessSpec} configures 
-the underlying infrastructure \cite{pythonlibrary}.
+the underlying infrastructure \cite{pinecone}.
 
 \vspace{0.4cm}
 %%%%%%%%%% langchain.prompts (PromptTemplate) %%%%%%%%%%
@@ -114,7 +111,7 @@ the underlying infrastructure \cite{pythonlibrary}.
 
 \noindent
 \texttt{PromptTemplate} structures how queries are fed into large language models. By separating static and dynamic 
-parts of a prompt, it creates systematic instructions for LLM-based generation \cite{pythonlibrary}.
+parts of a prompt, it creates systematic instructions for LLM-based generation \cite{langchain}.
 
 \vspace{0.4cm}
 %%%%%%%%%% langchain_community.llms (CTransformers) %%%%%%%%%%
@@ -122,7 +119,7 @@ parts of a prompt, it creates systematic instructions for LLM-based generation \
 
 \noindent
 \texttt{CTransformers} provides an interface for loading and running transformer models within the LangChain ecosystem. 
-It can be more memory-efficient and can help speed up inference in certain configurations \cite{pythonlibrary}.
+It can be more memory-efficient and can help speed up inference in certain configurations \cite{sentence_transformers}.
 
 \vspace{0.4cm}
 %%%%%%%%%% langchain.chains (RetrievalQA) %%%%%%%%%%
@@ -130,7 +127,7 @@ It can be more memory-efficient and can help speed up inference in certain confi
 
 \noindent
 \texttt{RetrievalQA} coordinates the search of relevant vectors/documents before the final language model call. 
-This leads to more accurate, context-specific responses to user questions, making the chatbot more robust \cite{pythonlibrary}.
+This leads to more accurate, context-specific responses to user questions, making the chatbot more robust \cite{langchain}.
 
 \vspace{0.4cm}
 %%%%%%%%%% langchain.document_loaders (PyPDFLoader) %%%%%%%%%%
@@ -138,7 +135,7 @@ This leads to more accurate, context-specific responses to user questions, makin
 
 \noindent
 \texttt{PyPDFLoader} helps parse PDF documents into text chunks, enabling easy ingestion of content into the retrieval 
-system. This is crucial when dealing with PDF-based data sets \cite{pythonlibrary}.
+system. This is crucial when dealing with PDF-based data sets \cite{langchain}.
 
 \vspace{0.4cm}
 %%%%%%%%%% langchain.text_splitter (CharacterTextSplitter) %%%%%%%%%%
@@ -146,7 +143,7 @@ system. This is crucial when dealing with PDF-based data sets \cite{pythonlibrar
 
 \noindent
 Splits text into manageable chunks based on character count. By doing so, the system can embed and retrieve smaller, 
-more relevant pieces of information during user queries \cite{pythonlibrary}.
+more relevant pieces of information during user queries \cite{langchain}.
 
 \vspace{0.4cm}
 %%%%%%%%%% dotenv (load_dotenv) %%%%%%%%%%
@@ -154,7 +151,7 @@ more relevant pieces of information during user queries \cite{pythonlibrary}.
 
 \noindent
 Loads environment variables from a \texttt{.env} file, preventing sensitive credentials (like API keys) from 
-being exposed in the source code. This approach enhances security and deployment flexibility \cite{pythonlibrary}.
+being exposed in the source code. This approach enhances security and deployment flexibility \cite{dotenv}.
 
 \vspace{0.4cm}
 %%%%%%%%%% sentence_transformers (SentenceTransformer) %%%%%%%%%%
@@ -162,7 +159,7 @@ being exposed in the source code. This approach enhances security and deployment
 
 \noindent
 This library provides state-of-the-art models for sentence and paragraph embeddings. By embedding text into vector 
-representations, the system can compare semantic similarities and rank documents according to relevance \cite{pythonlibrary}.
+representations, the system can compare semantic similarities and rank documents according to relevance \cite{sentence_transformers}.
 
 \vspace{0.4cm}
 %%%%%%%%%% twilio.rest (Client) %%%%%%%%%%
@@ -170,7 +167,7 @@ representations, the system can compare semantic similarities and rank documents
 
 \noindent
 Twilio’s Python SDK handles sending SMS messages or other communications. The chatbot uses this to send appointment 
-reminders or booking confirmations to users, enhancing the system’s real-world utility \cite{pythonlibrary}.
+reminders or booking confirmations to users, enhancing the system’s real-world utility \cite{sentence_transformers}.
 
 \vspace{0.4cm}
 %%%%%%%%%% os %%%%%%%%%%
@@ -178,7 +175,7 @@ reminders or booking confirmations to users, enhancing the system’s real-world
 
 \noindent
 A built-in Python module for OS-level interactions, such as file path handling and environment variable lookups. 
-Used to coordinate local file structure and manage \texttt{.env} variables \cite{pythonlibrary}.
+Used to coordinate local file structure and manage \texttt{.env} variables \cite{os}.
 
 \vspace{0.4cm}
 %%%%%%%%%% logging %%%%%%%%%%
@@ -186,7 +183,7 @@ Used to coordinate local file structure and manage \texttt{.env} variables \cite
 
 \noindent
 \texttt{logging} is the standard Python library for capturing and recording logs, warnings, and error messages. 
-It helps in debugging and monitoring the application’s performance \cite{pythonlibrary}.
+It helps in debugging and monitoring the application’s performance \cite{logging}.
 
 \vspace{0.4cm}
 %%%%%%%%%% warnings %%%%%%%%%%
@@ -194,7 +191,7 @@ It helps in debugging and monitoring the application’s performance \cite{pytho
 
 \noindent
 The \texttt{warnings} module is used to handle non-critical warnings in Python. In this context, it can hide or filter 
-out messages from dependencies that are not relevant to the end-user \cite{pythonlibrary}.
+out messages from dependencies that are not relevant to the end-user \cite{warnings}.
 
 \vspace{0.4cm}
 %%%%%%%%%% asyncio %%%%%%%%%%
@@ -211,7 +208,7 @@ I/O-bound processes without blocking other functionalities. Particularly useful 
 \noindent
 Flask is a lightweight Python framework used to build web applications and RESTful APIs. 
 It manages server-side processes, routes, and user sessions, playing an important role in bridging
-the front-end user interface with back-end logic \cite{pythonlibrary}.
+the front-end user interface with back-end logic \cite{flask}.
 
 \vspace{0.4cm}
 %%%%%%%%%% database (init_db, get_user, add_user) %%%%%%%%%%
@@ -219,7 +216,7 @@ the front-end user interface with back-end logic \cite{pythonlibrary}.
 
 \noindent
 This local Python module contains functions like \texttt{init\_db}, \texttt{get\_user}, and \texttt{add\_user}, 
-supporting user registration, retrieval, and management. It leverages \texttt{sqlite3} to store and fetch user credentials \cite{pythonlibrary}.
+supporting user registration, retrieval, and management. It leverages \texttt{sqlite3} to store and fetch user credentials.
 
 \vspace{0.4cm}
 %%%%%%%%%% subprocess %%%%%%%%%%
@@ -228,7 +225,7 @@ supporting user registration, retrieval, and management. It leverages \texttt{sq
 \noindent
 The \texttt{subprocess} module lets you spawn new processes, connect to their input/output/error pipes,
 and obtain their return codes. This functionality is essential when starting or stopping auxiliary services 
-like a Chainlit server \cite{pythonlibrary}.
+like a Chainlit server \cite{subprocess}.
 
 \vspace{0.4cm}
 %%%%%%%%%% threading %%%%%%%%%%
@@ -236,7 +233,7 @@ like a Chainlit server \cite{pythonlibrary}.
 
 \noindent
 \texttt{threading} supports concurrency by running multiple threads in parallel. In this project, it helps 
-avoid blocking the main application by delegating tasks (such as server checks) to background threads \cite{pythonlibrary}.
+avoid blocking the main application by delegating tasks (such as server checks) to background threads \cite{threading}.
 
 \vspace{0.4cm}
 %%%%%%%%%% requests %%%%%%%%%%
@@ -244,7 +241,7 @@ avoid blocking the main application by delegating tasks (such as server checks) 
 
 \noindent
 \texttt{requests} simplifies making HTTP requests. It is used to communicate with external APIs (e.g., Pinecone, 
-Twilio, or third-party services) and verify that local services like Chainlit are up and running \cite{pythonlibrary}.
+Twilio, or third-party services) and verify that local services like Chainlit are up and running \cite{requests}.
 
 \vspace{0.4cm}
 %%%%%%%%%% numpy %%%%%%%%%%
@@ -252,16 +249,8 @@ Twilio, or third-party services) and verify that local services like Chainlit ar
 
 \noindent
 \texttt{numpy} provides a multi-dimensional array object and routines for fast array manipulations, 
-serving as the fundamental package for numerical computations in Python \cite{pythonlibrary}.
+serving as the fundamental package for numerical computations in Python \cite{numpy}.
 
-\vspace{0.4cm}
-%%%%%%%%%% plotly.graph_objects %%%%%%%%%%
-\noindent\textbf{plotly.graph\_objects:}
-
-\noindent
-\texttt{plotly} is a plotting library that generates interactive data visualizations. 
-The \texttt{graph\_objects} module provides granular control over chart elements, 
-suitable for in-depth analysis of chatbot performance data \cite{pythonlibrary}.
 
 \vspace{1cm}
 \noindent\textbf{HTML/CSS:}
@@ -274,7 +263,7 @@ and meets the requirements for practical deployment.
 
 \section{Code Implementation}
 
-In this chapter, we map the major steps of our **architecture** (see Figure~\ref{fig:system-architecture}) to their respective **code components**. Each section follows the flow of data and logic from user authentication all the way to generating a final answer.
+In this chapter, we map the major steps of our architecture (see Figure~\ref{fig:system-architecture}) to their respective code components. Each section follows the flow of data and logic from user authentication all the way to generating a final answer.
 
 \section{User Authentication and Role Identification}
 \label{sec:auth-role}
@@ -306,7 +295,7 @@ Each text chunk is converted into a numerical representation (an \textit{embeddi
 \section{Pinecone Vector Database}
 \label{sec:pinecone}
 
-After the system generates embeddings for each text chunk (Section~\ref{sec:embedding}), the next step is to store them in a **vector database** for fast retrieval. Here, we integrate with \emph{Pinecone} to manage and query these embeddings efficiently:
+After the system generates embeddings for each text chunk (Section~\ref{sec:embedding}), the next step is to store them in a vector database for fast retrieval. Here, we integrate with \emph{Pinecone} to manage and query these embeddings efficiently:
 
 \begin{itemize}
     \item \textbf{Index Creation}: The system checks whether an index (e.g., \texttt{"zf"}) already exists in Pinecone. If not, it creates one with a specified dimension (e.g., 768) and metric (e.g., \texttt{cosine}). This ensures compatibility with the selected embedding model (e.g., \texttt{all-mpnet-base-v2}).
@@ -315,7 +304,7 @@ After the system generates embeddings for each text chunk (Section~\ref{sec:embe
     \item \textbf{Scalability \& Flexibility}: Pinecone accommodates millions of embeddings and quickly returns nearest neighbors, allowing the system to handle ever-growing corpora of PDF documents, scraped data, or other text sources without re-processing older content.
 \end{itemize}
 
-By coupling embeddings (Section~\ref{sec:embedding}) with Pinecone’s vector database, the system can efficiently surface **contextual insights** and pass them to the Large Language Model for retrieval-augmented generation. This approach significantly boosts the accuracy and relevance of chatbot answers, particularly in a medical or academic setting where **precise factual references** are paramount.
+By coupling embeddings (Section~\ref{sec:embedding}) with Pinecone’s vector database, the system can efficiently surface contextual insights and pass them to the Large Language Model for retrieval-augmented generation. This approach significantly boosts the accuracy and relevance of chatbot answers, particularly in a medical or academic setting where precise factual references are paramount.
 
 
 \section{Retrieval-Augmented Generation Pipeline}
@@ -412,7 +401,7 @@ def start_chainlit(email):
         stderr=subprocess.DEVNULL,
         start_new_session=True,
         env={
-            **os.environ,
+            os.environ,
             "LOGGED_IN_EMAIL": email
         }
     )
@@ -542,15 +531,15 @@ if __name__ == "__main__":
 \noindent
 In short, this code section ensures:
 \begin{itemize}
-    \item Secure handling of **login** and **signup** flows.
-    \item Automatic **role assignment** and **retrieval** from the database.
-    \item Seamless bridging between the Flask web server and the **Chainlit** chatbot interface.
+    \item Secure handling of login and signup flows.
+    \item Automatic role assignment and retrieval from the database.
+    \item Seamless bridging between the Flask web server and the Chainlit chatbot interface.
 \end{itemize}
 
 \section{PDF Processing (Text Extraction and Chunking) Integration}
 \label{sec:pdf-chunking}
 
-In this part of the code, we handle the **user-uploaded PDF files**—from reading the file’s pages to splitting the text into smaller segments (chunks) that are later added to our **vector store** for retrieval. Below is a detailed snippet and explanation:
+In this part of the code, we handle the user-uploaded PDF files—from reading the file’s pages to splitting the text into smaller segments (chunks) that are later added to our vector store for retrieval. Below is a detailed snippet and explanation:
 
 \begin{lstlisting}[language=Python, caption={PDF Processing and Chunking}, basicstyle=\small\ttfamily]
 # If user uploaded a file via paperclip
@@ -587,7 +576,7 @@ if message.type == "file":
 \begin{enumerate}
     \item \textbf{Detecting a File Upload}
     \begin{itemize}
-        \item The code checks if \texttt{message.type == "file"}. If so, it logs a message indicating that a PDF file has been received from the user through the **paperclip icon** in Chainlit.
+        \item The code checks if \texttt{message.type == "file"}. If so, it logs a message indicating that a PDF file has been received from the user through the paperclip icon in Chainlit.
         \item Using an \texttt{if} condition around the file-logic ensures text messages and file uploads are handled separately in the same event function.
     \end{itemize}
 
@@ -599,7 +588,7 @@ if message.type == "file":
 
     \item \textbf{Splitting Text into Chunks}
     \begin{itemize}
-        \item **Why split?** Large text blocks can overwhelm certain embedding or retrieval systems. Breaking down pages into chunks helps keep context manageable and supports more accurate retrieval results (since each chunk remains more focused on a single topic).
+        \item Why split? Large text blocks can overwhelm certain embedding or retrieval systems. Breaking down pages into chunks helps keep context manageable and supports more accurate retrieval results (since each chunk remains more focused on a single topic).
         \item \texttt{CharacterTextSplitter}:
         \begin{itemize}
           \item \texttt{chunk\_size=4000} sets the maximum number of characters in a chunk.
@@ -738,7 +727,7 @@ docsearch = Pinecone.from_existing_index(index_name, embeddings)
 \section{RAG Pipeline Integration}
 \label{sec:rag-pipeline}
 
-A core feature of this system is its **retrieval-augmented generation (RAG)** approach, where a Large Language Model (LLM) incorporates relevant text chunks from a vector store (Pinecone) to ground its responses in factual context. Below is the relevant code snippet, followed by a detailed walkthrough:
+A core feature of this system is its retrieval-augmented generation (RAG) approach, where a Large Language Model (LLM) incorporates relevant text chunks from a vector store (Pinecone) to ground its responses in factual context. Below is the relevant code snippet, followed by a detailed walkthrough:
 
 \begin{lstlisting}[language=Python, caption={Retrieval-Augmented Generation (RAG) Pipeline}, basicstyle=\small\ttfamily]
 # 9) Long-running QA task
@@ -882,7 +871,7 @@ PROMPT = PromptTemplate(
 \end{itemize}
 
 \noindent
-Overall, **retrieval-augmented generation** fuses an \textit{external knowledge store} (Pinecone) with a powerful \textit{language model} (like Mistral). The final outcome is a **contextual, verifiable answer** that draws from user-uploaded PDFs or other indexed material, rather than relying solely on the LLM’s internal training data.
+Overall, retrieval-augmented generation fuses an \textit{external knowledge store} (Pinecone) with a powerful \textit{language model} (like Mistral). The final outcome is a contextual, verifiable answer that draws from user-uploaded PDFs or other indexed material, rather than relying solely on the LLM’s internal training data.
 
 \section{Role-Based Logic (Learning Assistant vs. Diagnostic Agent) Integration}
 \label{sec:role-logic}
@@ -1109,11 +1098,11 @@ Overall, this patient-focused portion of the system ensures that common tasks—
 \section{Front-End Integration}
 \label{sec:frontend}
 
-While much of the system’s logic operates on the back end (via Flask and LangChain/Chainlit), the **front-end layer** is critical for user interaction. This section describes how the UI for login, signup, and Chainlit chat seamlessly tie into the back-end logic.
+While much of the system’s logic operates on the back end (via Flask and LangChain/Chainlit), the front-end layer is critical for user interaction. This section describes how the UI for login, signup, and Chainlit chat seamlessly tie into the back-end logic.
 
 \subsection{Login and Signup Pages (Flask Templates)}
 
-Below is an example of how we might structure the \texttt{login.html} and \texttt{signup.html} pages. They rely on **Flask**’s \texttt{render\_template} mechanism:
+Below is an example of how we might structure the \texttt{login.html} and \texttt{signup.html} pages. They rely on Flask’s \texttt{render\_template} mechanism:
 
 \begin{lstlisting}[language=HTML, caption={login.html (Flask Template)}, basicstyle=\small\ttfamily]
 <!DOCTYPE html>
@@ -1193,15 +1182,15 @@ Below is an example of how we might structure the \texttt{login.html} and \textt
 \textbf{Chainlit} provides a sleek front-end interface out of the box. After the user logs in (and the Flask code launches or reuses a Chainlit instance), the user is redirected to the Chainlit UI, typically at \texttt{http://localhost:8001}. Some key features of the Chainlit interface:
 
 \begin{itemize}
-    \item **Interactive Chat Windows**: Users can type or upload PDFs (via the \emph{paperclip} icon) directly. 
-    \item **Session Awareness**: The environment variable \texttt{LOGGED\_IN\_EMAIL} and the role from the database guide how the chatbot greets or handles user messages.
-    \item **Chat Profiles**: As defined in \texttt{@cl.set\_chat\_profiles}, we can brand the chat or provide special instructions (e.g., “Mistral Biomedical” for medical queries).
-    \item **Real-time Updates**: The user sees status messages (like “Processing your request...”) and final LLM replies in real time.
+    \item Interactive Chat Windows: Users can type or upload PDFs (via the \emph{paperclip} icon) directly. 
+    \item Session Awareness: The environment variable \texttt{LOGGED\_IN\_EMAIL} and the role from the database guide how the chatbot greets or handles user messages.
+    \item Chat Profiles: As defined in \texttt{@cl.set\_chat\_profiles}, we can brand the chat or provide special instructions (e.g., “Mistral Biomedical” for medical queries).
+    \item Real-time Updates: The user sees status messages (like “Processing your request...”) and final LLM replies in real time.
 \end{itemize}
 
 \subsubsection{Loading Page}
 
-A simple \texttt{loading.html} can serve as a bridge page after successful login, informing the user that **Chainlit** is starting up. For instance:
+A simple \texttt{loading.html} can serve as a bridge page after successful login, informing the user that Chainlit is starting up. For instance:
 
 \begin{lstlisting}[language=HTML, caption={loading.html (Flask Template)}, basicstyle=\small\ttfamily]
 <!DOCTYPE html>
@@ -1224,7 +1213,7 @@ Flask’s login route references this by calling \texttt{render\_template("loadi
 \begin{enumerate}
     \item \textbf{User Visits Login Page (\texttt{/})}:
     \begin{itemize}
-        \item If they **POST** valid credentials, the server spawns or reuses a Chainlit process and redirects them to \texttt{loading.html}.
+        \item If they POST valid credentials, the server spawns or reuses a Chainlit process and redirects them to \texttt{loading.html}.
     \end{itemize}
     \item \textbf{Loading Screen}:
     \begin{itemize}
@@ -1239,16 +1228,16 @@ Flask’s login route references this by calling \texttt{render\_template("loadi
 \end{enumerate}
 
 \noindent
-By combining **Flask** for authentication and session management with **Chainlit** for conversational interaction, we achieve a user-friendly, cohesive experience:
+By combining Flask for authentication and session management with Chainlit for conversational interaction, we achieve a user-friendly, cohesive experience:
 \begin{itemize}
-    \item **Flask**: Manages the database (login, signup, roles) and starts the Chainlit server if needed.
-    \item **Chainlit**: Provides the interactive “chat window,” letting users upload documents, ask questions, and receive LLM-powered responses in real time.
+    \item Flask: Manages the database (login, signup, roles) and starts the Chainlit server if needed.
+    \item Chainlit: Provides the interactive “chat window,” letting users upload documents, ask questions, and receive LLM-powered responses in real time.
 \end{itemize}
 
 \section{Pinecone Vector Database Integration}
 \label{sec:pinecone-db}
 
-As part of our **retrieval architecture**, we leverage the Pinecone vector database to store, manage, and quickly
+As part of our retrieval architecture, we leverage the Pinecone vector database to store, manage, and quickly
 retrieve vector embeddings. The following code snippet illustrates how scraped text data is converted into embeddings and
 uploaded to Pinecone:
 
@@ -1366,4 +1355,6 @@ print("Data successfully uploaded to Pinecone!")
 \end{itemize}
 
 \noindent
-By uploading the scraped medical data into Pinecone, the system can handle user queries with **retrieval-augmented generation**, bridging newly ingested text (e.g., from external websites or data files) with real-time chatbot interaction.
+By uploading the scraped medical data into Pinecone, the system can handle user queries with retrieval-augmented generation, bridging newly ingested text (e.g., from external websites or data files) with real-time chatbot interaction.
+
+\clearpage

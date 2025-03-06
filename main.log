@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  6 MAR 2025 14:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  6 MAR 2025 17:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1077,12 +1077,7 @@ Overfull \hbox (1.34302pt too wide) in paragraph at lines 20--21
 
 
 
-]
-Overfull \hbox (11.30276pt too wide) in paragraph at lines 36--37
-[]\T1/ppl/b/n/12 Ethical and Reg-u-la-tory Con-sid-er-a-tions: \T1/ppl/m/n/12 Es-pe-cially with man-ag-ing per-sonal health
- []
-
-[2] [3] [4] [5] [6] [7]) (Chapters/Chapter2.tex [8] [9]
+] [2] [3] [4] [5] [6] [7]) (Chapters/Chapter2.tex [8] [9]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 State-of-the-Art
@@ -1094,21 +1089,42 @@ Underfull \hbox (badness 1189) in paragraph at lines 18--19
 []\T1/ppl/m/n/12 Processing and fil-ter-ing data lo-cally, of-ten via de-identification and edge-
  []
 
-[11] [12] [13] [14] [15]
+[11] [12] [13]
+
+Package natbib Warning: Citation `ueda2024' on page 14 undefined on input line 56.
+
+[14] [15]
 Underfull \hbox (badness 2894) in paragraph at lines 96--97
 []\T1/ppl/b/n/12 Clinician Dash-board: \T1/ppl/m/n/12 To en-able quick clin-i-cal in-ter-ven-tions, health-care
  []
 
-[16] [17]
+[16]
+
+Package natbib Warning: Citation `ullah2024' on page 17 undefined on input line 119.
+
+
+Package natbib Warning: Citation `ueda2024' on page 17 undefined on input line 122.
+
+
+Package natbib Warning: Citation `harding2023' on page 17 undefined on input line 122.
+
+[17]
 
 Package natbib Warning: Citation `singh2023' on page 18 undefined on input line 145.
 
-[18] [19] [20]) (Chapters/Chapter3.tex
+[18]
+
+Package natbib Warning: Citation `harding2023' on page 19 undefined on input line 166.
+
+
+Package natbib Warning: Citation `ueda2024' on page 19 undefined on input line 166.
+
+[19] [20]) (Chapters/Chapter3.tex
 Chapter 3.
 ------------------------------------------------------------------------------
  3 System Architecture
 ------------------------------------------------------------------------------
-<./Images/Thesis.png, id=827, 1595.9625pt x 505.13719pt>
+<./Images/Thesis.png, id=818, 1595.9625pt x 505.13719pt>
 File: ./Images/Thesis.png Graphic file (type png)
 <use ./Images/Thesis.png>
 Package pdftex.def Info: ./Images/Thesis.png  used on input line 12.
@@ -1126,253 +1142,161 @@ Chapter 4.
 ------------------------------------------------------------------------------
  4 Implementation
 ------------------------------------------------------------------------------
-
-Package natbib Warning: Citation `pythonlibrary' on page 29 undefined on input line 29.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 29 undefined on input line 38.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 29 undefined on input line 47.
-
 [29
 
-]
+] [30] [31] [32]
 
-Package natbib Warning: Citation `pythonlibrary' on page 30 undefined on input line 56.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 30 undefined on input line 64.
+Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 202.
 
 
-Package natbib Warning: Citation `pythonlibrary' on page 30 undefined on input line 73.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 30 undefined on input line 82.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 30 undefined on input line 91.
-
-[30]
-
-Package natbib Warning: Citation `pythonlibrary' on page 31 undefined on input line 100.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 31 undefined on input line 109.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 31 undefined on input line 117.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 31 undefined on input line 125.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 31 undefined on input line 133.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 31 undefined on input line 141.
-
-[31]
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 149.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 157.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 165.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 173.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 181.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 189.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 32 undefined on input line 197.
-
-[32]
-
-Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 205.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 214.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 222.
-
-
-Underfull \hbox (badness 2790) in paragraph at lines 220--223
+Underfull \hbox (badness 2790) in paragraph at lines 217--220
 \T1/ppl/m/n/12 This lo-cal Python mod-ule con-tains func-tions like \T1/pcr/m/n/12 init_db\T1/ppl/m/n/12 , \T1/pcr/m/n/12 get_user\T1/ppl/m/n/12 , and
  []
 
-
-Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 231.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 239.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 33 undefined on input line 247.
-
 [33]
 
-Package natbib Warning: Citation `pythonlibrary' on page 34 undefined on input line 255.
-
-
-Package natbib Warning: Citation `pythonlibrary' on page 34 undefined on input line 264.
-
-
-LaTeX Warning: Reference `fig:system-architecture' on page 34 undefined on input line 277.
+LaTeX Warning: Reference `fig:system-architecture' on page 34 undefined on input line 266.
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 []\T1/ppl/b/n/12 Chunking: \T1/ppl/m/n/12 Long text is split into man-age-able pieces via
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 []\T1/ppl/b/n/12 Model Setup: \T1/ppl/m/n/12 A pre-trained model (e.g., \T1/pcr/m/n/12 all-mpnet-base-v2 \T1/ppl/m/n/12 or
  []
 
 [35]
-Underfull \hbox (badness 1484) in paragraph at lines 328--329
+Underfull \hbox (badness 1484) in paragraph at lines 317--318
 []\T1/ppl/b/n/12 Response Gen-er-a-tion: \T1/ppl/m/n/12 The LLM (e.g., Mis-tral 13B) pro-duces an an-swer
  []
 
 [36] [37]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 376.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 365.
  [38] [39] [40]
-Underfull \hbox (badness 2401) in paragraph at lines 482--484
+Underfull \hbox (badness 2401) in paragraph at lines 471--473
 []\T1/ppl/b/n/12 Password Match: \T1/pcr/m/n/12 user[2] == password \T1/ppl/m/n/12 en-sures the stored pass-word
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--487
+Underfull \hbox (badness 10000) in paragraph at lines 473--476
 []\T1/ppl/b/n/12 Chainlit Pro-cess: \T1/ppl/m/n/12 Af-ter a suc-cess-ful lo-gin, the func-tion
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 504--505
+Underfull \hbox (badness 1533) in paragraph at lines 493--494
 []\T1/pcr/m/n/12 add_user \T1/ppl/m/n/12 stores the role in the database along-side the \T1/pcr/m/n/12 email \T1/ppl/m/n/12 and
  []
 
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 521--523
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--512
 []\T1/ppl/b/n/12 is_chainlit_running()\T1/ppl/m/n/12 : Sends an HTTP GET re-quest to
  []
 
 
-Underfull \hbox (badness 1895) in paragraph at lines 521--523
+Underfull \hbox (badness 1895) in paragraph at lines 510--512
 \T1/pcr/m/n/12 http://localhost:8001 \T1/ppl/m/n/12 (the con-fig-ured Chain-lit port). If the server
  []
 
-[42] [43] [44] [45]
-LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 677.
+[41] [42] [43] [44] [45]
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 666.
  (C:\Users\navi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 )
-Underfull \hbox (badness 1983) in paragraph at lines 677--680
+Underfull \hbox (badness 1983) in paragraph at lines 666--669
 []\T1/pcr/m/n/12 SentenceTransformer(\TS1/pcr/m/n/12 '\T1/pcr/m/n/12 all-mpnet-base-v2\TS1/pcr/m/n/12 '\T1/pcr/m/n/12 )\T1/ppl/m/n/12 : We in-stan-ti-ate a
  []
 
 
-Underfull \hbox (badness 4543) in paragraph at lines 684--687
+Underfull \hbox (badness 4543) in paragraph at lines 673--676
 []\T1/pcr/m/n/12 embeddings = download_hugging_face_embeddings()\T1/ppl/m/n/12 : A cus-
  []
 
 [46]
-Overfull \hbox (36.61612pt too wide) in paragraph at lines 694--696
+Overfull \hbox (36.61612pt too wide) in paragraph at lines 683--685
 []\T1/pcr/m/n/12 pinecone_instance = PineconeClient(api_key=PINECONE_API_KEY)\T1/ppl/m/n/12 :
  []
 
 
-Overfull \hbox (1.91147pt too wide) in paragraph at lines 699--701
+Overfull \hbox (1.91147pt too wide) in paragraph at lines 688--690
 []\T1/ppl/m/n/12 If \T1/pcr/m/n/12 zf \T1/ppl/m/n/12 is miss-ing, we call \T1/pcr/m/n/12 pinecone_instance.create_index(...)\T1/ppl/m/n/12 : 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 701--702
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
 []\T1/pcr/m/n/12 dimension=768 \T1/ppl/m/n/12 aligns with the out-put di-men-sion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
+Underfull \hbox (badness 10000) in paragraph at lines 692--693
 []\T1/pcr/m/n/12 ServerlessSpec \T1/ppl/m/n/12 con-fig-ures the en-vi-ron-ment (e.g.,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
+Underfull \hbox (badness 10000) in paragraph at lines 692--693
 \T1/pcr/m/n/12 cloud='aws'\T1/ppl/m/n/12 , \T1/pcr/m/n/12 region=PINECONE_API_ENV\T1/ppl/m/n/12 ), con-trol-ling
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 711--713
+Underfull \hbox (badness 10000) in paragraph at lines 700--702
 []\T1/pcr/m/n/12 docsearch = Pinecone.from_existing_index(index_name,
  []
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 713.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 702.
 [47] [48] [49] [50]
-Underfull \hbox (badness 1472) in paragraph at lines 820--821
+Underfull \hbox (badness 1472) in paragraph at lines 809--810
 []\T1/pcr/m/n/12 chain_type="stuff"\T1/ppl/m/n/12 : Tells LangChain to ^^Pstuff^^Q the re-trieved
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 824--825
+Underfull \hbox (badness 10000) in paragraph at lines 813--814
 []\T1/pcr/m/n/12 result = qa.invoke(input_data)\T1/ppl/m/n/12 : Takes the dict {\T1/pcr/m/n/12 "query"\T1/ppl/m/n/12 ,
  []
 
 
-Overfull \hbox (32.3631pt too wide) in paragraph at lines 844--845
+Overfull \hbox (32.3631pt too wide) in paragraph at lines 833--834
 []\T1/pcr/m/n/12 retriever = docsearch.as_retriever(search_kwargs={'k':
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--846
+Underfull \hbox (badness 10000) in paragraph at lines 834--835
 []\T1/pcr/m/n/12 docs = retriever.invoke(query) \T1/ppl/m/n/12 runs the sim-i-lar-ity
  []
 
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 850--851
+Underfull \hbox (badness 10000) in paragraph at lines 839--840
 []\T1/pcr/m/n/12 input_data = {"query": query, "context":
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 852--853
+Underfull \hbox (badness 10000) in paragraph at lines 841--842
 []\T1/pcr/m/n/12 result = await async_long_running_task(input_data,
  []
 
-
-Underfull \hbox (badness 6510) in paragraph at lines 884--886
-\T1/ppl/m/n/12 Overall, **retrieval-augmented gen-er-a-tion** fuses an \T1/ppl/m/it/12 ex-ter-nal knowl-edge store
- []
-
 [52] [53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 967--968
+Underfull \hbox (badness 10000) in paragraph at lines 956--957
 []\T1/ppl/m/n/12 In \T1/pcr/m/n/12 handle_message\T1/ppl/m/n/12 , we re-check the user's role from the
  []
 
 [55] [56] [57] [58]
-Underfull \hbox (badness 1881) in paragraph at lines 1077--1078
+Underfull \hbox (badness 1881) in paragraph at lines 1066--1067
 []\T1/ppl/m/n/12 Converts the city name and spe-cialty into a German-compatible
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1077--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1067
 \T1/ppl/m/n/12 for-mat via a dic-tio-nary lookup (\T1/pcr/m/n/12 city_translation_map\T1/ppl/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
+Underfull \hbox (badness 10000) in paragraph at lines 1085--1086
 []\T1/ppl/m/n/12 The spe-cial-ized dic-tio-nar-ies (\T1/pcr/m/n/12 city_translation_map\T1/ppl/m/n/12 ,
  []
 
 [59]
-Underfull \hbox (badness 2065) in paragraph at lines 1116--1117
+Underfull \hbox (badness 2065) in paragraph at lines 1105--1106
 []\T1/ppl/m/n/12 Below is an ex-am-ple of how we might struc-ture the \T1/pcr/m/n/12 login.html \T1/ppl/m/n/12 and
  []
 
@@ -1381,51 +1305,51 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (C:\Users\navi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 ) [60] [61] [62] [63] [64]
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1305
 []\T1/ppl/m/n/12 The ex-am-ple above specif-i-cally ref-er-ences
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1305
 \T1/pcr/m/n/12 scraped_data_subsections_c.json\T1/ppl/m/n/12 , which con-tains a list of
  []
 
 [65]
-Underfull \hbox (badness 2359) in paragraph at lines 1317--1318
+Underfull \hbox (badness 2359) in paragraph at lines 1306--1307
 []\T1/ppl/m/n/12 As a re-sult, each text chunk be-comes some-thing like \T1/pcr/m/n/12 "Symptoms:
  []
 
 
-Underfull \hbox (badness 2818) in paragraph at lines 1330--1331
+Underfull \hbox (badness 2818) in paragraph at lines 1319--1320
 []\T1/pcr/m/n/12 download_hugging_face_embeddings() \T1/ppl/m/n/12 is a cus-tom util-ity from
  []
 
 
-Overfull \hbox (0.98836pt too wide) in paragraph at lines 1343--1344
+Overfull \hbox (0.98836pt too wide) in paragraph at lines 1332--1333
 []\T1/pcr/m/n/12 ServerlessSpec(cloud="aws", region=PINECONE_API_ENV)\T1/ppl/m/n/12 :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1349--1351
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1340
 []\T1/pcr/m/n/12 Pinecone.from_texts(text_chunks, embeddings,
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 1351--1352
+Underfull \hbox (badness 3302) in paragraph at lines 1340--1341
 []\T1/ppl/m/n/12 For each string in \T1/pcr/m/n/12 text_chunks\T1/ppl/m/n/12 , the code uses the pro-vided
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1355
+Underfull \hbox (badness 10000) in paragraph at lines 1343--1344
 []\T1/ppl/m/n/12 The re-turned \T1/pcr/m/n/12 docsearch \T1/ppl/m/n/12 ob-ject can later be used to per-form
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1355
+Underfull \hbox (badness 10000) in paragraph at lines 1343--1344
 \T1/pcr/m/n/12 docsearch.similarity_search(query) \T1/ppl/m/n/12 or re-lated re-trieval op-
  []
 
-[66]) (Chapters/Chapter5.tex [67]
+[66] [67]) (Chapters/Chapter5.tex
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Results and Evaluation
@@ -1435,6 +1359,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 6.
 
 [68
+
 
 ] [69] [70] [71]
 Underfull \hbox (badness 10000) in paragraph at lines 201--201
@@ -1687,42 +1612,43 @@ Underfull \hbox (badness 7326) in paragraph at lines 248--249
  []
 
 [72] [73] [74] [75] [76] [77] [78]
-<Images/doclink1.png, id=1711, 466.74374pt x 595.62524pt>
+<Images/doclink1.png, id=1747, 466.74374pt x 595.62524pt>
 File: Images/doclink1.png Graphic file (type png)
 <use Images/doclink1.png>
 Package pdftex.def Info: Images/doclink1.png  used on input line 317.
 (pdftex.def)             Requested size: 385.56963pt x 492.06035pt.
-<Images/pdfquestion.png, id=1713, 369.7815pt x 569.12625pt>
+<Images/pdfquestion.png, id=1749, 369.7815pt x 569.12625pt>
 File: Images/pdfquestion.png Graphic file (type png)
 <use Images/pdfquestion.png>
 Package pdftex.def Info: Images/pdfquestion.png  used on input line 330.
 (pdftex.def)             Requested size: 385.56963pt x 593.46654pt.
-<Images/stuentquestion.png, id=1715, 369.17924pt x 572.73975pt>
+<Images/stuentquestion.png, id=1751, 369.17924pt x 572.73975pt>
 File: Images/stuentquestion.png Graphic file (type png)
 <use Images/stuentquestion.png>
 Package pdftex.def Info: Images/stuentquestion.png  used on input line 342.
 (pdftex.def)             Requested size: 385.56963pt x 598.19589pt.
-<Images/patientsymptoms.png, id=1717, 454.69875pt x 584.1825pt>
+<Images/patientsymptoms.png, id=1753, 454.69875pt x 584.1825pt>
 File: Images/patientsymptoms.png Graphic file (type png)
 <use Images/patientsymptoms.png>
 Package pdftex.def Info: Images/patientsymptoms.png  used on input line 354.
 (pdftex.def)             Requested size: 385.56963pt x 495.37192pt.
-<Images/doctorrecom.png, id=1719, 473.97075pt x 591.4095pt>
+<Images/doctorrecom.png, id=1755, 473.97075pt x 591.4095pt>
 File: Images/doctorrecom.png Graphic file (type png)
 <use Images/doctorrecom.png>
 Package pdftex.def Info: Images/doctorrecom.png  used on input line 366.
 (pdftex.def)             Requested size: 385.56963pt x 481.09657pt.
-<Images/appointmentlink.png, id=1721, 1129.21875pt x 2445.135pt>
+<Images/appointmentlink.png, id=1757, 1129.21875pt x 2445.135pt>
 File: Images/appointmentlink.png Graphic file (type png)
 <use Images/appointmentlink.png>
 Package pdftex.def Info: Images/appointmentlink.png  used on input line 377.
 (pdftex.def)             Requested size: 136.0838pt x 294.63477pt.
- [79] [80 <./Images/doclink1.png>] [81 <./Images/pdfquestion.png>] [82 <./Images/stuentquestion.png>] [83 <./Images/patientsymptoms.png>] [84 <./Images/doctorrecom.png>]) (Chapters/Chapter6.tex [85 <./Images/appointmentlink.png>]
+ [79] [80 <./Images/doclink1.png>] [81 <./Images/pdfquestion.png>] [82 <./Images/stuentquestion.png>] [83 <./Images/patientsymptoms.png>] [84 <./Images/doctorrecom.png>] [85 <./Images/appointmentlink.png>]) (Chapters/Chapter6.tex
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Conclusion and Future Work
 ------------------------------------------------------------------------------
 [86
+
 
 ]
 Underfull \hbox (badness 1448) in paragraph at lines 22--23
@@ -1738,28 +1664,43 @@ Underfull \hbox (badness 3601) in paragraph at lines 22--23
 
 
 ]
-Underfull \hbox (badness 1205) in paragraph at lines 50--51
+Underfull \hbox (badness 1205) in paragraph at lines 38--39
 []\T1/ppl/m/n/12 N. Her-nan-dez, L. Cas-tro, J. Medina-Quero, J. Favela, L. Michan, and W.
  []
 
 [90] [91]
-Underfull \hbox (badness 1152) in paragraph at lines 101--102
-\T1/ppl/m/n/12 Con-fer-ence on In-for-ma-tion Tech-nol-ogy for So-cial Good (GoodIT '23), 1--8.
+Underfull \hbox (badness 3815) in paragraph at lines 96--97
+[]\T1/ppl/m/n/12 Selenium. (2024). \T1/ppl/m/it/12 Se-le-nium Doc-u-men-ta-tion\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / www . selenium . dev /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+[]\T1/ppl/m/n/12 Chainlit Doc-u-men-ta-tion. (2024). \T1/ppl/m/it/12 Chain-lit - Overview\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / docs .
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 117--118
+[]\T1/ppl/m/n/12 Python Dotenv. (2024). \T1/ppl/m/it/12 python-dotenv Doc-u-men-ta-tion\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / pypi . org /
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 123--124
+[]\T1/ppl/m/n/12 Twilio. (2024). \T1/ppl/m/it/12 Twilio SMS Python Quick-start\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / www . twilio . com /
  []
 
 [92]
-Underfull \hbox (badness 2050) in paragraph at lines 116--117
-[]\T1/ppl/m/n/12 T. Hard-ing, E. Cun-ning-ham, and A. Je-bran. 2023. \T1/ppl/m/it/12 Nav-i-gat-ing the Reg-u-la-
+Underfull \hbox (badness 3209) in paragraph at lines 138--139
+[]\T1/ppl/m/n/12 Pallets. (2024). \T1/ppl/m/it/12 Flask Doc-u-men-ta-tion\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / flask . palletsprojects .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
-\T1/ppl/m/it/12 Mod-els (LLMs)\T1/ppl/m/n/12 . Re-trieved from [][]$\T1/pcr/m/n/12 https : / / www . himss . org / resources /
+Underfull \hbox (badness 3078) in paragraph at lines 141--142
+[]\T1/ppl/m/n/12 Python Soft-ware Foun-da-tion. (2024). \T1/ppl/m/it/12 sub-pro-cess ^^V Sub-pro-cess man-age-ment\T1/ppl/m/n/12 .
  []
 
 
-Overfull \hbox (185.05852pt too wide) in paragraph at lines 116--117
-\T1/pcr/m/n/12 section-[]5-[]navigating-[]regulatory-[]landscape-[]analysis-[]legal-[]and-[]ethical-[]oversight-[]large$[][]\T1/ppl/m/n/12 . 
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+[]\T1/ppl/m/n/12 Reitz, K. (2024). \T1/ppl/m/it/12 Re-quests: HTTP for Hu-mans\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / docs .
  []
 
 
@@ -1781,17 +1722,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7D258CEBFFB3BAA617A226933705BDB1;21296.
  ) ) 
 Here is how much of TeX's memory you used:
- 34052 strings out of 474486
- 657451 string characters out of 5744227
- 2329542 words of memory out of 5000000
- 54820 multiletter control sequences out of 15000+600000
+ 34084 strings out of 474486
+ 657815 string characters out of 5744227
+ 2339542 words of memory out of 5000000
+ 54844 multiletter control sequences out of 15000+600000
  605453 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,87p,1105b,2874s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (104 pages, 1334055 bytes).
+Output written on main.pdf (104 pages, 1341857 bytes).
 PDF statistics:
- 2072 PDF objects out of 2073 (max. 8388607)
- 915 named destinations out of 1000 (max. 500000)
+ 2130 PDF objects out of 2487 (max. 8388607)
+ 923 named destinations out of 1000 (max. 500000)
  813 words of extra memory for PDF output out of 10000 (max. 10000000)
 
