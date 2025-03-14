@@ -593,6 +593,11 @@ INPUT .\Chapters\Chapter7.tex
 INPUT .\Chapters\Chapter7.tex
 INPUT .\Chapters\Chapter7.tex
 INPUT Chapters\Chapter7.tex
+INPUT .\Chapters\Chapter8.tex
+INPUT .\Chapters\Chapter8.tex
+INPUT .\Chapters\Chapter8.tex
+INPUT .\Chapters\Chapter8.tex
+INPUT Chapters\Chapter8.tex
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  13 MAR 2025 23:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.2.17)  14 MAR 2025 11:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -949,7 +949,7 @@ File: fc-english.def 2016/01/12
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 96.
-<./Images/SRHLogo.png, id=386, 363.3575pt x 121.45375pt>
+<./Images/SRHLogo.png, id=390, 363.3575pt x 121.45375pt>
 File: ./Images/SRHLogo.png Graphic file (type png)
 <use ./Images/SRHLogo.png>
 Package pdftex.def Info: ./Images/SRHLogo.png  used on input line 123.
@@ -1124,7 +1124,7 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 System Architecture
 ------------------------------------------------------------------------------
-<./Images/Thesis.png, id=818, 1595.9625pt x 505.13719pt>
+<./Images/Thesis.png, id=823, 1595.9625pt x 505.13719pt>
 File: ./Images/Thesis.png Graphic file (type png)
 <use ./Images/Thesis.png>
 Package pdftex.def Info: ./Images/Thesis.png  used on input line 12.
@@ -1612,32 +1612,32 @@ Underfull \hbox (badness 7326) in paragraph at lines 248--249
  []
 
 [72] [73] [74] [75] [76] [77] [78]
-<Images/doclink1.png, id=1747, 466.74374pt x 595.62524pt>
+<Images/doclink1.png, id=1752, 466.74374pt x 595.62524pt>
 File: Images/doclink1.png Graphic file (type png)
 <use Images/doclink1.png>
 Package pdftex.def Info: Images/doclink1.png  used on input line 317.
 (pdftex.def)             Requested size: 385.56963pt x 492.06035pt.
-<Images/pdfquestion.png, id=1749, 369.7815pt x 569.12625pt>
+<Images/pdfquestion.png, id=1754, 369.7815pt x 569.12625pt>
 File: Images/pdfquestion.png Graphic file (type png)
 <use Images/pdfquestion.png>
 Package pdftex.def Info: Images/pdfquestion.png  used on input line 330.
 (pdftex.def)             Requested size: 385.56963pt x 593.46654pt.
-<Images/stuentquestion.png, id=1751, 369.17924pt x 572.73975pt>
+<Images/stuentquestion.png, id=1756, 369.17924pt x 572.73975pt>
 File: Images/stuentquestion.png Graphic file (type png)
 <use Images/stuentquestion.png>
 Package pdftex.def Info: Images/stuentquestion.png  used on input line 342.
 (pdftex.def)             Requested size: 385.56963pt x 598.19589pt.
-<Images/patientsymptoms.png, id=1753, 454.69875pt x 584.1825pt>
+<Images/patientsymptoms.png, id=1758, 454.69875pt x 584.1825pt>
 File: Images/patientsymptoms.png Graphic file (type png)
 <use Images/patientsymptoms.png>
 Package pdftex.def Info: Images/patientsymptoms.png  used on input line 354.
 (pdftex.def)             Requested size: 385.56963pt x 495.37192pt.
-<Images/doctorrecom.png, id=1755, 473.97075pt x 591.4095pt>
+<Images/doctorrecom.png, id=1760, 473.97075pt x 591.4095pt>
 File: Images/doctorrecom.png Graphic file (type png)
 <use Images/doctorrecom.png>
 Package pdftex.def Info: Images/doctorrecom.png  used on input line 366.
 (pdftex.def)             Requested size: 385.56963pt x 481.09657pt.
-<Images/appointmentlink.png, id=1757, 1129.21875pt x 2445.135pt>
+<Images/appointmentlink.png, id=1762, 1129.21875pt x 2445.135pt>
 File: Images/appointmentlink.png Graphic file (type png)
 <use Images/appointmentlink.png>
 Package pdftex.def Info: Images/appointmentlink.png  used on input line 377.
@@ -1660,15 +1660,17 @@ Underfull \hbox (badness 3601) in paragraph at lines 22--23
 \T1/ppl/m/n/12 specialty-based fil-ters en-ables the sys-tem to sug-gest suit-able health-care
  []
 
-[87] [88]) (Chapters/Chapter7.tex [89
+[87] [88]) (Chapters/Chapter7.tex) (Chapters/Chapter8.tex [89
 
+
+] [90
 
 ]
 Underfull \hbox (badness 1205) in paragraph at lines 38--39
 []\T1/ppl/m/n/12 N. Her-nan-dez, L. Cas-tro, J. Medina-Quero, J. Favela, L. Michan, and W.
  []
 
-[90] [91]
+[91] [92]
 Underfull \hbox (badness 3815) in paragraph at lines 96--97
 []\T1/ppl/m/n/12 Selenium. (2024). \T1/ppl/m/it/12 Se-le-nium Doc-u-men-ta-tion\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / www . selenium . dev /
  []
@@ -1688,7 +1690,7 @@ Underfull \hbox (badness 1629) in paragraph at lines 123--124
 []\T1/ppl/m/n/12 Twilio. (2024). \T1/ppl/m/it/12 Twilio SMS Python Quick-start\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / www . twilio . com /
  []
 
-[92]
+[93]
 Underfull \hbox (badness 3209) in paragraph at lines 138--139
 []\T1/ppl/m/n/12 Pallets. (2024). \T1/ppl/m/it/12 Flask Doc-u-men-ta-tion\T1/ppl/m/n/12 . [][]$\T1/pcr/m/n/12 https : / / flask . palletsprojects .
  []
@@ -1706,7 +1708,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
 Package natbib Warning: There were undefined citations.
 
-[93] (main.aux)
+[94] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1719,20 +1721,20 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7D258CEBFFB3BAA617A226933705BDB1;21296.
+(rerunfilecheck)             Checksum: B7567D77B026AC42D77DF46E5ADDEF4A;21468.
  ) ) 
 Here is how much of TeX's memory you used:
- 34084 strings out of 474486
- 657815 string characters out of 5744227
+ 34096 strings out of 474486
+ 658096 string characters out of 5744227
  2339542 words of memory out of 5000000
- 54844 multiletter control sequences out of 15000+600000
+ 54851 multiletter control sequences out of 15000+600000
  605453 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,87p,1105b,2874s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam7.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/navi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (104 pages, 1341873 bytes).
+Output written on main.pdf (105 pages, 1343726 bytes).
 PDF statistics:
- 2130 PDF objects out of 2487 (max. 8388607)
- 923 named destinations out of 1000 (max. 500000)
- 813 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2141 PDF objects out of 2487 (max. 8388607)
+ 925 named destinations out of 1000 (max. 500000)
+ 821 words of extra memory for PDF output out of 10000 (max. 10000000)
 
